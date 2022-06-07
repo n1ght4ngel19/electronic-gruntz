@@ -1,33 +1,28 @@
-import Phaser from 'phaser';
-import { PreloadScene } from './scenes/preloadScene';
+import { GridEngine } from 'grid-engine';
+import Phaser, { Display } from 'phaser';
+import { Stage } from './scenes/Stage';
 
-const preloadScene = new PreloadScene();
+const stage = new Stage();
 
 const gameConfig = {
-  type: Phaser.AUTO
+  type: Phaser.AUTO,
+  width: 1920,
+  height: 1080,
+  plugins: {
+    scene: [
+      {
+        key: 'gridEngine',
+        plugin: GridEngine,
+        mapping: 'gridEngine',
+      },
+    ],
+  },
 };
 
-const game = new Phaser.Game(gameConfig);
+const main = new Phaser.Game(gameConfig);
 
-game.scene.add('preloadScene', preloadScene);
+main.scene.add('stage', stage);
+// main.scene.add('updateScene', updateScene);
 
-game.scene.start('preloadScene');
-
-
-
-(document.getElementById('counter') as HTMLParagraphElement).innerHTML =
-  'Edit the files and save to reload.';
-
-let count: number = 0;
-
-const render = (): void => {
-  (document.getElementById('counter') as HTMLParagraphElement)
-  .innerHTML = `Page has been open for <code>${count}</code> seconds.`;
-};
-
-render();
-
-setInterval((): void => {
-  count += 1;
-  render();
-}, 1000);
+main.scene.start('stage');
+// main.scene.start('updateScene');
