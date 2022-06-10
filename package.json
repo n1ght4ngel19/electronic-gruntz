@@ -33,6 +33,7 @@
     "typescript": "^4.1.3"
   },
   "build": {
-    "extends": "electron-snowpack/config/electron-builder.js"
+    "extends": "electron-snowpack/config/electron-builder.js",
+    "asar": false
   }
 }

@@ -5,9 +5,10 @@ let mainWindow: BrowserWindow | null | undefined;
 
 function createMainWindow(): BrowserWindow {
   const window = new BrowserWindow({
-    width: 1920,
-    height: 1080,
+    // width: 1920,
+    // height: 1080,
     fullscreen: true,
+    autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false

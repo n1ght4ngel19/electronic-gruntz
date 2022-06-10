@@ -1,13 +1,21 @@
 import { GridEngine } from 'grid-engine';
-import Phaser, { Display } from 'phaser';
+import Phaser from 'phaser';
 import { Stage } from './scenes/Stage';
 
 const stage = new Stage();
 
 const gameConfig = {
   type: Phaser.AUTO,
-  width: 1920,
-  height: 1080,
+  autoCenter: true,
+  width: window.innerWidth * window.devicePixelRatio,
+  height: window.innerHeight * window.devicePixelRatio,
+  // BUG: Framerate is too fast, thus most commands get executed multiple times when called, instead of once.
+  // Temporary fix: limited framerate to 10fps, so commands can be tested
+  // Possible fix: disassociate clicks/commands from framerate altogether
+  fps: {
+    target: 10,
+    forceSetTimeOut: true,
+  },
   plugins: {
     scene: [
       {
@@ -22,7 +30,4 @@ const gameConfig = {
 const main = new Phaser.Game(gameConfig);
 
 main.scene.add('stage', stage);
-// main.scene.add('updateScene', updateScene);
-
 main.scene.start('stage');
-// main.scene.start('updateScene');
