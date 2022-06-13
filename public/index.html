@@ -8,12 +8,17 @@
   <body>
     <div id="title">MAIN MENU</div>
     <section>
-      <div class="menu-option"><a href="single-player.html">SINGLE PLAYER</a></div>
+      <div class="menu-option"><a href="./single-player.html">SINGLE PLAYER</a></div>
       <div class="menu-option">MULTIPLAYER</div>
       <div class="menu-option">OPTIONZ</div>
       <div class="menu-option">MOVIEZ</div>
       <div class="menu-option">HELP</div>
-      <div class="menu-option quit-option">QUIT</div>
+      <div class="menu-option quit-option"><a href="">QUIT</a></div>
     </section>
+    <script>
+      document.getElementsByClassName("quit-option")[0].addEventListener("click", function() {
+        window.close();
+      });
+    </script>
   </body>
 </html>
