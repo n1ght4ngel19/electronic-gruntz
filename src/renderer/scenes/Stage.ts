@@ -19,7 +19,6 @@ export class Stage extends Phaser.Scene {
   // ? Layer data
 
 
-
   preload(): void {
 
     this.loadMapParts();
@@ -40,73 +39,22 @@ export class Stage extends Phaser.Scene {
 
 
   create(): void {
-    const mainCam = this.cameras.main;
-    const cursors = this.input.keyboard;
-
-    cursors.createCursorKeys();
-
-    // TODO: Set zoom automatically to uniform zoom (e.g. 10 tiles wide)
-    mainCam.zoom = 1.75;
-
-    this.input.keyboard.on('keydown-ESC', () => {
-      window.location.href = 'questz.html';
-
-      // if (!this.scene.isPaused()) {
-      //   this.scene.pause();
-      //   console.log(this.scene)
-      //   // @ts-ignore
-      //   document.getElementById('menu').style.display = 'none';
-      // }
-    });
-
-
-    // TODO: Make zoom smooth
-    // TODO: Add ability to drag/scroll the map
-    this.input.on('wheel', (pointer: any, GameObjects: any, deltaX: number, deltaY: number, deltaZ: number) => {
-      if(mainCam.displayWidth < this.map.widthInPixels) {
-        // Zoom out when scrolling up
-        if(deltaY > 0) { mainCam.zoom -= 1/32; }
-        // Zoom in when scrolling down
-        if(deltaY < 0) { mainCam.zoom += 1/32; }
-      }
-    });
-
     this.map = this.makeMapWithLayers();
 
-    // Create player sprite
+    const cursors = this.input.keyboard;
+    cursors.createCursorKeys();
+
+    this.createAnimations();
+
+    // TODO: Add characters dynamically to GridEngine config
     let playerSprite = this.add.sprite(0, 0, 'gruntIdle');
-
-    // TODO: createAnimations();
-    this.createAnimation('gruntMovement', 'up', 0, 7);
-    this.createAnimation('gruntMovement', 'up-right', 8, 15);
-    this.createAnimation('gruntMovement', 'right', 16, 23);
-    this.createAnimation('gruntMovement', 'down-right', 24, 31);
-    this.createAnimation('gruntMovement', 'down', 32, 39);
-    this.createAnimation('gruntMovement', 'down-left', 40, 47);
-    this.createAnimation('gruntMovement', 'left', 48, 55);
-    this.createAnimation('gruntMovement', 'up-left', 56, 63);
-
-    this.createAnimation('gruntIdle', 'up-idle', 0, 15);
-    this.createAnimation('gruntIdle', 'up-right-idle', 16, 18);
-    this.createAnimation('gruntIdle', 'right-idle', 32, 47);
-    this.createAnimation('gruntIdle', 'down-right-idle', 48, 50);
-    this.createAnimation('gruntIdle', 'down-idle', 64, 79);
-    this.createAnimation('gruntIdle', 'down-left-idle', 80, 82);
-    this.createAnimation('gruntIdle', 'left-idle', 96, 111);
-    this.createAnimation('gruntIdle', 'up-left-idle', 112, 114);
-
     playerSprite.anims.play('down-idle');
 
-
-
-
-
-
-
-
-
-
-
+    // TODO: Replace with pause menu functionality
+    // this.handlePause();
+    this.input.keyboard.on('keydown-ESC', () => {
+      window.location.href = './questz.html'
+    });
 
     const gridEngineConfig = {
       // TODO: Add characters dynamically, based on special tiles (SpawnTile, EnemyTile, etc.)
@@ -123,11 +71,9 @@ export class Stage extends Phaser.Scene {
     };
 
     this.gridEngine.create(this.map, gridEngineConfig);
-
     this.gridEngine.movementStarted().subscribe(({ charId, direction }) => {
       this.gridEngine.getSprite(charId).anims.play(direction);
     });
-
     this.gridEngine.movementStopped().subscribe(({ charId, direction }) => {
       switch(direction) {
         case 'up': playerSprite.anims.play('up-idle');
@@ -150,19 +96,17 @@ export class Stage extends Phaser.Scene {
       }
     });
 
-
-
-
-
-
-
-
-
-    // Look into this, maybe not working
-    // Possibly together with zoom function?
+    const mainCam = this.cameras.main;
     mainCam.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
-    // mainCam.setSize(this.game.canvas.width, this.game.canvas.height);
     mainCam.startFollow(this.gridEngine.getSprite('player'));
+    mainCam.zoom = 1.75;
+
+    this.handleZoom(mainCam);
+    // TODO: Add ability to drag the map
+    // this.handleDrag(mainCam);
+    // TODO: Add ability to scroll the map
+    // this.handleScroll(mainCam);
+
   }
 
 
@@ -229,7 +173,7 @@ update(): void {
 
 
 
-  // TODO: Empty function
+  // TODO: Implement
   /**
    * Handles commands given by the player to their active Grunt/Gruntz.
    */
@@ -239,7 +183,7 @@ update(): void {
   }
 
 
-  // TODO: Empty function
+  // TODO: Implement
   /**
    * Handles the logic involving the arrows that force Gruntz to move
    * in a specific direction.
@@ -249,7 +193,7 @@ update(): void {
   }
 
 
-  // TODO: Empty function
+  // TODO: Implement
   /**
    * Handles the logic involving the rocks Gruntz may encounter.
    * Visually these can be diverse, like rocks, cakes, dice, etc.
@@ -259,7 +203,7 @@ update(): void {
   }
 
 
-  // TODO: Empty function
+  // TODO: Implement
   /**
    * Handles the logic involving the buildable and also breakable
    * bricks the player may encounter.
@@ -282,7 +226,7 @@ update(): void {
     }
   }
 
-  // TODO: Empty function
+  // TODO: Implement
   /**
    * Populates the GridEngine config with the characters specified
    * on the current Tilemap. Characters are then given a Position,
@@ -384,5 +328,50 @@ update(): void {
   }
 
 
+  createAnimations(): void {
+    this.createAnimation('gruntMovement', 'up', 0, 7);
+    this.createAnimation('gruntMovement', 'up-right', 8, 15);
+    this.createAnimation('gruntMovement', 'right', 16, 23);
+    this.createAnimation('gruntMovement', 'down-right', 24, 31);
+    this.createAnimation('gruntMovement', 'down', 32, 39);
+    this.createAnimation('gruntMovement', 'down-left', 40, 47);
+    this.createAnimation('gruntMovement', 'left', 48, 55);
+    this.createAnimation('gruntMovement', 'up-left', 56, 63);
 
+    this.createAnimation('gruntIdle', 'up-idle', 0, 15);
+    this.createAnimation('gruntIdle', 'up-right-idle', 16, 18);
+    this.createAnimation('gruntIdle', 'right-idle', 32, 47);
+    this.createAnimation('gruntIdle', 'down-right-idle', 48, 50);
+    this.createAnimation('gruntIdle', 'down-idle', 64, 79);
+    this.createAnimation('gruntIdle', 'down-left-idle', 80, 82);
+    this.createAnimation('gruntIdle', 'left-idle', 96, 111);
+    this.createAnimation('gruntIdle', 'up-left-idle', 112, 114);
+  }
+
+  /**
+   * Handles the zooming capabilities.
+   *
+   * @param mainCam the main camera of the scene
+   */
+  handleZoom(mainCam: Phaser.Cameras.Scene2D.Camera) {
+    let maxZoom = 2.5;
+    let zoomIncrement = 1/8;
+
+    this.input.on('wheel', (pointer: any, GameObjects: any, deltaX: number, deltaY: number, deltaZ: number) => {
+      if((mainCam.zoom < maxZoom) && (mainCam.displayWidth < this.map.widthInPixels)) {
+        this.handleZoomOut(mainCam, deltaY, zoomIncrement);
+        this.handleZoomIn(mainCam, deltaY, zoomIncrement);
+      } else if(mainCam.zoom === maxZoom) {
+        this.handleZoomOut(mainCam, deltaY, zoomIncrement);
+      } else if(mainCam.displayWidth === this.map.widthInPixels) {
+        this.handleZoomIn(mainCam, deltaY, zoomIncrement);
+      }
+    });
+  }
+  handleZoomIn(mainCam: Phaser.Cameras.Scene2D.Camera, deltaY: number, zoomIncrement: number): void {
+    if(deltaY < 0) { mainCam.zoom += zoomIncrement; }
+  }
+  handleZoomOut(mainCam: Phaser.Cameras.Scene2D.Camera, deltaY: number, zoomIncrement: number): void {
+    if(deltaY > 0) { mainCam.zoom -= zoomIncrement; }
+  }
 }
