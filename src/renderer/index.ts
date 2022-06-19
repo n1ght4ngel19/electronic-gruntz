@@ -1,6 +1,6 @@
-import { GridEngine } from 'grid-engine';
+import {GridEngine} from 'grid-engine';
 import Phaser from 'phaser';
-import { Stage } from './scenes/stage';
+import {Stage} from './scenes/stage';
 
 const stage = new Stage();
 

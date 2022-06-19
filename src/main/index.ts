@@ -1,5 +1,5 @@
-import { app, BrowserWindow } from 'electron';
-import { getAssetURL } from 'electron-snowpack';
+import {app, BrowserWindow} from 'electron';
+import {getAssetURL} from 'electron-snowpack';
 
 let mainWindow: BrowserWindow | null | undefined;
 
@@ -11,8 +11,8 @@ function createMainWindow(): BrowserWindow {
     autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: true,
-      contextIsolation: false
-    }
+      contextIsolation: false,
+    },
   });
 
   if (process.env.MODE !== 'production') {
@@ -35,22 +35,22 @@ function createMainWindow(): BrowserWindow {
   return window;
 }
 
-// quit application when all windows are closed
+// Quit application when all windows are closed
 app.on('window-all-closed', (): void => {
-  // on macOS it is common for applications to stay open until the user explicitly quits
+  // On macOS it is common for applications to stay open until the user explicitly quits
   if (process.platform !== 'darwin') {
     app.quit();
   }
 });
 
 app.on('activate', (): void => {
-  // on macOS it is common to re-create a window even after all windows have been closed
+  // On  macOS it is common to re-create a window even after all windows have been closed
   if (mainWindow === null) {
     mainWindow = createMainWindow();
   }
 });
 
-// create main BrowserWindow when electron is ready
+// Create main BrowserWindow when Electron is ready
 app.on('ready', (): void => {
   mainWindow = createMainWindow();
 });

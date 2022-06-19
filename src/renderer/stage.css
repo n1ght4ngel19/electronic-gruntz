@@ -21,12 +21,19 @@ canvas {
   display: block;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 #menu {
   display: none;
   background-color: transparent;
+  padding: 0 35%;
   position: absolute;
-  top: 25%;
-  left: 25%;
+    top: 25%;
+    left: 0;
+    right: 0;
+
 }
 
 .menu-option {
@@ -35,6 +42,12 @@ canvas {
   text-align: center;
 }
 
-#resume {
+.menu-option:hover {
+  color: white;
+  text-shadow: 6px 6px red;
+}
 
+.active {
+  color: white;
+  text-shadow: 6px 6px red;
 }

@@ -1,3 +1,5 @@
+docs
+
 # Files from Tiled that are not needed for the game, just for editing
 *.tsx
 *.tmx
