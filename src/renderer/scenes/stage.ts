@@ -4,6 +4,7 @@ import Camera = Phaser.Cameras.Scene2D.Camera;
 import Tilemap = Phaser.Tilemaps.Tilemap;
 import Tile = Phaser.Tilemaps.Tile;
 import Pointer = Phaser.Input.Pointer;
+import Texture = Phaser.Textures.Texture;
 
 const searchParams = new URLSearchParams(window.location.search);
 const mapName = String(searchParams.get('stage'));
@@ -32,35 +33,28 @@ export class Stage extends Phaser.Scene {
   // Will become obsolete after multiple characters
   // ? Layer data
 
+
   preload(): void {
     this.loadMapParts();
-    // TODO: loadSpritesheets();
 
-    this.load.spritesheet('gruntMovement', 'animations/GruntNormalWalk.png', {
-      frameWidth: 48,
-      frameHeight: 48,
-    });
-    this.load.spritesheet('gruntIdle', 'animations/GruntNormalIdle.png', {
-      frameWidth: 48,
-      frameHeight: 48,
-    });
+    this.load.atlasXML('NORMALGRUNT', 'animations/ANIMS/NORMALGRUNT.png', 'animations/ANIMS/NORMALGRUNT.xml');
   }
 
 
   create(): void {
-    this.map = this.makeMapWithLayers();
+    const normalGruntAtlas = this.textures.get('NORMALGRUNT');
+    this.createAtlasAnimations('NORMALGRUNT');
 
+    this.map = this.makeMapWithLayers();
     const cursors = this.input.keyboard;
     cursors.createCursorKeys();
     cursors.addKeys('UP, DOWN, LEFT, RIGHT');
 
-    this.createAnimations();
-
     // TODO: Add characters dynamically to GridEngine config
-    const playerSprite = this.add.sprite(0, 0, 'gruntIdle');
-    playerSprite.anims.play('down-idle');
+    const playerSprite = this.add.sprite(0, 0, normalGruntAtlas);
+    // playerSprite.scale = 1.5;
+    playerSprite.anims.play('normalGruntSouthIdle');
 
-    // TODO: Replace with pause menu functionality
     this.handlePause();
 
     const gridEngineConfig = {
@@ -71,41 +65,70 @@ export class Stage extends Phaser.Scene {
           sprite: playerSprite,
           startPosition: {x: 2, y: 18},
           speed: 4,
-          // speed: Math.floor(10/6)
+          // speed: Math.floor(10/6),
         },
       ],
       numberOfDirections: 8,
     };
 
     this.gridEngine.create(this.map, gridEngineConfig);
+
     this.gridEngine.movementStarted().subscribe(({charId, direction}) => {
-      this.gridEngine.getSprite(charId).anims.play(direction);
+      switch (direction) {
+        case 'up':
+          playerSprite.anims.play('normalGruntNorthWalk');
+          break;
+        case 'up-right':
+          playerSprite.anims.play('normalGruntNorthEastWalk');
+          break;
+        case 'right':
+          playerSprite.anims.play('normalGruntEastWalk');
+          break;
+        case 'down-right':
+          playerSprite.anims.play('normalGruntSouthEastWalk');
+          break;
+        case 'down':
+          playerSprite.anims.play('normalGruntSouthWalk');
+          break;
+        case 'down-left':
+          playerSprite.anims.play('normalGruntSouthWestWalk');
+          break;
+        case 'left':
+          playerSprite.anims.play('normalGruntWestWalk');
+          break;
+        case 'up-left':
+          playerSprite.anims.play('normalGruntNorthWestWalk');
+          break;
+        default:
+          throw new Error('Invalid animation.');
+      }
     });
+
     this.gridEngine.movementStopped().subscribe(({charId, direction}) => {
       switch (direction) {
         case 'up':
-          playerSprite.anims.play('up-idle');
+          playerSprite.anims.play('normalGruntNorthIdle');
           break;
         case 'up-right':
-          playerSprite.anims.play('up-right-idle');
+          playerSprite.anims.play('normalGruntNorthEastIdle');
           break;
         case 'right':
-          playerSprite.anims.play('right-idle');
+          playerSprite.anims.play('normalGruntEastIdle');
           break;
         case 'down-right':
-          playerSprite.anims.play('down-right-idle');
+          playerSprite.anims.play('normalGruntSouthEastIdle');
           break;
         case 'down':
-          playerSprite.anims.play('down-idle');
+          playerSprite.anims.play('normalGruntSouthIdle');
           break;
         case 'down-left':
-          playerSprite.anims.play('down-left-idle');
+          playerSprite.anims.play('normalGruntSouthWestIdle');
           break;
         case 'left':
-          playerSprite.anims.play('left-idle');
+          playerSprite.anims.play('normalGruntWestIdle');
           break;
         case 'up-left':
-          playerSprite.anims.play('up-left-idle');
+          playerSprite.anims.play('normalGruntNorthWestIdle');
           break;
         default:
           throw new Error('Invalid animation.');
@@ -125,6 +148,7 @@ export class Stage extends Phaser.Scene {
   }
 
 
+  // eslint-disable-next-line require-jsdoc
   update(): void {
     // Using worldX and worldY because this way we get
     // the correct pointer positions even when zoomed in/out
@@ -148,33 +172,6 @@ export class Stage extends Phaser.Scene {
         this.gridEngine.moveTo('player', {x: targetTile.x, y: targetTile.y});
       }
     }
-
-
-    // TODO: Replace with on.('pointerdown')?
-    // Check if user clicked
-
-    // if(this.pointer.isDown) {
-    // if(this.pointer.isDown) {
-    //   let targetTile = manipulablesLayerData[pointerY][pointerX];
-
-      // BUG: Character automatically moves onto the rock's position, if the user clicked onto that rock before
-      // TODO: handleRocks();
-      // Check if the player has clicked on a rock
-
-      // if((targetTile !== null) && targetTile.properties.rock){
-
-        // If character is already adjacent to the rock, don't move, just remove the rock
-    //     if( this.isAdjacentToTarget('player', pointerPosition) ) {
-    //       this.map.removeTile(manipulablesLayerData[pointerY][pointerX]);
-    //     }
-    //     else {
-    //       // TODO: Remove the rock after the player has stopped moving towards it
-    //       this.gridEngine.moveTo('player', { x: pointerX, y: pointerY })
-    //     }
-    //   } else {
-    //     this.gridEngine.moveTo ('player', { x: pointerX, y: pointerY });
-    //   }
-    // }
   }
 
 
@@ -187,6 +184,7 @@ export class Stage extends Phaser.Scene {
   }
 
   // TODO: Implement
+
   /**
    * Handles the logic involving the arrows that force Gruntz to move
    * in a specific direction.
@@ -196,6 +194,7 @@ export class Stage extends Phaser.Scene {
   handleMoveArrows(data: Tile[][]): void {
 
   }
+
   // TODO: Implement
   /**
    * Handles the logic involving the rocks the player may encounter.
@@ -208,6 +207,7 @@ export class Stage extends Phaser.Scene {
   }
 
   // TODO: Implement
+
   /**
    * Handles the logic involving the buildable/breakable
    * bricks the player may encounter.
@@ -215,20 +215,7 @@ export class Stage extends Phaser.Scene {
    * @param {Tile[][]} data - The data of the layer containing the bricks
    */
   handleBricks(data: Tile[][]): void {
-
-  }
-
-  // TODO: Is this necessary/plausible?
-  iterateOverMap(functionToExecute: Function): void {
-    // let switchMarkersData = this.map.getLayer('Switch Markers').data;
-    // let baseData = this.map.getLayer('Base').data;
-    // let manipulablesData = this.map.getLayer('Manipulables').data;
-
-    for (let i = 0; i < this.map.width; ++i) {
-      for (let j = 0; j < this.map.height; ++j) {
-        functionToExecute();
-      }
-    }
+    console.log(data);
   }
 
   // TODO: Implement
@@ -300,24 +287,26 @@ export class Stage extends Phaser.Scene {
   }
 
   /**
-   * Creates a character animation from the given spritesheet. The name
-   * parameter should be prefixed by one of the 8 main directions, e.g.
-   * 'left', 'right', 'up-left', 'down-right', etc.
+   * Creates an animation from the texture atlas identified by the atlasKey parameter.
    *
-   * @param {string} spritesheet - The spritesheet to create the animation from
-   * @param {string} name - The name of the animation
-   * @param {number} startFrame - The starting frame of the animation
-   * @param {number} endFrame - The ending frame of the animation
+   * @param {string} atlasKey - The key of the texture atlas as specified when loaded
+   * inside the preload method
+   * @param {string} animKey - The key by which the animation should be referred
+   * to hereafter
+   * @param {string} animPrefix - The prefix of the animation as found inside the
+   * descriptor file of the texture atlas
    */
-  createAnimation(spritesheet: string, name: string, startFrame: number, endFrame: number) {
+  createAtlasAnimation(atlasKey: string, animKey: string, animPrefix: string) {
     this.anims.create({
-      key: name,
-      frames: this.anims.generateFrameNumbers(spritesheet, {
-        start: startFrame,
-        end: endFrame,
-      }),
-      frameRate: 10,
+      key: animKey,
       repeat: -1,
+      frameRate: 10,
+      frames: this.anims.generateFrameNames(atlasKey, {
+        prefix: animPrefix,
+        start: 1,
+        end: this.findFrameCount(this.textures.get(atlasKey), animPrefix),
+        zeroPad: 2,
+      }),
     });
   }
 
@@ -333,28 +322,65 @@ export class Stage extends Phaser.Scene {
     // this.gridEngine.moveTo(charId, {x: target.x, y: target.y});
   }
 
-  /**
-   * Creates the animations for all characters in the game.
-   */
-  createAnimations(): void {
-    this.createAnimation('gruntMovement', 'up', 0, 7);
-    this.createAnimation('gruntMovement', 'up-right', 8, 15);
-    this.createAnimation('gruntMovement', 'right', 16, 23);
-    this.createAnimation('gruntMovement', 'down-right', 24, 31);
-    this.createAnimation('gruntMovement', 'down', 32, 39);
-    this.createAnimation('gruntMovement', 'down-left', 40, 47);
-    this.createAnimation('gruntMovement', 'left', 48, 55);
-    this.createAnimation('gruntMovement', 'up-left', 56, 63);
+  createAtlasAnimations(atlasKey: string): void {
+    this.createAtlasAnimation(atlasKey, 'normalGruntNorthAttack', 'NORTH_ATTACK_');
+    this.createAtlasAnimation(atlasKey, 'normalGruntNorthEastAttack', 'NORTHEAST_ATTACK_');
+    this.createAtlasAnimation(atlasKey, 'normalGruntEastAttack', 'EAST_ATTACK_');
+    this.createAtlasAnimation(atlasKey, 'normalGruntSouthEastAttack', 'SOUTHEAST_ATTACK_');
+    this.createAtlasAnimation(atlasKey, 'normalGruntSouthAttack', 'SOUTH_ATTACK_');
+    this.createAtlasAnimation(atlasKey, 'normalGruntSouthWestAttack', 'SOUTHWEST_ATTACK_');
+    this.createAtlasAnimation(atlasKey, 'normalGruntWestAttack', 'WEST_ATTACK_');
+    this.createAtlasAnimation(atlasKey, 'normalGruntNorthWestAttack', 'NORTHWEST_ATTACK_');
 
-    this.createAnimation('gruntIdle', 'up-idle', 0, 15);
-    this.createAnimation('gruntIdle', 'up-right-idle', 16, 18);
-    this.createAnimation('gruntIdle', 'right-idle', 32, 47);
-    this.createAnimation('gruntIdle', 'down-right-idle', 48, 50);
-    this.createAnimation('gruntIdle', 'down-idle', 64, 79);
-    this.createAnimation('gruntIdle', 'down-left-idle', 80, 82);
-    this.createAnimation('gruntIdle', 'left-idle', 96, 111);
-    this.createAnimation('gruntIdle', 'up-left-idle', 112, 114);
+    this.createAtlasAnimation(atlasKey, 'normalGruntNorthIdle', 'NORTH_IDLE_');
+    this.createAtlasAnimation(atlasKey, 'normalGruntNorthEastIdle', 'NORTHEAST_IDLE_');
+    this.createAtlasAnimation(atlasKey, 'normalGruntEastIdle', 'EAST_IDLE_');
+    this.createAtlasAnimation(atlasKey, 'normalGruntSouthEastIdle', 'SOUTHEAST_IDLE_');
+    this.createAtlasAnimation(atlasKey, 'normalGruntSouthIdle', 'SOUTH_IDLE_');
+    this.createAtlasAnimation(atlasKey, 'normalGruntSouthWestIdle', 'SOUTHWEST_IDLE_');
+    this.createAtlasAnimation(atlasKey, 'normalGruntWestIdle', 'WEST_IDLE_');
+    this.createAtlasAnimation(atlasKey, 'normalGruntNorthWestIdle', 'NORTHWEST_IDLE_');
+
+    // this.createAtlasAnimation(atlasKey, 'normalGruntNorthItem', 'NORMALGRUNT_NORTH_ITEM_');
+    // this.createAtlasAnimation(atlasKey, 'normalGruntNorthEastItem', 'NORMALGRUNT_NORTHEAST_ITEM_');
+    // this.createAtlasAnimation(atlasKey, 'normalGruntEastItem', 'NORMALGRUNT_EAST_ITEM_');
+    // this.createAtlasAnimation(atlasKey, 'normalGruntSouthEastItem', 'NORMALGRUNT_SOUTHEAST_ITEM_');
+    // this.createAtlasAnimation(atlasKey, 'normalGruntSouthItem', 'NORMALGRUNT_SOUTH_ITEM_');
+    // this.createAtlasAnimation(atlasKey, 'normalGruntSouthWestItem', 'NORMALGRUNT_SOUTHWEST_ITEM_');
+    // this.createAtlasAnimation(atlasKey, 'normalGruntWestItem', 'NORMALGRUNT_WEST_ITEM_');
+    // this.createAtlasAnimation(atlasKey, 'normalGruntNorthWestItem', 'NORMALGRUNT_NORTHWEST_ITEM_');
+
+    this.createAtlasAnimation(atlasKey, 'normalGruntNorthStruck', 'NORTH_STRUCK_');
+    this.createAtlasAnimation(atlasKey, 'normalGruntNorthEastStruck', 'NORTHEAST_STRUCK_');
+    this.createAtlasAnimation(atlasKey, 'normalGruntEastStruck', 'EAST_STRUCK_');
+    this.createAtlasAnimation(atlasKey, 'normalGruntSouthEastStruck', 'SOUTHEAST_STRUCK_');
+    this.createAtlasAnimation(atlasKey, 'normalGruntSouthStruck', 'SOUTH_STRUCK_');
+    this.createAtlasAnimation(atlasKey, 'normalGruntSouthWestStruck', 'SOUTHWEST_STRUCK_');
+    this.createAtlasAnimation(atlasKey, 'normalGruntWestStruck', 'WEST_STRUCK_');
+    this.createAtlasAnimation(atlasKey, 'normalGruntNorthWestStruck', 'NORTHWEST_STRUCK_');
+
+    this.createAtlasAnimation(atlasKey, 'normalGruntNorthWalk', 'NORTH_WALK_');
+    this.createAtlasAnimation(atlasKey, 'normalGruntNorthEastWalk', 'NORTHEAST_WALK_');
+    this.createAtlasAnimation(atlasKey, 'normalGruntEastWalk', 'EAST_WALK_');
+    this.createAtlasAnimation(atlasKey, 'normalGruntSouthEastWalk', 'SOUTHEAST_WALK_');
+    this.createAtlasAnimation(atlasKey, 'normalGruntSouthWalk', 'SOUTH_WALK_');
+    this.createAtlasAnimation(atlasKey, 'normalGruntSouthWestWalk', 'SOUTHWEST_WALK_');
+    this.createAtlasAnimation(atlasKey, 'normalGruntWestWalk', 'WEST_WALK_');
+    this.createAtlasAnimation(atlasKey, 'normalGruntNorthWestWalk', 'NORTHWEST_WALK_');
   }
+
+  findFrameCount(atlas: Texture, animPrefix: string): number {
+    let count = 0;
+
+    atlas.getFrameNames().forEach((frameName) => {
+      if (frameName.startsWith(animPrefix)) {
+        count++;
+      }
+    });
+
+    return count;
+  }
+
 
   /**
    * Handles zooming capabilities.
@@ -428,31 +454,35 @@ export class Stage extends Phaser.Scene {
       document.getElementById('menu').style.display = 'block';
       this.scene.pause('stage');
     });
-    // @ts-ignore
-    document.getElementById('resume').addEventListener('click', () => {
+    document.addEventListener('click', (event) => {
       // @ts-ignore
-      document.getElementById('menu').style.display = 'none';
-      this.scene.resume('stage');
-    });
-    // @ts-ignore
-    document.getElementById('save').addEventListener('click', () => {
-      console.log('Saving...');
-    });
-    // @ts-ignore
-    document.getElementById('load').addEventListener('click', () => {
-      console.log('Loading...');
-    });
-    // @ts-ignore
-    document.getElementById('optionz').addEventListener('click', () => {
-      console.log('Optionz...');
-    });
-    // @ts-ignore
-    document.getElementById('help').addEventListener('click', () => {
-      console.log('Help...');
-    });
-    // @ts-ignore
-    document.getElementById('quit').addEventListener('click', () => {
-      window.location.href = './questz.html';
+      switch (event.target.id) {
+        case 'resume': {
+          // @ts-ignore
+          document.getElementById('menu').style.display = 'none';
+          this.scene.resume('stage');
+          break;
+        }
+        case 'save': {
+          console.log('Saving...');
+          break;
+        }
+        case 'load': {
+          console.log('Loading...');
+          break;
+        }
+        case 'help': {
+          console.log('Help...');
+          break;
+        }
+        case 'quit': {
+          window.location.href = './questz.html';
+          break;
+        }
+        default: {
+          break;
+        }
+      }
     });
 
     document.onkeydown = (event) => {

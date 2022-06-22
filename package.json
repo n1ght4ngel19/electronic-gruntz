@@ -2,6 +2,7 @@
   "name": "electronic-gruntz",
   "description": "An Electron-based remake of the puzzle game Gruntz developed and released in 1999 by Monolith Productions.",
   "author": "n1ght4ngel19",
+  "version": "0.0.1",
   "license": "MIT",
   "keywords": [
     "gruntz",

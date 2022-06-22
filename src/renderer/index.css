@@ -17,6 +17,7 @@
 }
 
 body {
+  user-select: none;
   align-items: center;
   background-color: black;
   background-image: url('backgrounds/title-01.webp');
