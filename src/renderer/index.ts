@@ -22,11 +22,8 @@ const gameConfig = {
     ],
   },
   autoCenter: true,
-  // BUG: Framerate is too fast, thus most commands get executed multiple times when called, instead of once.
-  // Temporary fix: limited framerate to 10fps, so commands can be tested
-  // Possible fix: disassociate clicks/commands from framerate altogether
   fps: {
-    target: 30,
+    target: 60,
     forceSetTimeOut: true,
   },
 };

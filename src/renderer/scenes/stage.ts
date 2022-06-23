@@ -3,8 +3,8 @@ import {GridEngine, Position} from 'grid-engine';
 import Camera = Phaser.Cameras.Scene2D.Camera;
 import Tilemap = Phaser.Tilemaps.Tilemap;
 import Tile = Phaser.Tilemaps.Tile;
-import Pointer = Phaser.Input.Pointer;
 import Texture = Phaser.Textures.Texture;
+import Key = Phaser.Input.Keyboard.Key;
 
 const searchParams = new URLSearchParams(window.location.search);
 const mapName = String(searchParams.get('stage'));
@@ -22,16 +22,10 @@ export class Stage extends Phaser.Scene {
 
   gridEngine!: GridEngine;
 
-  map!: Tilemap;
-
-  pointer!: Pointer;
-
-  tileSize!: number;
-
-  // TODO: Populate this dynamically
-  characterPositions!: Position[];
-  // Will become obsolete after multiple characters
-  // ? Layer data
+  upKey!: Key;
+  downKey!: Key;
+  leftKey!: Key;
+  rightKey!: Key;
 
 
   preload(): void {
@@ -42,23 +36,30 @@ export class Stage extends Phaser.Scene {
 
 
   create(): void {
-    const normalGruntAtlas = this.textures.get('NORMALGRUNT');
-    this.createAtlasAnimations('NORMALGRUNT');
+    const mainCam = this.cameras.main;
+    const pointer = this.input.activePointer;
 
-    this.map = this.makeMapWithLayers();
     const cursors = this.input.keyboard;
     cursors.createCursorKeys();
     cursors.addKeys('UP, DOWN, LEFT, RIGHT');
 
-    // TODO: Add characters dynamically to GridEngine config
+    this.upKey = this.input.keyboard.addKey('UP');
+    this.downKey = this.input.keyboard.addKey('DOWN');
+    this.leftKey = this.input.keyboard.addKey('LEFT');
+    this.rightKey = this.input.keyboard.addKey('RIGHT');
+
+    const normalGruntAtlas = this.textures.get('NORMALGRUNT');
+    this.createAtlasAnimations('NORMALGRUNT');
+
+    const map = this.makeMapWithLayers();
+    const mapWidth = map.widthInPixels;
+    const mapHeight = map.heightInPixels;
+
     const playerSprite = this.add.sprite(0, 0, normalGruntAtlas);
     // playerSprite.scale = 1.5;
     playerSprite.anims.play('normalGruntSouthIdle');
 
-    this.handlePause();
-
     const gridEngineConfig = {
-      // TODO: Add characters dynamically, based on special tiles (SpawnTile, EnemyTile, etc.)
       characters: [
         {
           id: 'player',
@@ -71,7 +72,7 @@ export class Stage extends Phaser.Scene {
       numberOfDirections: 8,
     };
 
-    this.gridEngine.create(this.map, gridEngineConfig);
+    this.gridEngine.create(map, gridEngineConfig);
 
     this.gridEngine.movementStarted().subscribe(({charId, direction}) => {
       switch (direction) {
@@ -135,42 +136,26 @@ export class Stage extends Phaser.Scene {
       }
     });
 
-    const mainCam = this.cameras.main;
-    mainCam.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
-    mainCam.startFollow(this.gridEngine.getSprite('player'));
+    mainCam.setBounds(0, 0, mapWidth, mapHeight);
     mainCam.zoom = 1.75;
 
-    this.handleZoom(mainCam);
-    // TODO: Add ability to drag the map
-    // this.handleDrag(mainCam);
-    // TODO: Add ability to scroll the map
-    // this.handleScroll(mainCam);
+    this.handleZoom(mainCam, mapWidth);
+    this.handlePause();
   }
 
 
-  // eslint-disable-next-line require-jsdoc
   update(): void {
+    this.handleCameraEdgeScroll(this.cameras.main, 15);
+    this.handleCameraKeysScroll(this.cameras.main, 15);
+
     // Using worldX and worldY because this way we get
     // the correct pointer positions even when zoomed in/out
     const pointerX = Math.floor(this.input.activePointer.worldX/32);
     const pointerY = Math.floor(this.input.activePointer.worldY/32);
     const pointerPosition = {x: pointerX, y: pointerY};
-    const playerPosition = this.gridEngine.getPosition('player');
-    const manipulablesLayerData = this.map.getLayer('Manipulables').data;
 
     if (this.input.activePointer.isDown) {
-      const targetTile = manipulablesLayerData[pointerY][pointerX];
-
-      if (targetTile === undefined) {
-        console.log('Cannot move outside the map.');
-      } else if (targetTile.properties.interactive) {
-        this.gridEngine.moveTo('player', {x: targetTile.x, y: targetTile.y});
-      //   if(targetTile.properties.interactive) {
-      //     this.interact('player', targetTile);
-      //   }
-      } else {
-        this.gridEngine.moveTo('player', {x: targetTile.x, y: targetTile.y});
-      }
+      this.gridEngine.moveTo('player', pointerPosition);
     }
   }
 
@@ -207,7 +192,6 @@ export class Stage extends Phaser.Scene {
   }
 
   // TODO: Implement
-
   /**
    * Handles the logic involving the buildable/breakable
    * bricks the player may encounter.
@@ -228,7 +212,7 @@ export class Stage extends Phaser.Scene {
   setCharacterPositions(): void {
     // Clear positions so that updated positions
     // don't get appended to, but replace the obsolete ones
-    this.characterPositions.length = 0;
+    // characterPositions.length = 0;
   }
 
   /**
@@ -237,6 +221,7 @@ export class Stage extends Phaser.Scene {
    *
    * @param {string} charId - The id of the checked character in GridEngine
    * @param {Position} target - The target position
+   *
    * @return {boolean} - True if the target is adjacent to the character,
    * false otherwise
    */
@@ -256,11 +241,10 @@ export class Stage extends Phaser.Scene {
    * Creates the map and populates it with the different layers
    * used for the game logic.
    *
-   * @return {Tilemap} - The created map
+   * @return {Tilemap} - The map that is to be used in the game
    */
   makeMapWithLayers(): Tilemap {
     const newMap = this.make.tilemap({key: mapName});
-    this.tileSize = newMap.tileWidth;
 
     // Add tileset images
     const tilesetSwitchMarkers = newMap.addTilesetImage('TilesetSwitchMarkers', 'tilesetSwitchMarkers');
@@ -276,7 +260,7 @@ export class Stage extends Phaser.Scene {
   }
 
   /**
-   * Preloads the JSON file the map is based on, and also the tileset images
+   * Loads the JSON file the map is based on, and also the tileset images
    * used by the map.
    */
   loadMapParts(): void {
@@ -310,6 +294,7 @@ export class Stage extends Phaser.Scene {
     });
   }
 
+  // TODO: Implement
   /**
    * Handles the logic of an interaction between a character and an
    * interactive object, such as a rock, brick, hole, etc.
@@ -318,10 +303,13 @@ export class Stage extends Phaser.Scene {
    * @param {Tile} target the targeted interactive object
    */
   interact(charId: string, target: Tile): void {
-    // TODO: Implement
-    // this.gridEngine.moveTo(charId, {x: target.x, y: target.y});
   }
 
+  /**
+   * Creates all the animations from the texture atlas identified by the atlasKey parameter.
+   *
+   * @param {string} atlasKey - The key of the texture atlas we are creating the animations from
+   */
   createAtlasAnimations(atlasKey: string): void {
     this.createAtlasAnimation(atlasKey, 'normalGruntNorthAttack', 'NORTH_ATTACK_');
     this.createAtlasAnimation(atlasKey, 'normalGruntNorthEastAttack', 'NORTHEAST_ATTACK_');
@@ -369,6 +357,16 @@ export class Stage extends Phaser.Scene {
     this.createAtlasAnimation(atlasKey, 'normalGruntNorthWestWalk', 'NORTHWEST_WALK_');
   }
 
+  /**
+   * Counts the number of animations inside the texture atlas
+   * specified by the atlas parameter, later to be used for
+   * determining how many frames an animation has.
+   *
+   * @param {Texture} atlas - The texture atlas we are searching in
+   * @param {string} animPrefix - The prefix of the animation we are interested in counting
+   *
+   * @return {number} - The number of animations found
+   */
   findFrameCount(atlas: Texture, animPrefix: string): number {
     let count = 0;
 
@@ -381,23 +379,23 @@ export class Stage extends Phaser.Scene {
     return count;
   }
 
-
   /**
    * Handles zooming capabilities.
    *
    * @param {Camera} mainCam - The main camera of the scene
+   * @param {number} mapWidth - The width of the tilemap in pixels
    */
-  handleZoom(mainCam: Camera) {
+  handleZoom(mainCam: Camera, mapWidth: number): void {
     const maxZoom = 2.5;
-    const zoomIncrement = 1/8;
+    const zoomIncrement = 0.125;
 
     this.input.on('wheel', (pointer: any, GameObjects: any, deltaX: number, deltaY: number, deltaZ: number) => {
-      if ((mainCam.zoom < maxZoom) && (mainCam.displayWidth < this.map.widthInPixels)) {
+      if ((mainCam.zoom < maxZoom) && (mainCam.displayWidth < mapWidth)) {
         this.handleZoomOut(mainCam, deltaY, zoomIncrement);
         this.handleZoomIn(mainCam, deltaY, zoomIncrement);
       } else if (mainCam.zoom === maxZoom) {
         this.handleZoomOut(mainCam, deltaY, zoomIncrement);
-      } else if (mainCam.displayWidth === this.map.widthInPixels) {
+      } else if (mainCam.displayWidth === mapWidth) {
         this.handleZoomIn(mainCam, deltaY, zoomIncrement);
       }
     });
@@ -430,30 +428,62 @@ export class Stage extends Phaser.Scene {
   }
 
   /**
-   * TODO
+   * Handles the camera scrolling when the pointer reaches
+   * one of the edges of the screen.
    *
    * @param {Camera} mainCam - The main camera of the scene
+   * @param {number} scrollSpeed - The speed at which the camera should move when scrolling
    */
-  handleCameraScroll(mainCam: Camera) {
-    this.input.keyboard.createCursorKeys();
-    this.input.keyboard.on('keydown', (event: KeyboardEvent) => {
-      if (event.key === 'UP') {
-        mainCam.scrollY -= this.tileSize;
-      } else if (event.key === 'DOWN') {
-        mainCam.scrollY += this.tileSize;
-      }
-    });
+  handleCameraEdgeScroll(mainCam: Camera, scrollSpeed: number): void {
+    if (this.input.activePointer.x >= this.game.canvas.width - 50) {
+      mainCam.scrollX += scrollSpeed;
+    }
+    if (this.input.activePointer.x <= 50) {
+      mainCam.scrollX -= scrollSpeed;
+    }
+    if (this.input.activePointer.y >= this.game.canvas.height - 50) {
+      mainCam.scrollY += scrollSpeed;
+    }
+    if (this.input.activePointer.y <= 50) {
+      mainCam.scrollY -= scrollSpeed;
+    }
   }
 
   /**
-   * TODO
+   * Handles the camera scrolling when the pointer reaches
+   * one of the edges of the screen.
+   *
+   * @param {Camera} mainCam - The main camera of the scene
+   * @param {number} scrollSpeed - The speed at which the camera should move when scrolling
    */
-  handlePause() {
+  handleCameraKeysScroll(mainCam: Camera, scrollSpeed: number): void {
+    if (this.upKey.isDown) {
+      this.cameras.main.scrollY -= 15;
+    }
+    if (this.downKey.isDown) {
+      this.cameras.main.scrollY += 15;
+    }
+    if (this.leftKey.isDown) {
+      this.cameras.main.scrollX -= 15;
+    }
+    if (this.rightKey.isDown) {
+      this.cameras.main.scrollX += 15;
+    }
+  }
+
+  /**
+   * Handles the presentation of the in-game pause menu
+   * and the actions associated with it, e.g. resuming,
+   * saving, or quitting the game.
+   */
+  handlePause(): void {
     this.input.keyboard.on('keydown-ESC', () => {
       // @ts-ignore
       document.getElementById('menu').style.display = 'block';
       this.scene.pause('stage');
     });
+
+    // Navigation with the pointer
     document.addEventListener('click', (event) => {
       // @ts-ignore
       switch (event.target.id) {
@@ -485,6 +515,7 @@ export class Stage extends Phaser.Scene {
       }
     });
 
+    // Navigation with the arrow keys
     document.onkeydown = (event) => {
       if (event.code === 'ArrowDown') {
         // @ts-ignore
