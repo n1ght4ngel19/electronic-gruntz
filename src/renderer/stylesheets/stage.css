@@ -1,12 +1,12 @@
 @font-face {
   font-family: 'Turkey Sandwich';
-  src: url('fonts/TurkeySandwich.eot');
+  src: url('../assets/fonts/TurkeySandwich.eot');
   src: local('Turkey Sandwich'), local('TurkeySandwich'),
-  url('fonts/TurkeySandwich.eot?#iefix') format('embedded-opentype'),
-  url('fonts/TurkeySandwich.woff2') format('woff2'),
-  url('fonts/TurkeySandwich.woff') format('woff'),
-  url('fonts/TurkeySandwich.ttf') format('truetype'),
-  url('fonts/TurkeySandwich.svg#TurkeySandwich') format('svg');
+  url('../assets/fonts/TurkeySandwich.eot?#iefix') format('embedded-opentype'),
+  url('../assets/fonts/TurkeySandwich.woff2') format('woff2'),
+  url('../assets/fonts/TurkeySandwich.woff') format('woff'),
+  url('../assets/fonts/TurkeySandwich.ttf') format('truetype'),
+  url('../assets/fonts/TurkeySandwich.svg#TurkeySandwich') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -50,4 +50,5 @@ canvas {
 .active {
   color: white;
   text-shadow: 6px 6px red;
+  cursor: pointer;
 }
