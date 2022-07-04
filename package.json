@@ -27,7 +27,8 @@
     "electron-snowpack": "^0.13.0",
     "grid-engine": "^2.16.0",
     "phaser": "^3.55.2",
-    "phaser-animated-tiles": "^2.0.2"
+    "phaser-animated-tiles": "^2.0.2",
+    "tile-extruder": "^2.1.0"
   },
   "devDependencies": {
     "@types/snowpack-env": "^2.3.4",

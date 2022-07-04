@@ -6,7 +6,7 @@ export class AnimationHandler {
   /**
    * Constructor
    *
-   * @param {Stage} stage - The stage on which the class will work
+   * @param {Stage} stage - The stage the class will work on
    */
   constructor(stage: Stage) {
     this.stage = stage;
@@ -59,7 +59,7 @@ export class AnimationHandler {
    * @param {Sprite} sprite - The sprite that plays the animation
    * @param {string} gruntType - Defines which type of animation should be played
    */
-  handleIdlingAnimations(sprite: Sprite, gruntType: string): void {
+  handleIdleAnimations(sprite: Sprite, gruntType: GruntType): void {
     this.stage.gridEngine.movementStopped().subscribe(({charId, direction}) => {
       switch (direction) {
         case 'up':

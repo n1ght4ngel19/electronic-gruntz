@@ -5,7 +5,7 @@ export class CameraHandler {
   /**
    * Constructor
    *
-   * @param {Stage} stage - The stage on which the class will work
+   * @param {Stage} stage - The stage the class will work on
    */
   constructor(stage: Stage) {
     this.stage = stage;
