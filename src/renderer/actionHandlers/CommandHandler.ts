@@ -15,17 +15,19 @@ export class CommandHandler {
 
   stage: Stage;
 
-  handleMovement(grunt: Grunt): void {
-    if (this.stage.input.activePointer.rightButtonDown()) {
-      const targetPosition = new Vector2(
-          Math.floor(this.stage.input.activePointer.worldX / 32),
-          Math.floor(this.stage.input.activePointer.worldY / 32),
-      );
+  handleMoveCommand(gruntz: Grunt[]): void {
+    for (let i = 0; i < gruntz.length; i++) {
+      if (this.stage.input.activePointer.rightButtonDown() && gruntz[i].isSelected) {
+        const targetPosition = new Vector2(
+            Math.floor(this.stage.input.activePointer.worldX / 32),
+            Math.floor(this.stage.input.activePointer.worldY / 32),
+        );
 
-      if (this.isAdjacentToTarget(grunt, targetPosition) && this.isCollideTile(targetPosition)) {
-        console.log(`Can't get there.`);
-      } else {
-        this.stage.gridEngine.moveTo('player', targetPosition);
+        if (this.isAdjacentToTarget(gruntz[i], targetPosition) && this.isCollideTile(targetPosition)) {
+          console.log(`Can't get there.`);
+        } else {
+          this.stage.gridEngine.moveTo(gruntz[i].id, targetPosition);
+        }
       }
     }
   }
@@ -37,105 +39,103 @@ export class CommandHandler {
    *
    * @param {Grunt} grunt - The grunt that is walking on the arrows
    */
-  handleMoveArrows(grunt: Grunt): void {
-    const currentX = Math.round(grunt.x / 32);
-    const currentY = Math.round(grunt.y / 32);
-    const currentTile = this.stage.map.getTileAt(currentX, currentY, true, 'generalLayer');
+  handleMoveArrows(gruntz: Grunt[]): void {
+    for (let i = 0; i < gruntz.length; i++) {
+      const currentX = Math.round(gruntz[i].x / 32);
+      const currentY = Math.round(gruntz[i].y / 32);
+      const currentTile = this.stage.map.getTileAt(currentX, currentY, true, 'generalLayer');
 
-    if (currentTile.properties.move) {
-      this.stage.gridEngine.stopMovement('player');
+      if (currentTile.properties.move) {
+        this.stage.gridEngine.stopMovement(gruntz[i].id);
 
-      switch (currentTile.properties.move) {
-        case 'up': {
-          this.stage.gridEngine.move('player', Direction.UP);
-          break;
-        }
-        case 'up_right': {
-          this.stage.gridEngine.move('player', Direction.UP_RIGHT);
-          break;
-        }
-        case 'right': {
-          this.stage.gridEngine.move('player', Direction.RIGHT);
-          break;
-        }
-        case 'down_right': {
-          this.stage.gridEngine.move('player', Direction.DOWN_RIGHT);
-          break;
-        }
-        case 'down': {
-          this.stage.gridEngine.move('player', Direction.DOWN);
-          break;
-        }
-        case 'down_left': {
-          this.stage.gridEngine.move('player', Direction.DOWN_LEFT);
-          break;
-        }
-        case 'left': {
-          this.stage.gridEngine.move('player', Direction.LEFT);
-          break;
-        }
-        case 'up_left': {
-          this.stage.gridEngine.move('player', Direction.UP_LEFT);
-          break;
-        }
-        case 'fourway': {
-          switch (this.stage.gridEngine.getFacingDirection('player')) {
-            case Direction.DOWN: {
-              this.stage.gridEngine.move('player', Direction.DOWN);
-              break;
-            }
-            case Direction.UP: {
-              this.stage.gridEngine.move('player', Direction.UP);
-              break;
-            }
-            case Direction.LEFT: {
-              this.stage.gridEngine.move('player', Direction.LEFT);
-              break;
-            }
-            case Direction.RIGHT: {
-              this.stage.gridEngine.move('player', Direction.RIGHT);
-              break;
-            }
-            default: {
-              console.error('Invalid direction!');
-            }
+        switch (currentTile.properties.move) {
+          case 'up': {
+            this.stage.gridEngine.move(gruntz[i].id, Direction.UP);
+            break;
           }
-          break;
-        }
-        case 'fourway_cross': {
-          switch (this.stage.gridEngine.getFacingDirection('player')) {
-            case Direction.UP_LEFT: {
-              this.stage.gridEngine.move('player', Direction.UP_LEFT);
-              break;
-            }
-            case Direction.UP_RIGHT: {
-              this.stage.gridEngine.move('player', Direction.UP_RIGHT);
-              break;
-            }
-            case Direction.DOWN_RIGHT: {
-              this.stage.gridEngine.move('player', Direction.DOWN_RIGHT);
-              break;
-            }
-            case Direction.DOWN_LEFT: {
-              this.stage.gridEngine.move('player', Direction.DOWN_LEFT);
-              break;
-            }
-            default: {
-              console.error('Invalid direction!');
-              break;
-            }
+          case 'up_right': {
+            this.stage.gridEngine.move(gruntz[i].id, Direction.UP_RIGHT);
+            break;
           }
-          break;
-        }
-        default: {
-          console.error('Invalid direction!');
+          case 'right': {
+            this.stage.gridEngine.move(gruntz[i].id, Direction.RIGHT);
+            break;
+          }
+          case 'down_right': {
+            this.stage.gridEngine.move(gruntz[i].id, Direction.DOWN_RIGHT);
+            break;
+          }
+          case 'down': {
+            this.stage.gridEngine.move(gruntz[i].id, Direction.DOWN);
+            break;
+          }
+          case 'down_left': {
+            this.stage.gridEngine.move(gruntz[i].id, Direction.DOWN_LEFT);
+            break;
+          }
+          case 'left': {
+            this.stage.gridEngine.move(gruntz[i].id, Direction.LEFT);
+            break;
+          }
+          case 'up_left': {
+            this.stage.gridEngine.move(gruntz[i].id, Direction.UP_LEFT);
+            break;
+          }
+          case 'fourway': {
+            switch (this.stage.gridEngine.getFacingDirection(gruntz[i].id)) {
+              case Direction.DOWN: {
+                this.stage.gridEngine.move(gruntz[i].id, Direction.DOWN);
+                break;
+              }
+              case Direction.UP: {
+                this.stage.gridEngine.move(gruntz[i].id, Direction.UP);
+                break;
+              }
+              case Direction.LEFT: {
+                this.stage.gridEngine.move(gruntz[i].id, Direction.LEFT);
+                break;
+              }
+              case Direction.RIGHT: {
+                this.stage.gridEngine.move(gruntz[i].id, Direction.RIGHT);
+                break;
+              }
+              default: {
+                console.error('Invalid direction!');
+              }
+            }
+            break;
+          }
+          case 'fourway_cross': {
+            switch (this.stage.gridEngine.getFacingDirection(gruntz[i].id)) {
+              case Direction.UP_LEFT: {
+                this.stage.gridEngine.move(gruntz[i].id, Direction.UP_LEFT);
+                break;
+              }
+              case Direction.UP_RIGHT: {
+                this.stage.gridEngine.move(gruntz[i].id, Direction.UP_RIGHT);
+                break;
+              }
+              case Direction.DOWN_RIGHT: {
+                this.stage.gridEngine.move(gruntz[i].id, Direction.DOWN_RIGHT);
+                break;
+              }
+              case Direction.DOWN_LEFT: {
+                this.stage.gridEngine.move(gruntz[i].id, Direction.DOWN_LEFT);
+                break;
+              }
+              default: {
+                console.error('Invalid direction!');
+                break;
+              }
+            }
+            break;
+          }
+          default: {
+            console.error('Invalid direction!');
+          }
         }
       }
     }
-  }
-
-  handleInteraction(grunt: Grunt, targetPosition: Vector2): void {
-
   }
 
   // TODO: Implement
@@ -170,7 +170,7 @@ export class CommandHandler {
    * false otherwise
    */
   isAdjacentToTarget(grunt: Grunt, targetPosition: {x: number, y: number}): boolean {
-    const charPosition = this.stage.gridEngine.getPosition('player');
+    const charPosition = this.stage.gridEngine.getPosition(grunt.id);
     const moveX = Math.abs(charPosition.x - targetPosition.x);
     const moveY = Math.abs(charPosition.y - targetPosition.y);
 

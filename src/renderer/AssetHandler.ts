@@ -13,17 +13,21 @@ export class AssetHandler {
 
   stage: Stage;
 
-  loadMapAndTilesets(mapName: string): void {
+  loadMapAndTilesets(mapName: string, tilesetName: string): void {
     this.stage.load.tilemapTiledJSON(mapName, `maps/${mapName}.json`);
     this.stage.load.image(
-        'tilesetRockyRoadz',
-        `tilesets/tilesetRockyRoadz.png`);
+        tilesetName,
+        `tilesets/${tilesetName}.png`);
     this.stage.load.image(
         'tilesetGeneral',
-        `tilesets/tilesetGeneral.png`);
+        'tilesets/tilesetGeneral.png');
     this.stage.load.image(
-        `tilesetBrickz`,
-        `tilesets/tilesetBrickz.png`);
+        'tilesetBrickz',
+        'tilesets/tilesetBrickz.png');
+    this.stage.load.image(
+        'tilesetMarkerz',
+        'tilesets/tilesetMarkerz.png',
+    );
   }
 
   loadAnimationAtlases(): void {
@@ -38,18 +42,21 @@ export class AssetHandler {
    *
    * @return {Tilemap} - The map that is to be used in the game
    */
-  makeMapWithLayers(mapName: string): Tilemap {
+  makeMapWithLayers(mapName: string, tilesetName: string): Tilemap {
     const returnMap = this.stage.make.tilemap({key: mapName});
 
     // Add tilesets to create the map layers from
-    this.stage.baseLayer = returnMap.addTilesetImage('tilesetRockyRoadz', 'tilesetRockyRoadz', 32, 32);
+    // TODO: Dynamic tileWidth and tileHeight, specified in Area, together with how big Grunt textures the Area should use
+    this.stage.baseLayer = returnMap.addTilesetImage(tilesetName, tilesetName, 32, 32);
     this.stage.generalLayer = returnMap.addTilesetImage('tilesetGeneral', 'tilesetGeneral');
     this.stage.brickLayer = returnMap.addTilesetImage('tilesetBrickz', 'tilesetBrickz');
+    this.stage.markerLayer = returnMap.addTilesetImage('tilesetMarkerz', 'tilesetMarkerz');
 
     // Create map layers
     returnMap.createLayer('baseLayer', this.stage.baseLayer);
     returnMap.createLayer('generalLayer', this.stage.generalLayer);
     returnMap.createLayer('brickLayer', this.stage.brickLayer);
+    returnMap.createLayer('markerLayer', this.stage.markerLayer);
 
     return returnMap;
   }

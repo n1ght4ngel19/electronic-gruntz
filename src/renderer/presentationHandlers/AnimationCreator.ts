@@ -1,5 +1,6 @@
 import {Stage} from '../Stage';
 import Texture = Phaser.Textures.Texture;
+import {GruntType} from '../gruntz/GruntType';
 
 export class AnimationCreator {
   /**
@@ -45,7 +46,7 @@ export class AnimationCreator {
    * @param {string} animPrefix - The prefix of the animation as found inside the
    * descriptor file of the texture atlas
    */
-  createAtlasAnimation(atlasKey: string, animKey: string, animPrefix: string) {
+  createAtlasAnimation(atlasKey: string, animKey: string, animPrefix: string): void {
     this.stage.anims.create({
       key: animKey,
       repeat: -1,
@@ -64,50 +65,50 @@ export class AnimationCreator {
    *
    * @param {string} atlasKey - The key of the texture atlas we are creating the animations from
    */
-  createAtlasAnimations(atlasKey: string): void {
-    this.createAtlasAnimation(atlasKey, 'normalGruntNorthAttack', 'NORTH_ATTACK_');
-    this.createAtlasAnimation(atlasKey, 'normalGruntNorthEastAttack', 'NORTHEAST_ATTACK_');
-    this.createAtlasAnimation(atlasKey, 'normalGruntEastAttack', 'EAST_ATTACK_');
-    this.createAtlasAnimation(atlasKey, 'normalGruntSouthEastAttack', 'SOUTHEAST_ATTACK_');
-    this.createAtlasAnimation(atlasKey, 'normalGruntSouthAttack', 'SOUTH_ATTACK_');
-    this.createAtlasAnimation(atlasKey, 'normalGruntSouthWestAttack', 'SOUTHWEST_ATTACK_');
-    this.createAtlasAnimation(atlasKey, 'normalGruntWestAttack', 'WEST_ATTACK_');
-    this.createAtlasAnimation(atlasKey, 'normalGruntNorthWestAttack', 'NORTHWEST_ATTACK_');
+  createAtlasAnimations(atlasKey: string, gruntType: GruntType): void {
+    this.createAtlasAnimation(atlasKey, `${gruntType}NorthAttack`, 'NORTH_ATTACK_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}NorthEastAttack`, 'NORTHEAST_ATTACK_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}EastAttack`, 'EAST_ATTACK_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}SouthEastAttack`, 'SOUTHEAST_ATTACK_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}SouthAttack`, 'SOUTH_ATTACK_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}SouthWestAttack`, 'SOUTHWEST_ATTACK_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}WestAttack`, 'WEST_ATTACK_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}NorthWestAttack`, 'NORTHWEST_ATTACK_');
 
-    this.createAtlasAnimation(atlasKey, 'normalGruntNorthIdle', 'NORTH_IDLE_');
-    this.createAtlasAnimation(atlasKey, 'normalGruntNorthEastIdle', 'NORTHEAST_IDLE_');
-    this.createAtlasAnimation(atlasKey, 'normalGruntEastIdle', 'EAST_IDLE_');
-    this.createAtlasAnimation(atlasKey, 'normalGruntSouthEastIdle', 'SOUTHEAST_IDLE_');
-    this.createAtlasAnimation(atlasKey, 'normalGruntSouthIdle', 'SOUTH_IDLE_');
-    this.createAtlasAnimation(atlasKey, 'normalGruntSouthWestIdle', 'SOUTHWEST_IDLE_');
-    this.createAtlasAnimation(atlasKey, 'normalGruntWestIdle', 'WEST_IDLE_');
-    this.createAtlasAnimation(atlasKey, 'normalGruntNorthWestIdle', 'NORTHWEST_IDLE_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}NorthIdle`, 'NORTH_IDLE_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}NorthEastIdle`, 'NORTHEAST_IDLE_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}EastIdle`, 'EAST_IDLE_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}SouthEastIdle`, 'SOUTHEAST_IDLE_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}SouthIdle`, 'SOUTH_IDLE_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}SouthWestIdle`, 'SOUTHWEST_IDLE_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}WestIdle`, 'WEST_IDLE_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}NorthWestIdle`, 'NORTHWEST_IDLE_');
 
-    // this.createAtlasAnimation(atlasKey, 'normalGruntNorthItem', 'NORMALGRUNT_NORTH_ITEM_');
-    // this.createAtlasAnimation(atlasKey, 'normalGruntNorthEastItem', 'NORMALGRUNT_NORTHEAST_ITEM_');
-    // this.createAtlasAnimation(atlasKey, 'normalGruntEastItem', 'NORMALGRUNT_EAST_ITEM_');
-    // this.createAtlasAnimation(atlasKey, 'normalGruntSouthEastItem', 'NORMALGRUNT_SOUTHEAST_ITEM_');
-    // this.createAtlasAnimation(atlasKey, 'normalGruntSouthItem', 'NORMALGRUNT_SOUTH_ITEM_');
-    // this.createAtlasAnimation(atlasKey, 'normalGruntSouthWestItem', 'NORMALGRUNT_SOUTHWEST_ITEM_');
-    // this.createAtlasAnimation(atlasKey, 'normalGruntWestItem', 'NORMALGRUNT_WEST_ITEM_');
-    // this.createAtlasAnimation(atlasKey, 'normalGruntNorthWestItem', 'NORMALGRUNT_NORTHWEST_ITEM_');
+    // this.createAtlasAnimation(atlasKey, `${gruntType}NorthItem`, 'NORMALGRUNT_NORTH_ITEM_');
+    // this.createAtlasAnimation(atlasKey, `${gruntType}NorthEastItem`, 'NORMALGRUNT_NORTHEAST_ITEM_');
+    // this.createAtlasAnimation(atlasKey, `${gruntType}EastItem`, 'NORMALGRUNT_EAST_ITEM_');
+    // this.createAtlasAnimation(atlasKey, `${gruntType}SouthEastItem`, 'NORMALGRUNT_SOUTHEAST_ITEM_');
+    // this.createAtlasAnimation(atlasKey, `${gruntType}SouthItem`, 'NORMALGRUNT_SOUTH_ITEM_');
+    // this.createAtlasAnimation(atlasKey, `${gruntType}SouthWestItem`, 'NORMALGRUNT_SOUTHWEST_ITEM_');
+    // this.createAtlasAnimation(atlasKey, `${gruntType}WestItem`, 'NORMALGRUNT_WEST_ITEM_');
+    // this.createAtlasAnimation(atlasKey, `${gruntType}NorthWestItem`, 'NORMALGRUNT_NORTHWEST_ITEM_');
 
-    this.createAtlasAnimation(atlasKey, 'normalGruntNorthStruck', 'NORTH_STRUCK_');
-    this.createAtlasAnimation(atlasKey, 'normalGruntNorthEastStruck', 'NORTHEAST_STRUCK_');
-    this.createAtlasAnimation(atlasKey, 'normalGruntEastStruck', 'EAST_STRUCK_');
-    this.createAtlasAnimation(atlasKey, 'normalGruntSouthEastStruck', 'SOUTHEAST_STRUCK_');
-    this.createAtlasAnimation(atlasKey, 'normalGruntSouthStruck', 'SOUTH_STRUCK_');
-    this.createAtlasAnimation(atlasKey, 'normalGruntSouthWestStruck', 'SOUTHWEST_STRUCK_');
-    this.createAtlasAnimation(atlasKey, 'normalGruntWestStruck', 'WEST_STRUCK_');
-    this.createAtlasAnimation(atlasKey, 'normalGruntNorthWestStruck', 'NORTHWEST_STRUCK_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}NorthStruck`, 'NORTH_STRUCK_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}NorthEastStruck`, 'NORTHEAST_STRUCK_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}EastStruck`, 'EAST_STRUCK_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}SouthEastStruck`, 'SOUTHEAST_STRUCK_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}SouthStruck`, 'SOUTH_STRUCK_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}SouthWestStruck`, 'SOUTHWEST_STRUCK_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}WestStruck`, 'WEST_STRUCK_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}NorthWestStruck`, 'NORTHWEST_STRUCK_');
 
-    this.createAtlasAnimation(atlasKey, 'normalGruntNorthWalk', 'NORTH_WALK_');
-    this.createAtlasAnimation(atlasKey, 'normalGruntNorthEastWalk', 'NORTHEAST_WALK_');
-    this.createAtlasAnimation(atlasKey, 'normalGruntEastWalk', 'EAST_WALK_');
-    this.createAtlasAnimation(atlasKey, 'normalGruntSouthEastWalk', 'SOUTHEAST_WALK_');
-    this.createAtlasAnimation(atlasKey, 'normalGruntSouthWalk', 'SOUTH_WALK_');
-    this.createAtlasAnimation(atlasKey, 'normalGruntSouthWestWalk', 'SOUTHWEST_WALK_');
-    this.createAtlasAnimation(atlasKey, 'normalGruntWestWalk', 'WEST_WALK_');
-    this.createAtlasAnimation(atlasKey, 'normalGruntNorthWestWalk', 'NORTHWEST_WALK_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}NorthWalk`, 'NORTH_WALK_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}NorthEastWalk`, 'NORTHEAST_WALK_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}EastWalk`, 'EAST_WALK_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}SouthEastWalk`, 'SOUTHEAST_WALK_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}SouthWalk`, 'SOUTH_WALK_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}SouthWestWalk`, 'SOUTHWEST_WALK_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}WestWalk`, 'WEST_WALK_');
+    this.createAtlasAnimation(atlasKey, `${gruntType}NorthWestWalk`, 'NORTHWEST_WALK_');
   }
 }

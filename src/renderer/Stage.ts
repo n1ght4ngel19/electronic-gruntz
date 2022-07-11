@@ -14,6 +14,7 @@ import {AssetHandler} from './AssetHandler';
 
 const searchParams = new URLSearchParams(window.location.search);
 const mapName = String(searchParams.get('stage'));
+const tilesetName = String(searchParams.get('tileset'));
 
 export class Stage extends Phaser.Scene {
   /**
@@ -23,7 +24,7 @@ export class Stage extends Phaser.Scene {
     super({key: 'stage'});
   }
 
-  assetLoader = new AssetHandler(this);
+  assetHandler = new AssetHandler(this);
   cameraHandler = new CameraHandler(this);
   animationHandler = new AnimationHandler(this);
   animationCreator = new AnimationCreator(this);
@@ -38,28 +39,33 @@ export class Stage extends Phaser.Scene {
   rightArrowKey!: Key;
 
   wButtonKey!: Key;
-  aButtonKey!: Key;
   sButtonKey!: Key;
+  aButtonKey!: Key;
   dButtonKey!: Key;
-
-  player: Grunt;
 
   map!: Tilemap;
   mapWidth!: number;
   mapHeight!: number;
 
-  baseLayer: Tileset;
-  generalLayer: Tileset;
-  switchLayer: Tileset;
-  brickLayer: Tileset;
+  baseLayer!: Tileset;
+  generalLayer!: Tileset;
+  brickLayer!: Tileset;
+  markerLayer!: Tileset;
+  switchLayer!: Tileset;
+
+  playerGruntz: Grunt[] = [];
+  playerGruntzPositionz: {
+    x: number,
+    y: number
+  }[] = [];
 
 
   /**
    * Preload
    */
   preload(): void {
-    this.assetLoader.loadMapAndTilesets(mapName);
-    this.assetLoader.loadAnimationAtlases();
+    this.assetHandler.loadMapAndTilesets(mapName, tilesetName);
+    this.assetHandler.loadAnimationAtlases();
   }
 
 
@@ -73,43 +79,67 @@ export class Stage extends Phaser.Scene {
     this.rightArrowKey = this.input.keyboard.addKey('RIGHT');
 
     this.wButtonKey = this.input.keyboard.addKey('W');
-    this.aButtonKey = this.input.keyboard.addKey('A');
     this.sButtonKey = this.input.keyboard.addKey('S');
+    this.aButtonKey = this.input.keyboard.addKey('A');
     this.dButtonKey = this.input.keyboard.addKey('D');
 
     const normalGruntAtlas = this.textures.get('NORMALGRUNT');
-    this.animationCreator.createAtlasAnimations(normalGruntAtlas.key);
+    this.animationCreator.createAtlasAnimations(normalGruntAtlas.key, GruntType.normalGrunt);
 
-    this.map = this.assetLoader.makeMapWithLayers(mapName);
+    this.map = this.assetHandler.makeMapWithLayers(mapName, tilesetName);
     this.mapWidth = this.map.widthInPixels;
     this.mapHeight = this.map.heightInPixels;
 
-    this.player = this.add.existing(new Grunt(this, 0, 0, normalGruntAtlas));
+    for (let i = 0; i < this.map.getLayer('markerLayer').width; i++) {
+      for (let j = 0; j < this.map.getLayer('markerLayer').height; j++) {
+        if (this.map.getTileAt(i, j, true, 'markerLayer').properties.gruntType) {
+          this.playerGruntzPositionz.push({x: i, y: j});
+          console.log(this.map.getTileAt(i, j, true, 'markerLayer').properties.gruntType);
+        }
+      }
+    }
+
+    this.playerGruntz[0] = this.add.existing(new Grunt(this, 0, 0, normalGruntAtlas, false, 'grunt1'));
+    this.playerGruntz[1] = this.add.existing(new Grunt(this, 0, 0, normalGruntAtlas, false, 'grunt2'));
     // player.scale = 1.5;
-    this.player.anims.play('normalGruntSouthIdle');
+    for (let i = 0; i < this.playerGruntz.length; i++) {
+      this.playerGruntz[i].anims.play('normalGruntSouthIdle');
+    }
+
 
     const gridEngineConfig = {
-      characters: [
-        {
-          id: 'player',
-          sprite: this.player,
-          startPosition: {x: 6, y: 2},
-          speed: 4,
-          // speed: Math.floor(10/6),
-        },
-      ],
+      characters: [],
       numberOfDirections: 8,
     };
 
+    const grunt1 = {
+      id: this.playerGruntz[0].id,
+      sprite: this.playerGruntz[0],
+      startPosition: this.playerGruntzPositionz[0],
+      speed: 4,
+      // speed: Math.floor(10/6),
+    };
+
+    const grunt2 = {
+      id: this.playerGruntz[1].id,
+      sprite: this.playerGruntz[1],
+      startPosition: this.playerGruntzPositionz[1],
+      speed: 4,
+      // speed: Math.floor(10/6),
+    };
+
+    gridEngineConfig.characters.push(grunt1);
+    gridEngineConfig.characters.push(grunt2);
+
     this.gridEngine.create(this.map, gridEngineConfig);
 
-    this.animationHandler.handleIdleAnimations(this.player, GruntType.normalGrunt);
-    this.animationHandler.handleWalkingAnimations(this.player, GruntType.normalGrunt);
+    this.animationHandler.handleIdleAnimations(this.playerGruntz, GruntType.normalGrunt);
 
     this.cameraHandler.setDefaultCameraSettings(this.cameras.main, this.mapWidth, this.mapHeight);
     this.cameraHandler.handleZoom(this.cameras.main, this.mapWidth);
 
     this.pauseMenuHandler.handlePause();
+    this.selectGruntzWithKeys();
   }
 
 
@@ -117,13 +147,54 @@ export class Stage extends Phaser.Scene {
    * Update
    */
   update(): void {
+    this.animationHandler.handleWalkingAnimations(this.playerGruntz, GruntType.normalGrunt);
+
     this.cameraHandler.handleCameraEdgeScroll(this.cameras.main, 15);
     this.cameraHandler.handleCameraKeysScroll(this.cameras.main, 15);
 
-    this.commandHandler.handleMovement(this.player, this.player.isActive);
-    this.commandHandler.handleMoveArrows(this.player);
+    this.commandHandler.handleMoveCommand(this.playerGruntz);
+    this.commandHandler.handleMoveArrows(this.playerGruntz);
   }
 
+  selectGruntzWithKeys(): void {
+    this.input.keyboard.on('keydown', (e: KeyboardEvent) => {
+      switch (e.key) {
+        case '0': {
+          for (let i = 0; i < this.playerGruntz.length; i++) {
+            this.playerGruntz[i].isSelected = false;
+          }
+
+          break;
+        }
+        case '1': {
+          for (let i = 0; i < this.playerGruntz.length; i++) {
+            this.playerGruntz[i].isSelected = false;
+          }
+
+          this.playerGruntz[0].isSelected = true;
+          break;
+        }
+        case '2': {
+          for (let i = 0; i < this.playerGruntz.length; i++) {
+            this.playerGruntz[i].isSelected = false;
+          }
+
+          this.playerGruntz[1].isSelected = true;
+          break;
+        }
+        case '3': {
+          for (let i = 0; i < this.playerGruntz.length; i++) {
+            this.playerGruntz[i].isSelected = true;
+          }
+          break;
+        }
+      }
+    });
+  }
+
+  // selectGruntzWithDrag(): void {}
+
+  // selectGruntzWithClick(): void {}
 
   // TODO: Implement
   /**

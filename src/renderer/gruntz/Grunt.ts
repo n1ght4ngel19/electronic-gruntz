@@ -10,12 +10,14 @@ export class Grunt extends Phaser.GameObjects.Sprite {
    * @param {number} y - The y coordinate of the sprite on the stage
    * @param {Texture} texture - The texture that belongs to the sprite
    */
-  constructor(stage: Stage, x: number, y: number, texture: Texture) {
+  constructor(stage: Stage, x: number, y: number, texture: Texture, selected: boolean, id: string) {
     super(stage, x, y, texture);
     this.stage = stage;
+    this.isSelected = selected;
+    this.id = id;
   };
 
   stage: Stage;
-
-  isActive: boolean = true;
+  isSelected: boolean;
+  id: string;
 }
