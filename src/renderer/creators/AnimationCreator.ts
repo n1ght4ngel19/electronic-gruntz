@@ -24,7 +24,7 @@ export class AnimationCreator {
    *
    * @return {number} - The number of animations found
    */
-  findFrameCount(atlas: Texture, animPrefix: string): number {
+  private findFrameCount(atlas: Texture, animPrefix: string): number {
     let count = 0;
 
     atlas.getFrameNames().forEach((frameName) => {
@@ -46,7 +46,7 @@ export class AnimationCreator {
    * @param {string} animPrefix - The prefix of the animation as found inside the
    * descriptor file of the texture atlas
    */
-  createAtlasAnimation(atlasKey: string, animKey: string, animPrefix: string): void {
+  private createAtlasAnimation(atlasKey: string, animKey: string, animPrefix: string): void {
     this.stage.anims.create({
       key: animKey,
       repeat: -1,
@@ -60,12 +60,33 @@ export class AnimationCreator {
     });
   }
 
+  private createPickupAnimation(atlasKey: string, animKey: string, animPrefix: string): void {
+    this.stage.anims.create({
+      key: animKey,
+      repeat: 1,
+      frameRate: 10,
+      frames: this.stage.anims.generateFrameNames(atlasKey, {
+        prefix: 'pickup_',
+        start: 1,
+        end: 3,
+        zeroPad: 2,
+      }),
+    });
+
+    this.stage.anims.get(animKey).addFrame(this.stage.anims.generateFrameNames(atlasKey, {
+      prefix: animPrefix,
+      start: 1,
+      end: 1,
+      zeroPad: 2,
+    }));
+  }
+
   /**
    * Creates all the animations from the texture atlas identified by the atlasKey parameter.
    *
    * @param {string} atlasKey - The key of the texture atlas we are creating the animations from
    */
-  createAtlasAnimations(atlasKey: string, gruntType: GruntType): void {
+  private createAtlasAnimations(atlasKey: string, gruntType: GruntType): void {
     this.createAtlasAnimation(atlasKey, `${gruntType}NorthAttack`, 'NORTH_ATTACK_');
     this.createAtlasAnimation(atlasKey, `${gruntType}NorthEastAttack`, 'NORTHEAST_ATTACK_');
     this.createAtlasAnimation(atlasKey, `${gruntType}EastAttack`, 'EAST_ATTACK_');
@@ -110,5 +131,26 @@ export class AnimationCreator {
     this.createAtlasAnimation(atlasKey, `${gruntType}SouthWestWalk`, 'SOUTHWEST_WALK_');
     this.createAtlasAnimation(atlasKey, `${gruntType}WestWalk`, 'WEST_WALK_');
     this.createAtlasAnimation(atlasKey, `${gruntType}NorthWestWalk`, 'NORTHWEST_WALK_');
+  }
+
+  createPickupAnimations(): void {
+    this.createPickupAnimation('pickupz', 'clubPickup', 'toolClub_');
+    this.createPickupAnimation('pickupz', 'gauntletzPickup', 'toolGauntletz_');
+  }
+
+  createAllAnimationAtlases(): Texture[] {
+    const atlases: Texture[] = [];
+
+    atlases.push(this.stage.textures.get('normalGrunt'));
+    atlases.push(this.stage.textures.get('clubGrunt'));
+    atlases.push(this.stage.textures.get('gauntletzGrunt'));
+
+    return atlases;
+  }
+
+  createAllAtlasAnimations(atlases: Texture[]): void {
+    this.createAtlasAnimations(atlases[0].key, GruntType.normalGrunt);
+    this.createAtlasAnimations(atlases[1].key, GruntType.clubGrunt);
+    this.createAtlasAnimations(atlases[2].key, GruntType.gauntletzGrunt);
   }
 }

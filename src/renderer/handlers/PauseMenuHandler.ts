@@ -1,4 +1,4 @@
-import {Stage} from './Stage';
+import {Stage} from '../Stage';
 
 export class PauseMenuHandler {
   /**

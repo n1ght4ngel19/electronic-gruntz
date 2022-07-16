@@ -6,7 +6,7 @@ const stage = new Stage();
 
 const gameConfig = {
   gameTitle: 'Electronic Gruntz',
-  gameVersion: '0.0.1',
+  gameVersion: '0.0.2',
   type: Phaser.AUTO,
   width: window.innerWidth,
   height: window.innerHeight,

@@ -1,16 +1,12 @@
 import Phaser from 'phaser';
 import {GridEngine} from 'grid-engine';
 import Tilemap = Phaser.Tilemaps.Tilemap;
-import Key = Phaser.Input.Keyboard.Key;
-import {AnimationCreator} from './presentationHandlers/AnimationCreator';
-import {AnimationHandler} from './presentationHandlers/AnimationHandler';
-import {CameraHandler} from './actionHandlers/CameraHandler';
-import {PauseMenuHandler} from './PauseMenuHandler';
-import {CommandHandler} from './actionHandlers/CommandHandler';
 import {Grunt} from './gruntz/Grunt';
-import {GruntType} from './gruntz/GruntType';
 import Tileset = Phaser.Tilemaps.Tileset;
-import {AssetHandler} from './AssetHandler';
+import {ControlKeys} from './ControlKeys';
+import Vector2 = Phaser.Math.Vector2;
+import {HandlerManager} from './managers/HandlerManager';
+import {CreatorManager} from './managers/CreatorManager';
 
 const searchParams = new URLSearchParams(window.location.search);
 const mapName = String(searchParams.get('stage'));
@@ -24,24 +20,16 @@ export class Stage extends Phaser.Scene {
     super({key: 'stage'});
   }
 
-  assetHandler = new AssetHandler(this);
-  cameraHandler = new CameraHandler(this);
-  animationHandler = new AnimationHandler(this);
-  animationCreator = new AnimationCreator(this);
-  pauseMenuHandler = new PauseMenuHandler(this);
-  commandHandler = new CommandHandler(this);
+  handlerManager = new HandlerManager(this);
+  creatorManager = new CreatorManager(this);
+
+  controlKeys = new ControlKeys(this);
 
   gridEngine!: GridEngine;
-
-  upArrowKey!: Key;
-  downArrowKey!: Key;
-  leftArrowKey!: Key;
-  rightArrowKey!: Key;
-
-  wButtonKey!: Key;
-  sButtonKey!: Key;
-  aButtonKey!: Key;
-  dButtonKey!: Key;
+  gridEngineConfig = {
+    characters: [],
+    numberOfDirections: 8,
+  };
 
   map!: Tilemap;
   mapWidth!: number;
@@ -50,22 +38,25 @@ export class Stage extends Phaser.Scene {
   baseLayer!: Tileset;
   generalLayer!: Tileset;
   brickLayer!: Tileset;
+  animatedLayer!: Tileset;
+  toolzLayer!: Tileset;
   markerLayer!: Tileset;
-  switchLayer!: Tileset;
+  // switchLayer!: Tileset;
 
   playerGruntz: Grunt[] = [];
-  playerGruntzPositionz: {
-    x: number,
-    y: number
-  }[] = [];
+  playerGruntzPositionz: Vector2[] = [];
+
+  nextGruntIdNumber = 1;
 
 
   /**
    * Preload
    */
   preload(): void {
-    this.assetHandler.loadMapAndTilesets(mapName, tilesetName);
-    this.assetHandler.loadAnimationAtlases();
+    this.load.scenePlugin('AnimatedTiles', 'https://tinyurl.com/yckrhe6a', 'animatedTiles', 'animatedTiles');
+
+    this.handlerManager.assetHandler.loadMapAndTilesets(mapName, tilesetName);
+    this.handlerManager.assetHandler.loadAnimationAtlases();
   }
 
 
@@ -73,73 +64,86 @@ export class Stage extends Phaser.Scene {
    * Create
    */
   create(): void {
-    this.upArrowKey = this.input.keyboard.addKey('UP');
-    this.downArrowKey = this.input.keyboard.addKey('DOWN');
-    this.leftArrowKey = this.input.keyboard.addKey('LEFT');
-    this.rightArrowKey = this.input.keyboard.addKey('RIGHT');
+    this.controlKeys.createAllKeys();
 
-    this.wButtonKey = this.input.keyboard.addKey('W');
-    this.sButtonKey = this.input.keyboard.addKey('S');
-    this.aButtonKey = this.input.keyboard.addKey('A');
-    this.dButtonKey = this.input.keyboard.addKey('D');
+    const gruntAnimationAtlases = this.creatorManager.animationCreator.createAllAnimationAtlases();
+    this.creatorManager.animationCreator.createAllAtlasAnimations(gruntAnimationAtlases);
+    this.creatorManager.animationCreator.createPickupAnimations();
 
-    const normalGruntAtlas = this.textures.get('NORMALGRUNT');
-    this.animationCreator.createAtlasAnimations(normalGruntAtlas.key, GruntType.normalGrunt);
-
-    this.map = this.assetHandler.makeMapWithLayers(mapName, tilesetName);
+    this.map = this.handlerManager.assetHandler.makeMapWithLayers(mapName, tilesetName);
     this.mapWidth = this.map.widthInPixels;
     this.mapHeight = this.map.heightInPixels;
 
+    // @ts-ignore
+    this.animatedTiles.init(this.map);
+
+    // TODO: Move into GruntCreator
     for (let i = 0; i < this.map.getLayer('markerLayer').width; i++) {
       for (let j = 0; j < this.map.getLayer('markerLayer').height; j++) {
-        if (this.map.getTileAt(i, j, true, 'markerLayer').properties.gruntType) {
-          this.playerGruntzPositionz.push({x: i, y: j});
-          console.log(this.map.getTileAt(i, j, true, 'markerLayer').properties.gruntType);
+        const gruntTypeToAdd = this.map.getTileAt(i, j, true, 'markerLayer').properties.gruntType;
+
+        if (gruntTypeToAdd) {
+          switch (gruntTypeToAdd) {
+            case 'normalGrunt': {
+              this.playerGruntz.push(
+                  this.add.existing(
+                      new Grunt(this, 0, 0, gruntAnimationAtlases[0], false, `grunt${this.nextGruntIdNumber++}`, gruntTypeToAdd),
+                  ),
+              );
+              break;
+            }
+            case 'clubGrunt': {
+              this.playerGruntz.push(
+                  this.add.existing(
+                      new Grunt(this, 0, 0, gruntAnimationAtlases[1], false, `grunt${this.nextGruntIdNumber++}`, gruntTypeToAdd),
+                  ),
+              );
+              break;
+            }
+            case 'gauntletzGrunt': {
+              this.playerGruntz.push(
+                  this.add.existing(
+                      new Grunt(this, 0, 0, gruntAnimationAtlases[1], false, `grunt${this.nextGruntIdNumber++}`, gruntTypeToAdd),
+                  ),
+              );
+              break;
+            }
+            default: {
+              throw new Error('Invalid GruntType!');
+            }
+          }
+
+          this.playerGruntzPositionz.push(new Vector2(i, j));
         }
       }
     }
 
-    this.playerGruntz[0] = this.add.existing(new Grunt(this, 0, 0, normalGruntAtlas, false, 'grunt1'));
-    this.playerGruntz[1] = this.add.existing(new Grunt(this, 0, 0, normalGruntAtlas, false, 'grunt2'));
-    // player.scale = 1.5;
     for (let i = 0; i < this.playerGruntz.length; i++) {
-      this.playerGruntz[i].anims.play('normalGruntSouthIdle');
+      this.playerGruntz[i].anims.play(`${this.playerGruntz[i].gruntType}SouthIdle`);
     }
 
+    this.creatorManager.gruntCreator.createAllGridEngineGruntz();
 
-    const gridEngineConfig = {
-      characters: [],
-      numberOfDirections: 8,
-    };
+    this.gridEngine.create(this.map, this.gridEngineConfig);
 
-    const grunt1 = {
-      id: this.playerGruntz[0].id,
-      sprite: this.playerGruntz[0],
-      startPosition: this.playerGruntzPositionz[0],
-      speed: 4,
-      // speed: Math.floor(10/6),
-    };
+    this.handlerManager.cameraHandler.setDefaultCameraSettings(this.cameras.main, this.mapWidth, this.mapHeight);
+    this.handlerManager.cameraHandler.handleZoom(this.cameras.main, this.mapWidth);
 
-    const grunt2 = {
-      id: this.playerGruntz[1].id,
-      sprite: this.playerGruntz[1],
-      startPosition: this.playerGruntzPositionz[1],
-      speed: 4,
-      // speed: Math.floor(10/6),
-    };
+    this.handlerManager.pauseMenuHandler.handlePause();
 
-    gridEngineConfig.characters.push(grunt1);
-    gridEngineConfig.characters.push(grunt2);
-
-    this.gridEngine.create(this.map, gridEngineConfig);
-
-    this.animationHandler.handleIdleAnimations(this.playerGruntz, GruntType.normalGrunt);
-
-    this.cameraHandler.setDefaultCameraSettings(this.cameras.main, this.mapWidth, this.mapHeight);
-    this.cameraHandler.handleZoom(this.cameras.main, this.mapWidth);
-
-    this.pauseMenuHandler.handlePause();
     this.selectGruntzWithKeys();
+
+    // Logging where the toolz on the map at
+    for (let i = 0; i < this.map.width; i++) {
+      for (let j = 0; j < this.map.height; j++) {
+        if (this.map.getTileAt(i, j, true, 'toolzLayer').properties.toolType) {
+          this.map.getTileAt(i, j, true, 'toolzLayer');
+          console.log(this.map.getTileAt(i, j, true, 'toolzLayer').properties.toolType);
+          console.log('i: ', i);
+          console.log('j: ', j);
+        }
+      }
+    }
   }
 
 
@@ -147,13 +151,22 @@ export class Stage extends Phaser.Scene {
    * Update
    */
   update(): void {
-    this.animationHandler.handleWalkingAnimations(this.playerGruntz, GruntType.normalGrunt);
+    this.playerGruntzPositionz = [];
 
-    this.cameraHandler.handleCameraEdgeScroll(this.cameras.main, 15);
-    this.cameraHandler.handleCameraKeysScroll(this.cameras.main, 15);
+    // Get the position of all player Gruntz currently on the map
+    for (let i = 0; i < this.playerGruntz.length; i++) {
+      this.playerGruntzPositionz[i] = new Vector2(Math.round(this.playerGruntz[i].x / 32), Math.round(this.playerGruntz[i].y / 32));
+    }
 
-    this.commandHandler.handleMoveCommand(this.playerGruntz);
-    this.commandHandler.handleMoveArrows(this.playerGruntz);
+    this.handlerManager.animationHandler.handleWalkingAnimations(this.playerGruntz);
+    this.handlerManager.animationHandler.handleIdleAnimations(this.playerGruntz);
+
+    this.handlerManager.cameraHandler.handleCameraEdgeScroll(this.cameras.main, 15);
+    this.handlerManager.cameraHandler.handleCameraKeysScroll(this.cameras.main, 15);
+
+    this.handlerManager.actionHandler.handleMoveCommand(this.playerGruntz);
+    this.handlerManager.actionHandler.handleMoveArrows(this.playerGruntz);
+    this.handlerManager.actionHandler.handleToolPickup();
   }
 
   selectGruntzWithKeys(): void {
@@ -195,17 +208,4 @@ export class Stage extends Phaser.Scene {
   // selectGruntzWithDrag(): void {}
 
   // selectGruntzWithClick(): void {}
-
-  // TODO: Implement
-  /**
-   * Populates the GridEngine config with the characters specified
-   * on the current Tilemap. Characters are then given a Position,
-   * Tool, Toy or other attributes according to their data, and
-   * placed on the map.
-   */
-  setCharacterPositions(): void {
-    // Clear positions so that updated positions
-    // don't get appended to, but replace the obsolete ones
-    // characterPositions.length = 0;
-  }
 }

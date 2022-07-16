@@ -1,4 +1,3 @@
-import {GruntType} from '../gruntz/GruntType';
 import {Stage} from '../Stage';
 import {Grunt} from '../gruntz/Grunt';
 
@@ -20,9 +19,11 @@ export class AnimationHandler {
    * @param {Sprite} sprite - The sprite that plays the animation
    * @param {string} gruntType - Defines which type of animation should be played
    */
-  handleWalkingAnimations(gruntz: Grunt[], gruntType: GruntType): void {
+  handleWalkingAnimations(gruntz: Grunt[]): void {
     for (let i = 0; i < gruntz.length; i++) {
       this.stage.gridEngine.movementStarted().subscribe(({charId, direction}) => {
+        const gruntType = (this.stage.gridEngine.getSprite(charId) as Grunt).gruntType;
+
         switch (direction) {
           case 'up':
             this.stage.gridEngine.getSprite(charId).anims.play(`${gruntType}NorthWalk`);
@@ -61,9 +62,11 @@ export class AnimationHandler {
    * @param {Sprite} sprite - The sprite that plays the animation
    * @param {string} gruntType - Defines which type of animation should be played
    */
-  handleIdleAnimations(gruntz: Grunt[], gruntType: GruntType): void {
+  handleIdleAnimations(gruntz: Grunt[]): void {
     for (let i = 0; i < gruntz.length; i++) {
       this.stage.gridEngine.movementStopped().subscribe(({charId, direction}) => {
+        const gruntType = (this.stage.gridEngine.getSprite(charId) as Grunt).gruntType;
+
         switch (direction) {
           case 'up':
             this.stage.gridEngine.getSprite(charId).anims.play(`${gruntType}NorthIdle`);

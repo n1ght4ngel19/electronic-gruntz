@@ -3,7 +3,7 @@ import {Grunt} from '../gruntz/Grunt';
 import {Direction} from 'grid-engine';
 import Vector2 = Phaser.Math.Vector2;
 
-export class CommandHandler {
+export class ActionHandler {
   /**
    * Constructor
    *
@@ -24,6 +24,7 @@ export class CommandHandler {
         );
 
         if (this.isAdjacentToTarget(gruntz[i], targetPosition) && this.isCollideTile(targetPosition)) {
+          // TODO: Replace commend with sound
           console.log(`Can't get there.`);
         } else {
           this.stage.gridEngine.moveTo(gruntz[i].id, targetPosition);
@@ -32,12 +33,25 @@ export class CommandHandler {
     }
   }
 
-  // TODO: Implement
+  handleToolPickup(): void {
+    for (let i = 0; i < this.stage.playerGruntzPositionz.length; i++) {
+      const currentPosition = new Vector2(this.stage.playerGruntzPositionz[i].x, this.stage.playerGruntzPositionz[i].y);
+      const currentToolTile = this.stage.map.getTileAt(currentPosition.x, currentPosition.y, true, 'toolzLayer');
+
+      if (currentToolTile.properties.toolType) {
+        this.stage.map.removeTileAt(currentPosition.x, currentPosition.y, false, false, 'toolzLayer');
+
+        this.stage.playerGruntz[i].anims.play(`${currentToolTile.properties.toolType}Pickup`);
+        this.stage.playerGruntz[i].setGruntType(`${currentToolTile.properties.toolType}Grunt`);
+      }
+    }
+  }
+
   /**
    * Handles the logic involving the arrows that force Gruntz to move
    * in a specific direction.
    *
-   * @param {Grunt} grunt - The grunt that is walking on the arrows
+   * @param {Grunt[]} gruntz - The grunt that is walking on the arrows
    */
   handleMoveArrows(gruntz: Grunt[]): void {
     for (let i = 0; i < gruntz.length; i++) {
@@ -145,7 +159,7 @@ export class CommandHandler {
    *
    * @param {Tile[]} data - The data of the layer containing the rocks
    */
-  handleRocks(data: Phaser.Tilemaps.Tile[][]): void {
+  handleRockBreakCommand(data: Phaser.Tilemaps.Tile[][]): void {
 
   }
 
@@ -169,7 +183,7 @@ export class CommandHandler {
    * @return {boolean} - True if the target is adjacent to the character,
    * false otherwise
    */
-  isAdjacentToTarget(grunt: Grunt, targetPosition: {x: number, y: number}): boolean {
+  private isAdjacentToTarget(grunt: Grunt, targetPosition: {x: number, y: number}): boolean {
     const charPosition = this.stage.gridEngine.getPosition(grunt.id);
     const moveX = Math.abs(charPosition.x - targetPosition.x);
     const moveY = Math.abs(charPosition.y - targetPosition.y);
@@ -181,7 +195,7 @@ export class CommandHandler {
     }
   }
 
-  isCollideTile(tilePosition: Vector2): boolean {
+  private isCollideTile(tilePosition: Vector2): boolean {
     const map = this.stage.map;
     const layerNames = [
       this.stage.map.layers[0].name,

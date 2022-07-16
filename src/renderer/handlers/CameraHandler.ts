@@ -35,7 +35,7 @@ export class CameraHandler {
     const maxZoom = 2.5;
     const zoomIncrement = 0.125;
 
-    this.stage.input.on('wheel', (pointer: any, GameObjects: any, deltaX: number, deltaY: number, deltaZ: number) => {
+    this.stage.input.on('wheel', (pointer: any, GameObjects: any, deltaX: number, deltaY: number, _deltaZ: number) => {
       if ((camera.zoom < maxZoom) && (camera.displayWidth < mapWidth)) {
         this.handleZoomOut(camera, deltaY, zoomIncrement);
         this.handleZoomIn(camera, deltaY, zoomIncrement);
@@ -103,16 +103,16 @@ export class CameraHandler {
    * @param {number} scrollSpeed - The speed at which the camera should move when scrolling
    */
   handleCameraKeysScroll(camera: Camera, scrollSpeed: number): void {
-    if (this.stage.upArrowKey.isDown || this.stage.wButtonKey.isDown) {
+    if (this.stage.controlKeys.upArrowKey.isDown || this.stage.controlKeys.wButtonKey.isDown) {
       camera.scrollY -= 15;
     }
-    if (this.stage.downArrowKey.isDown || this.stage.sButtonKey.isDown) {
+    if (this.stage.controlKeys.downArrowKey.isDown || this.stage.controlKeys.sButtonKey.isDown) {
       camera.scrollY += 15;
     }
-    if (this.stage.leftArrowKey.isDown || this.stage.aButtonKey.isDown) {
+    if (this.stage.controlKeys.leftArrowKey.isDown || this.stage.controlKeys.aButtonKey.isDown) {
       camera.scrollX -= 15;
     }
-    if (this.stage.rightArrowKey.isDown || this.stage.dButtonKey.isDown) {
+    if (this.stage.controlKeys.rightArrowKey.isDown || this.stage.controlKeys.dButtonKey.isDown) {
       camera.scrollX += 15;
     }
   }
