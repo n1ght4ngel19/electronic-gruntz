@@ -1,0 +1,32 @@
+<TextureAtlas imagePath="pickupz.png">
+	<SubTexture name="pickup_01" x="140" y="99" width="36" height="28"/>
+	<SubTexture name="pickup_02" x="284" y="230" width="28" height="25"/>
+	<SubTexture name="pickup_03" x="244" y="230" width="36" height="33"/>
+	<SubTexture name="toolBomb_01" x="192" y="99" width="48" height="66"/>
+	<SubTexture name="toolBoomerang_01" x="136" y="254" width="52" height="50"/>
+	<SubTexture name="toolBoxingGlovez_01" x="0" y="42" width="84" height="38"/>
+	<SubTexture name="toolBrickLayer_01" x="68" y="220" width="64" height="63"/>
+	<SubTexture name="toolBrickzBlack_01" x="240" y="270" width="44" height="45"/>
+	<SubTexture name="toolBrickzBlue_01" x="260" y="0" width="44" height="45"/>
+	<SubTexture name="toolBrickzBrown_01" x="192" y="270" width="44" height="45"/>
+	<SubTexture name="toolBrickzGold_01" x="244" y="181" width="44" height="45"/>
+	<SubTexture name="toolBrickzRed_01" x="244" y="132" width="44" height="45"/>
+	<SubTexture name="toolClub_01" x="0" y="84" width="72" height="40"/>
+	<SubTexture name="toolGauntletz_01" x="0" y="176" width="68" height="40"/>
+	<SubTexture name="toolGooberStraw_01" x="0" y="287" width="60" height="38"/>
+	<SubTexture name="toolGravityBootz_01" x="0" y="220" width="64" height="63"/>
+	<SubTexture name="toolGunHat_01" x="76" y="140" width="56" height="56"/>
+	<SubTexture name="toolNerfGun_01" x="76" y="84" width="60" height="52"/>
+	<SubTexture name="toolRockz_01" x="192" y="169" width="48" height="55"/>
+	<SubTexture name="toolScroll_01" x="136" y="140" width="52" height="48"/>
+	<SubTexture name="toolShield_01" x="208" y="0" width="48" height="70"/>
+	<SubTexture name="toolShovel_01" x="0" y="0" width="92" height="38"/>
+	<SubTexture name="toolSpring_01" x="0" y="128" width="72" height="44"/>
+	<SubTexture name="toolSpyGear_01" x="140" y="57" width="52" height="38"/>
+	<SubTexture name="toolSword_01" x="64" y="287" width="56" height="38"/>
+	<SubTexture name="toolTimeBombz_01" x="192" y="228" width="48" height="38"/>
+	<SubTexture name="toolToob_01" x="156" y="0" width="48" height="51"/>
+	<SubTexture name="toolWand_01" x="96" y="0" width="56" height="53"/>
+	<SubTexture name="toolWelderKit_01" x="136" y="192" width="52" height="58"/>
+	<SubTexture name="toolWingz_01" x="244" y="74" width="44" height="54"/>
+</TextureAtlas>

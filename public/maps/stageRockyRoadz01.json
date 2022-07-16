@@ -134,6 +134,92 @@
         {
          "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1800, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1800, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 1800, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1794, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1794, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1794, 1793, 1793, 1793, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1794, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1794, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1793, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1793, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+         "height":32,
+         "id":6,
+         "name":"animatedLayer",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":32,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1793, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1793, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1793, 0, 0, 0, 0, 2129, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1793, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1793, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2113, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2129, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2113, 0, 0, 0, 2129, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 2353, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+         "height":32,
+         "id":7,
+         "name":"toolzLayer",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":32,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 1554, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -174,11 +260,11 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":6,
+ "nextlayerid":8,
  "nextobjectid":1,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.8.5",
+ "tiledversion":"1.9.0",
  "tileheight":32,
  "tilesets":[
         {
@@ -630,6 +716,11 @@
                  "id":112,
                  "properties":[
                         {
+                         "name":"ge_collide",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"water",
                          "type":"bool",
                          "value":true
@@ -638,6 +729,11 @@
                 {
                  "id":113,
                  "properties":[
+                        {
+                         "name":"ge_collide",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"water",
                          "type":"bool",
@@ -648,6 +744,11 @@
                  "id":114,
                  "properties":[
                         {
+                         "name":"ge_collide",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"water",
                          "type":"bool",
                          "value":true
@@ -656,6 +757,11 @@
                 {
                  "id":115,
                  "properties":[
+                        {
+                         "name":"ge_collide",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"water",
                          "type":"bool",
@@ -705,6 +811,11 @@
                          "name":"death",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"ge_collide",
+                         "type":"bool",
+                         "value":true
                         }]
                 }, 
                 {
@@ -712,6 +823,11 @@
                  "properties":[
                         {
                          "name":"death",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"ge_collide",
                          "type":"bool",
                          "value":true
                         }]
@@ -723,6 +839,11 @@
                          "name":"death",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"ge_collide",
+                         "type":"bool",
+                         "value":true
                         }]
                 }, 
                 {
@@ -730,6 +851,11 @@
                  "properties":[
                         {
                          "name":"death",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"ge_collide",
                          "type":"bool",
                          "value":true
                         }]
@@ -4455,7 +4581,7 @@
                         {
                          "name":"gruntType",
                          "type":"string",
-                         "value":"bombzGrunt"
+                         "value":"bombGrunt"
                         }]
                 }, 
                 {
@@ -4464,7 +4590,7 @@
                         {
                          "name":"gruntType",
                          "type":"string",
-                         "value":"boomerangzGrunt"
+                         "value":"boomerangGrunt"
                         }]
                 }, 
                 {
@@ -4482,7 +4608,7 @@
                         {
                          "name":"gruntType",
                          "type":"string",
-                         "value":"brickLayerzGrunt"
+                         "value":"brickLayerGrunt"
                         }]
                 }, 
                 {
@@ -4491,7 +4617,7 @@
                         {
                          "name":"gruntType",
                          "type":"string",
-                         "value":"clubzGrunt"
+                         "value":"clubGrunt"
                         }]
                 }, 
                 {
@@ -4509,7 +4635,7 @@
                         {
                          "name":"gruntType",
                          "type":"string",
-                         "value":"gooberStrawzGrunt"
+                         "value":"gooberStrawGrunt"
                         }]
                 }, 
                 {
@@ -4527,7 +4653,7 @@
                         {
                          "name":"gruntType",
                          "type":"string",
-                         "value":"gunHatzGrunt"
+                         "value":"gunHatGrunt"
                         }]
                 }, 
                 {
@@ -4536,7 +4662,7 @@
                         {
                          "name":"gruntType",
                          "type":"string",
-                         "value":"nerfGunzGrunt"
+                         "value":"nerfGunGrunt"
                         }]
                 }, 
                 {
@@ -4563,7 +4689,7 @@
                         {
                          "name":"gruntType",
                          "type":"string",
-                         "value":"shieldzGrunt"
+                         "value":"shieldGrunt"
                         }]
                 }, 
                 {
@@ -4572,7 +4698,7 @@
                         {
                          "name":"gruntType",
                          "type":"string",
-                         "value":"shovelzGrunt"
+                         "value":"shovelGrunt"
                         }]
                 }, 
                 {
@@ -4581,7 +4707,7 @@
                         {
                          "name":"gruntType",
                          "type":"string",
-                         "value":"springzGrunt"
+                         "value":"springGrunt"
                         }]
                 }, 
                 {
@@ -4590,7 +4716,7 @@
                         {
                          "name":"gruntType",
                          "type":"string",
-                         "value":"spyGearzGrunt"
+                         "value":"spyGearGrunt"
                         }]
                 }, 
                 {
@@ -4599,7 +4725,7 @@
                         {
                          "name":"gruntType",
                          "type":"string",
-                         "value":"swordzGrunt"
+                         "value":"swordGrunt"
                         }]
                 }, 
                 {
@@ -4617,7 +4743,7 @@
                         {
                          "name":"gruntType",
                          "type":"string",
-                         "value":"toobzGrunt"
+                         "value":"toobGrunt"
                         }]
                 }, 
                 {
@@ -4626,7 +4752,7 @@
                         {
                          "name":"gruntType",
                          "type":"string",
-                         "value":"wandzGrunt"
+                         "value":"wandGrunt"
                         }]
                 }, 
                 {
@@ -4635,7 +4761,7 @@
                         {
                          "name":"gruntType",
                          "type":"string",
-                         "value":"warpstonezGrunt"
+                         "value":"warpstoneGrunt"
                         }]
                 }, 
                 {
@@ -4657,9 +4783,932 @@
                         }]
                 }],
          "tilewidth":32
+        }, 
+        {
+         "columns":16,
+         "firstgid":1793,
+         "image":"..\/tilesets\/animatedTilez.png",
+         "imageheight":512,
+         "imagewidth":512,
+         "margin":0,
+         "name":"animatedTilez",
+         "spacing":0,
+         "tilecount":256,
+         "tileheight":32,
+         "tiles":[
+                {
+                 "id":0,
+                 "properties":[
+                        {
+                         "name":"bridgeType",
+                         "type":"string",
+                         "value":"up"
+                        }, 
+                        {
+                         "name":"tileset",
+                         "type":"string",
+                         "value":"tilesetRockyRoadz"
+                        }]
+                }, 
+                {
+                 "id":1,
+                 "properties":[
+                        {
+                         "name":"bridgeType",
+                         "type":"string",
+                         "value":"down"
+                        }, 
+                        {
+                         "name":"ge_collide",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"tileset",
+                         "type":"string",
+                         "value":"tilesetRockyRoadz"
+                        }]
+                }, 
+                {
+                 "id":2,
+                 "properties":[
+                        {
+                         "name":"bridgeType",
+                         "type":"string",
+                         "value":"switch_up"
+                        }, 
+                        {
+                         "name":"tileset",
+                         "type":"string",
+                         "value":"tilesetRockyRoadz"
+                        }]
+                }, 
+                {
+                 "id":3,
+                 "properties":[
+                        {
+                         "name":"bridgeType",
+                         "type":"string",
+                         "value":"switch_down"
+                        }, 
+                        {
+                         "name":"ge_collide",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"tileset",
+                         "type":"string",
+                         "value":"tilesetRockyRoadz"
+                        }]
+                }, 
+                {
+                 "id":4,
+                 "properties":[
+                        {
+                         "name":"bridgeType",
+                         "type":"string",
+                         "value":"crumbling"
+                        }, 
+                        {
+                         "name":"tileset",
+                         "type":"string",
+                         "value":"tilesetRockyRoadz"
+                        }]
+                }, 
+                {
+                 "id":5,
+                 "properties":[
+                        {
+                         "name":"ge_collide",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"pyramidState",
+                         "type":"string",
+                         "value":"up"
+                        }, 
+                        {
+                         "name":"pyramidType",
+                         "type":"string",
+                         "value":"checkpoint"
+                        }]
+                }, 
+                {
+                 "id":6,
+                 "properties":[
+                        {
+                         "name":"ge_collide",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"pyramidState",
+                         "type":"string",
+                         "value":"half_up"
+                        }, 
+                        {
+                         "name":"pyramidType",
+                         "type":"string",
+                         "value":"checkpoint"
+                        }]
+                }, 
+                {
+                 "id":7,
+                 "properties":[
+                        {
+                         "name":"pyramidState",
+                         "type":"string",
+                         "value":"down"
+                        }, 
+                        {
+                         "name":"pyramidType",
+                         "type":"string",
+                         "value":"checkpoint"
+                        }]
+                }, 
+                {
+                 "id":16,
+                 "properties":[
+                        {
+                         "name":"bridgeType",
+                         "type":"string",
+                         "value":"up"
+                        }, 
+                        {
+                         "name":"tileset",
+                         "type":"string",
+                         "value":"tilesetRockyRoadz"
+                        }]
+                }, 
+                {
+                 "id":17,
+                 "properties":[
+                        {
+                         "name":"bridgeType",
+                         "type":"string",
+                         "value":"down"
+                        }, 
+                        {
+                         "name":"ge_collide",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"tileset",
+                         "type":"string",
+                         "value":"tilesetRockyRoadz"
+                        }]
+                }, 
+                {
+                 "id":18,
+                 "properties":[
+                        {
+                         "name":"bridgeType",
+                         "type":"string",
+                         "value":"switch_up"
+                        }, 
+                        {
+                         "name":"tileset",
+                         "type":"string",
+                         "value":"tilesetRockyRoadz"
+                        }]
+                }, 
+                {
+                 "id":19,
+                 "properties":[
+                        {
+                         "name":"bridgeType",
+                         "type":"string",
+                         "value":"switch_down"
+                        }, 
+                        {
+                         "name":"ge_collide",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"tileset",
+                         "type":"string",
+                         "value":"tilesetRockyRoadz"
+                        }]
+                }, 
+                {
+                 "id":20,
+                 "properties":[
+                        {
+                         "name":"bridgeType",
+                         "type":"string",
+                         "value":"crumbling"
+                        }, 
+                        {
+                         "name":"tileset",
+                         "type":"string",
+                         "value":"tilesetRockyRoadz"
+                        }]
+                }, 
+                {
+                 "id":21,
+                 "properties":[
+                        {
+                         "name":"ge_collide",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"pyramidState",
+                         "type":"string",
+                         "value":"up"
+                        }, 
+                        {
+                         "name":"pyramidType",
+                         "type":"string",
+                         "value":"purple"
+                        }]
+                }, 
+                {
+                 "id":22,
+                 "properties":[
+                        {
+                         "name":"ge_collide",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"pyramidState",
+                         "type":"string",
+                         "value":"half_up"
+                        }, 
+                        {
+                         "name":"pyramidType",
+                         "type":"string",
+                         "value":"purple"
+                        }]
+                }, 
+                {
+                 "id":23,
+                 "properties":[
+                        {
+                         "name":"pyramidState",
+                         "type":"string",
+                         "value":"down"
+                        }, 
+                        {
+                         "name":"pyramidType",
+                         "type":"string",
+                         "value":"purple"
+                        }]
+                }, 
+                {
+                 "id":32,
+                 "properties":[
+                        {
+                         "name":"bridgeType",
+                         "type":"string",
+                         "value":"up"
+                        }, 
+                        {
+                         "name":"tileset",
+                         "type":"string",
+                         "value":"tilesetGruntziclez"
+                        }]
+                }, 
+                {
+                 "id":33,
+                 "properties":[
+                        {
+                         "name":"bridgeType",
+                         "type":"string",
+                         "value":"down"
+                        }, 
+                        {
+                         "name":"ge_collide",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"tileset",
+                         "type":"string",
+                         "value":"tilesetGruntziclez"
+                        }]
+                }, 
+                {
+                 "id":34,
+                 "properties":[
+                        {
+                         "name":"bridgeType",
+                         "type":"string",
+                         "value":"switch_up"
+                        }, 
+                        {
+                         "name":"tileset",
+                         "type":"string",
+                         "value":"tilesetGruntziclez"
+                        }]
+                }, 
+                {
+                 "id":35,
+                 "properties":[
+                        {
+                         "name":"bridgeType",
+                         "type":"string",
+                         "value":"switch_down"
+                        }, 
+                        {
+                         "name":"ge_collide",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"tileset",
+                         "type":"string",
+                         "value":"tilesetGruntziclez"
+                        }]
+                }, 
+                {
+                 "id":36,
+                 "properties":[
+                        {
+                         "name":"bridgeType",
+                         "type":"string",
+                         "value":"crumbling"
+                        }, 
+                        {
+                         "name":"tileset",
+                         "type":"string",
+                         "value":"tilesetGruntziclez"
+                        }]
+                }, 
+                {
+                 "id":37,
+                 "properties":[
+                        {
+                         "name":"ge_collide",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"pyramidState",
+                         "type":"string",
+                         "value":"up"
+                        }, 
+                        {
+                         "name":"pyramidType",
+                         "type":"string",
+                         "value":"black"
+                        }]
+                }, 
+                {
+                 "id":38,
+                 "properties":[
+                        {
+                         "name":"ge_collide",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"pyramidState",
+                         "type":"string",
+                         "value":"half_up"
+                        }, 
+                        {
+                         "name":"pyramidType",
+                         "type":"string",
+                         "value":"black"
+                        }]
+                }, 
+                {
+                 "id":39,
+                 "properties":[
+                        {
+                         "name":"pyramidState",
+                         "type":"string",
+                         "value":"down"
+                        }, 
+                        {
+                         "name":"pyramidType",
+                         "type":"string",
+                         "value":"black"
+                        }]
+                }, 
+                {
+                 "id":48,
+                 "properties":[
+                        {
+                         "name":"bridgeType",
+                         "type":"string",
+                         "value":"up"
+                        }, 
+                        {
+                         "name":"tileset",
+                         "type":"string",
+                         "value":"tilesetGruntziclez"
+                        }]
+                }, 
+                {
+                 "id":49,
+                 "properties":[
+                        {
+                         "name":"bridgeType",
+                         "type":"string",
+                         "value":"down"
+                        }, 
+                        {
+                         "name":"ge_collide",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"tileset",
+                         "type":"string",
+                         "value":"tilesetGruntziclez"
+                        }]
+                }, 
+                {
+                 "id":50,
+                 "properties":[
+                        {
+                         "name":"bridgeType",
+                         "type":"string",
+                         "value":"switch_up"
+                        }, 
+                        {
+                         "name":"tileset",
+                         "type":"string",
+                         "value":"tilesetGruntziclez"
+                        }]
+                }, 
+                {
+                 "id":51,
+                 "properties":[
+                        {
+                         "name":"bridgeType",
+                         "type":"string",
+                         "value":"switch_down"
+                        }, 
+                        {
+                         "name":"ge_collide",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"tileset",
+                         "type":"string",
+                         "value":"tilesetGruntziclez"
+                        }]
+                }, 
+                {
+                 "id":52,
+                 "properties":[
+                        {
+                         "name":"bridgeType",
+                         "type":"string",
+                         "value":"crumbling"
+                        }, 
+                        {
+                         "name":"tileset",
+                         "type":"string",
+                         "value":"tilesetGruntziclez"
+                        }]
+                }, 
+                {
+                 "id":53,
+                 "properties":[
+                        {
+                         "name":"ge_collide",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"pyramidState",
+                         "type":"string",
+                         "value":"up"
+                        }, 
+                        {
+                         "name":"pyramidType",
+                         "type":"string",
+                         "value":"green"
+                        }]
+                }, 
+                {
+                 "id":54,
+                 "properties":[
+                        {
+                         "name":"ge_collide",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"pyramidState",
+                         "type":"string",
+                         "value":"half_up"
+                        }, 
+                        {
+                         "name":"pyramidType",
+                         "type":"string",
+                         "value":"green"
+                        }]
+                }, 
+                {
+                 "id":55,
+                 "properties":[
+                        {
+                         "name":"pyramidState",
+                         "type":"string",
+                         "value":"down"
+                        }, 
+                        {
+                         "name":"pyramidType",
+                         "type":"string",
+                         "value":"green"
+                        }]
+                },
+            
+                {
+                 "id":69,
+                 "properties":[
+                        {
+                         "name":"ge_collide",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"pyramidState",
+                         "type":"string",
+                         "value":"up"
+                        }, 
+                        {
+                         "name":"pyramidType",
+                         "type":"string",
+                         "value":"red"
+                        }]
+                }, 
+                {
+                 "id":70,
+                 "properties":[
+                        {
+                         "name":"ge_collide",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"pyramidState",
+                         "type":"string",
+                         "value":"half_up"
+                        }, 
+                        {
+                         "name":"pyramidType",
+                         "type":"string",
+                         "value":"red"
+                        }]
+                }, 
+                {
+                 "id":71,
+                 "properties":[
+                        {
+                         "name":"pyramidState",
+                         "type":"string",
+                         "value":"down"
+                        }, 
+                        {
+                         "name":"pyramidType",
+                         "type":"string",
+                         "value":"red"
+                        }]
+                }, 
+                {
+                 "id":85,
+                 "properties":[
+                        {
+                         "name":"ge_collide",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"pyramidState",
+                         "type":"string",
+                         "value":"up"
+                        }, 
+                        {
+                         "name":"pyramidType",
+                         "type":"string",
+                         "value":"silver"
+                        }]
+                }, 
+                {
+                 "id":86,
+                 "properties":[
+                        {
+                         "name":"ge_collide",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"pyramidState",
+                         "type":"string",
+                         "value":"half_up"
+                        }, 
+                        {
+                         "name":"pyramidType",
+                         "type":"string",
+                         "value":"silver"
+                        }]
+                }, 
+                {
+                 "id":87,
+                 "properties":[
+                        {
+                         "name":"pyramidState",
+                         "type":"string",
+                         "value":"down"
+                        }, 
+                        {
+                         "name":"pyramidType",
+                         "type":"string",
+                         "value":"silver"
+                        }]
+                }, 
+                {
+                 "id":101,
+                 "properties":[
+                        {
+                         "name":"ge_collide",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"pyramidState",
+                         "type":"string",
+                         "value":"up"
+                        }, 
+                        {
+                         "name":"pyramidType",
+                         "type":"string",
+                         "value":"orange"
+                        }]
+                }, 
+                {
+                 "id":102,
+                 "properties":[
+                        {
+                         "name":"ge_collide",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"pyramidState",
+                         "type":"string",
+                         "value":"half_up"
+                        }, 
+                        {
+                         "name":"pyramidType",
+                         "type":"string",
+                         "value":"orange"
+                        }]
+                }, 
+                {
+                 "id":103,
+                 "properties":[
+                        {
+                         "name":"pyramidState",
+                         "type":"string",
+                         "value":"down"
+                        }, 
+                        {
+                         "name":"pyramidType",
+                         "type":"string",
+                         "value":"orange"
+                        }]
+                }],
+         "tilewidth":32
+        }, 
+        {
+         "columns":16,
+         "firstgid":2049,
+         "image":"..\/tilesets\/tilesetToolz.png",
+         "imageheight":800,
+         "imagewidth":512,
+         "margin":0,
+         "name":"tilesetToolz",
+         "spacing":0,
+         "tilecount":400,
+         "tileheight":32,
+         "tiles":[
+                {
+                 "animation":[
+                        {
+                         "duration":100,
+                         "tileid":64
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":65
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":66
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":67
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":68
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":69
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":70
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":71
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":72
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":73
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":74
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":75
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":76
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":77
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":78
+                        }],
+                 "id":64,
+                 "properties":[
+                        {
+                         "name":"toolType",
+                         "type":"string",
+                         "value":"club"
+                        }]
+                }, 
+                {
+                 "animation":[
+                        {
+                         "duration":100,
+                         "tileid":80
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":81
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":82
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":83
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":84
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":85
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":86
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":87
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":88
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":89
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":90
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":91
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":92
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":93
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":94
+                        }],
+                 "id":80,
+                 "properties":[
+                        {
+                         "name":"toolType",
+                         "type":"string",
+                         "value":"gauntletz"
+                        }]
+                }, 
+                {
+                 "animation":[
+                        {
+                         "duration":100,
+                         "tileid":304
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":305
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":306
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":307
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":308
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":309
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":310
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":311
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":312
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":313
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":314
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":315
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":316
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":317
+                        }, 
+                        {
+                         "duration":100,
+                         "tileid":318
+                        }],
+                 "id":304,
+                 "properties":[
+                        {
+                         "name":"toolType",
+                         "type":"string",
+                         "value":"warpstone"
+                        }]
+                }],
+         "tilewidth":32
         }],
  "tilewidth":32,
  "type":"map",
- "version":"1.8",
+ "version":"1.9",
  "width":32
 }

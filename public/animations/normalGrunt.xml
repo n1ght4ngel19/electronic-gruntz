@@ -1,4 +1,4 @@
-<TextureAtlas imagePath="NORMALGRUNT.png">
+<TextureAtlas imagePath="normalGrunt.png">
 	<SubTexture name="DEATH_01" x="377" y="93" width="32" height="35"/>
 	<SubTexture name="DEATH_02" x="629" y="255" width="28" height="38"/>
 	<SubTexture name="DEATH_03" x="447" y="32" width="32" height="30"/>
