@@ -2,11 +2,11 @@ import Phaser from 'phaser';
 import {GridEngine} from 'grid-engine';
 import Tilemap = Phaser.Tilemaps.Tilemap;
 import {Grunt} from './gruntz/Grunt';
-import Tileset = Phaser.Tilemaps.Tileset;
 import {ControlKeys} from './ControlKeys';
 import Vector2 = Phaser.Math.Vector2;
 import {HandlerManager} from './managers/HandlerManager';
 import {CreatorManager} from './managers/CreatorManager';
+import TilemapLayer = Phaser.Tilemaps.TilemapLayer;
 
 const searchParams = new URLSearchParams(window.location.search);
 const mapName = String(searchParams.get('stage'));
@@ -35,16 +35,14 @@ export class Stage extends Phaser.Scene {
   mapWidth!: number;
   mapHeight!: number;
 
-  baseLayer!: Tileset;
-  generalLayer!: Tileset;
-  brickLayer!: Tileset;
-  animatedLayer!: Tileset;
-  toolzLayer!: Tileset;
-  markerLayer!: Tileset;
-  // switchLayer!: Tileset;
+  baseLayer!: TilemapLayer;
+  hiddenLayer!: TilemapLayer;
+  actionLayer!: TilemapLayer;
+  itemLayer!: TilemapLayer;
+  mapObjects!: Phaser.GameObjects.GameObject[];
 
   playerGruntz: Grunt[] = [];
-  playerGruntzPositionz: Vector2[] = [];
+  playerGruntPositions: Vector2[] = [];
 
   nextGruntIdNumber = 1;
 
@@ -77,52 +75,21 @@ export class Stage extends Phaser.Scene {
     // @ts-ignore
     this.animatedTiles.init(this.map);
 
-    // TODO: Move into GruntCreator
-    for (let i = 0; i < this.map.getLayer('markerLayer').width; i++) {
-      for (let j = 0; j < this.map.getLayer('markerLayer').height; j++) {
-        const gruntTypeToAdd = this.map.getTileAt(i, j, true, 'markerLayer').properties.gruntType;
-
-        if (gruntTypeToAdd) {
-          switch (gruntTypeToAdd) {
-            case 'normalGrunt': {
-              this.playerGruntz.push(
-                  this.add.existing(
-                      new Grunt(this, 0, 0, gruntAnimationAtlases[0], false, `grunt${this.nextGruntIdNumber++}`, gruntTypeToAdd),
-                  ),
-              );
-              break;
-            }
-            case 'clubGrunt': {
-              this.playerGruntz.push(
-                  this.add.existing(
-                      new Grunt(this, 0, 0, gruntAnimationAtlases[1], false, `grunt${this.nextGruntIdNumber++}`, gruntTypeToAdd),
-                  ),
-              );
-              break;
-            }
-            case 'gauntletzGrunt': {
-              this.playerGruntz.push(
-                  this.add.existing(
-                      new Grunt(this, 0, 0, gruntAnimationAtlases[1], false, `grunt${this.nextGruntIdNumber++}`, gruntTypeToAdd),
-                  ),
-              );
-              break;
-            }
-            default: {
-              throw new Error('Invalid GruntType!');
-            }
-          }
-
-          this.playerGruntzPositionz.push(new Vector2(i, j));
-        }
-      }
+    // TODO: Find a better/more elegant solution?
+    // Making all ObjectLayer objects invisible
+    for (const object of this.mapObjects) {
+      // @ts-ignore
+      object.visible = false;
     }
 
-    for (let i = 0; i < this.playerGruntz.length; i++) {
-      this.playerGruntz[i].anims.play(`${this.playerGruntz[i].gruntType}SouthIdle`);
+    this.creatorManager.gruntCreator.createAllGruntz(gruntAnimationAtlases);
+
+    // Make all gruntz play their default idle animations
+    for (const grunt of this.playerGruntz) {
+      grunt.anims.play(`${grunt.gruntType}SouthIdle`);
     }
 
-    this.creatorManager.gruntCreator.createAllGridEngineGruntz();
+    this.creatorManager.gruntCreator.addAllGruntzToGridEngineConfig();
 
     this.gridEngine.create(this.map, this.gridEngineConfig);
 
@@ -131,19 +98,10 @@ export class Stage extends Phaser.Scene {
 
     this.handlerManager.pauseMenuHandler.handlePause();
 
-    this.selectGruntzWithKeys();
+    this.handlerManager.controlHandler.selectGruntzWithKeys();
 
-    // Logging where the toolz on the map at
-    for (let i = 0; i < this.map.width; i++) {
-      for (let j = 0; j < this.map.height; j++) {
-        if (this.map.getTileAt(i, j, true, 'toolzLayer').properties.toolType) {
-          this.map.getTileAt(i, j, true, 'toolzLayer');
-          console.log(this.map.getTileAt(i, j, true, 'toolzLayer').properties.toolType);
-          console.log('i: ', i);
-          console.log('j: ', j);
-        }
-      }
-    }
+    console.log(this.map);
+    console.log(this.playerGruntz);
   }
 
 
@@ -151,12 +109,7 @@ export class Stage extends Phaser.Scene {
    * Update
    */
   update(): void {
-    this.playerGruntzPositionz = [];
-
-    // Get the position of all player Gruntz currently on the map
-    for (let i = 0; i < this.playerGruntz.length; i++) {
-      this.playerGruntzPositionz[i] = new Vector2(Math.round(this.playerGruntz[i].x / 32), Math.round(this.playerGruntz[i].y / 32));
-    }
+    this.updateGruntPositions();
 
     this.handlerManager.animationHandler.handleWalkingAnimations(this.playerGruntz);
     this.handlerManager.animationHandler.handleIdleAnimations(this.playerGruntz);
@@ -166,46 +119,18 @@ export class Stage extends Phaser.Scene {
 
     this.handlerManager.actionHandler.handleMoveCommand(this.playerGruntz);
     this.handlerManager.actionHandler.handleMoveArrows(this.playerGruntz);
-    this.handlerManager.actionHandler.handleToolPickup();
+    this.handlerManager.actionHandler.handleToolPickup(this.playerGruntz, this.playerGruntPositions);
   }
 
-  selectGruntzWithKeys(): void {
-    this.input.keyboard.on('keydown', (e: KeyboardEvent) => {
-      switch (e.key) {
-        case '0': {
-          for (let i = 0; i < this.playerGruntz.length; i++) {
-            this.playerGruntz[i].isSelected = false;
-          }
+  updateGruntPositions(): void {
+    this.playerGruntPositions = [];
 
-          break;
-        }
-        case '1': {
-          for (let i = 0; i < this.playerGruntz.length; i++) {
-            this.playerGruntz[i].isSelected = false;
-          }
-
-          this.playerGruntz[0].isSelected = true;
-          break;
-        }
-        case '2': {
-          for (let i = 0; i < this.playerGruntz.length; i++) {
-            this.playerGruntz[i].isSelected = false;
-          }
-
-          this.playerGruntz[1].isSelected = true;
-          break;
-        }
-        case '3': {
-          for (let i = 0; i < this.playerGruntz.length; i++) {
-            this.playerGruntz[i].isSelected = true;
-          }
-          break;
-        }
-      }
-    });
+    // Get the position of all player Gruntz currently on the map
+    for (const [index, grunt] of this.playerGruntz.entries()) {
+      this.playerGruntPositions[index] = new Vector2(
+          Math.round(grunt.x / 32),
+          Math.round(grunt.y / 32),
+      );
+    }
   }
-
-  // selectGruntzWithDrag(): void {}
-
-  // selectGruntzWithClick(): void {}
 }

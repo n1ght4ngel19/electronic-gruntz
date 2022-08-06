@@ -16,11 +16,10 @@ export class AnimationHandler {
   /**
    * Plays the appropriate walking animation a Grunt is moving.
    *
-   * @param {Sprite} sprite - The sprite that plays the animation
-   * @param {string} gruntType - Defines which type of animation should be played
+   * @param {Grunt[]} gruntz - All of the gruntz currently in-game
    */
   handleWalkingAnimations(gruntz: Grunt[]): void {
-    for (let i = 0; i < gruntz.length; i++) {
+    for (const grunt of gruntz) {
       this.stage.gridEngine.movementStarted().subscribe(({charId, direction}) => {
         const gruntType = (this.stage.gridEngine.getSprite(charId) as Grunt).gruntType;
 
@@ -50,50 +49,50 @@ export class AnimationHandler {
             this.stage.gridEngine.getSprite(charId).anims.play(`${gruntType}NorthWestWalk`);
             break;
           default:
-            throw new Error('Invalid animation.');
+            throw new Error('Invalid animation!');
         }
       });
     }
   }
 
   /**
-   * Plays the appropriate idling animation a Grunt is standing.
+   * Plays the appropriate idling animation while a Grunt is standing.
    *
-   * @param {Sprite} sprite - The sprite that plays the animation
-   * @param {string} gruntType - Defines which type of animation should be played
+   * @param {Grunt[]} gruntz - All of the gruntz currently in-game
    */
   handleIdleAnimations(gruntz: Grunt[]): void {
-    for (let i = 0; i < gruntz.length; i++) {
+    for (const grunt of gruntz) {
       this.stage.gridEngine.movementStopped().subscribe(({charId, direction}) => {
-        const gruntType = (this.stage.gridEngine.getSprite(charId) as Grunt).gruntType;
+        const gruntSprite = this.stage.gridEngine.getSprite(grunt.id);
+        const gruntType = (gruntSprite as Grunt).gruntType;
 
         switch (direction) {
           case 'up':
-            this.stage.gridEngine.getSprite(charId).anims.play(`${gruntType}NorthIdle`);
+            gruntSprite.anims.play(`${gruntType}NorthIdle`);
             break;
           case 'up-right':
-            this.stage.gridEngine.getSprite(charId).anims.play(`${gruntType}NorthEastIdle`);
+            gruntSprite.anims.play(`${gruntType}NorthEastIdle`);
             break;
           case 'right':
-            this.stage.gridEngine.getSprite(charId).anims.play(`${gruntType}EastIdle`);
+            gruntSprite.anims.play(`${gruntType}EastIdle`);
             break;
           case 'down-right':
-            this.stage.gridEngine.getSprite(charId).anims.play(`${gruntType}SouthEastIdle`);
+            gruntSprite.anims.play(`${gruntType}SouthEastIdle`);
             break;
           case 'down':
-            this.stage.gridEngine.getSprite(charId).anims.play(`${gruntType}SouthIdle`);
+            gruntSprite.anims.play(`${gruntType}SouthIdle`);
             break;
           case 'down-left':
-            this.stage.gridEngine.getSprite(charId).anims.play(`${gruntType}SouthWestIdle`);
+            gruntSprite.anims.play(`${gruntType}SouthWestIdle`);
             break;
           case 'left':
-            this.stage.gridEngine.getSprite(charId).anims.play(`${gruntType}WestIdle`);
+            gruntSprite.anims.play(`${gruntType}WestIdle`);
             break;
           case 'up-left':
-            this.stage.gridEngine.getSprite(charId).anims.play(`${gruntType}NorthWestIdle`);
+            gruntSprite.anims.play(`${gruntType}NorthWestIdle`);
             break;
           default:
-            throw new Error('Invalid animation.');
+            throw new Error('Invalid animation!');
         }
       });
     }

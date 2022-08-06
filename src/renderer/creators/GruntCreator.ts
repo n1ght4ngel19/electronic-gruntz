@@ -1,7 +1,7 @@
 import {Stage} from '../Stage';
 import {Grunt} from '../gruntz/Grunt';
+import {GruntType} from '../gruntz/GruntType';
 import Vector2 = Phaser.Math.Vector2;
-import Tilemap = Phaser.Tilemaps.Tilemap;
 import Texture = Phaser.Textures.Texture;
 
 export class GruntCreator {
@@ -11,7 +11,7 @@ export class GruntCreator {
 
   stage: Stage;
 
-  private createGridEngineGrunt(id: string, sprite: Grunt, startPosition: Vector2): void {
+  private addNewGruntToGridEngineConfig(id: string, sprite: Grunt, startPosition: Vector2): void {
     const newGrunt = {
       id: id,
       sprite: sprite,
@@ -23,53 +23,33 @@ export class GruntCreator {
     this.stage.gridEngineConfig.characters.push(newGrunt);
   }
 
-  createAllGridEngineGruntz(): void {
+  addAllGruntzToGridEngineConfig(): void {
     for (let i = 0; i < this.stage.playerGruntz.length; i++) {
-      this.createGridEngineGrunt(this.stage.playerGruntz[i].id, this.stage.playerGruntz[i], this.stage.playerGruntzPositionz[i]);
+      this.addNewGruntToGridEngineConfig(this.stage.playerGruntz[i].id, this.stage.playerGruntz[i], this.stage.playerGruntPositions[i]);
     }
   }
 
-  // placeAllGruntzOnMap(atlases: Texture[]): void {
-  //   for (let i = 0; i < this.stage.map.getLayer('markerLayer').width; i++) {
-  //     for (let j = 0; j < this.stage.map.getLayer('markerLayer').height; j++) {
-  //       const gruntTypeToAdd = this.stage.map.getTileAt(i, j, true, 'markerLayer').properties.gruntType;
-  //
-  //       if (gruntTypeToAdd) {
-  //         switch (gruntTypeToAdd) {
-  //           case 'normalGrunt': {
-  //             this.stage.playerGruntz.push(
-  //                 this.stage.add.existing(
-  //                     new Grunt(this.stage, 0, 0, gruntAnimationAtlases[0], false, `grunt${this.stage.nextGruntIdNumber++}`, gruntTypeToAdd),
-  //                 ),
-  //             );
-  //             break;
-  //           }
-  //           case 'clubGrunt': {
-  //             this.stage.playerGruntz.push(
-  //                 this.stage.add.existing(
-  //                     new Grunt(this.stage, 0, 0, gruntAnimationAtlases[1], false, `grunt${this.stage.nextGruntIdNumber++}`, gruntTypeToAdd),
-  //                 ),
-  //             );
-  //             break;
-  //           }
-  //           case 'gauntletzGrunt': {
-  //             this.stage.playerGruntz.push(
-  //                 this.stage.add.existing(
-  //                     new Grunt(this.stage, 0, 0, gruntAnimationAtlases[1], false, `grunt${this.stage.nextGruntIdNumber++}`, gruntTypeToAdd),
-  //                 ),
-  //             );
-  //             break;
-  //           }
-  //           default: {
-  //             throw new Error('Invalid GruntType!');
-  //           }
-  //         }
-  //
-  //         this.stage.playerGruntzPositionz.push(new Vector2(i, j));
-  //
-  //         console.log(this.stage.map.getTileAt(i, j, true, 'markerLayer').properties.gruntType);
-  //       }
-  //     }
-  //   }
-  // }
+  createGrunt(type: GruntType, x: number, y: number, currentId: number, atlases: Texture[]): Grunt {
+    const atlas = atlases.find((atlas) => atlas.key === type);
+    // @ts-ignore
+    return this.stage.add.existing(new Grunt(this.stage, x, y, atlas, false, `grunt${currentId}`, type));
+  }
+
+  createAllGruntz(atlases: Texture[]): void {
+    for (const object of this.stage.mapObjects) {
+      // @ts-ignore
+      const currentX = Math.floor(object.x / 32);
+      // @ts-ignore
+      const currentY = Math.floor(object.y / 32);
+      const objectName = object.name;
+
+      for (const type of Object.values(GruntType)) {
+        if (objectName === type) {
+          this.stage.playerGruntPositions.push(<Vector2>{x: currentX, y: currentY});
+          const grunt = this.createGrunt(type, currentX, currentY, this.stage.nextGruntIdNumber++, atlases);
+          this.stage.playerGruntz.push(grunt);
+        }
+      }
+    }
+  }
 }

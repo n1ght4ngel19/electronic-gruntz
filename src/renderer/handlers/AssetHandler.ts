@@ -1,8 +1,5 @@
 import {Stage} from '../Stage';
-import {Grunt} from '../gruntz/Grunt';
 import Tilemap = Phaser.Tilemaps.Tilemap;
-import Vector2 = Phaser.Math.Vector2;
-import Texture = Phaser.Textures.Texture;
 
 export class AssetHandler {
   /**
@@ -22,22 +19,43 @@ export class AssetHandler {
         tilesetName,
         `tilesets/${tilesetName}.png`);
     this.stage.load.image(
-        'tilesetGeneral',
-        'tilesets/tilesetGeneral.png');
+        'actionArrow',
+        'tilesets/actionArrow.png');
     this.stage.load.image(
-        'tilesetBrickz',
-        'tilesets/tilesetBrickz.png');
+        'actionBrick',
+        'tilesets/actionBrick.png');
     this.stage.load.image(
-        'animatedTilez',
-        'tilesets/animatedTilez.png');
+        'actionBridge',
+        'tilesets/actionBridge.png');
     this.stage.load.image(
-        'tilesetToolz',
-        'tilesets/tilesetToolz.png');
+        'actionGiantRock',
+        'tilesets/actionGiantRock.png');
     this.stage.load.image(
-        'tilesetMarkerz',
-        'tilesets/tilesetMarkerz.png',
-    );
+        'actionHazard',
+        'tilesets/actionHazard.png');
+    this.stage.load.image(
+        'actionHole',
+        'tilesets/actionHole.png');
+    this.stage.load.image(
+        'actionPyramid',
+        'tilesets/actionPyramid.png');
+    this.stage.load.image(
+        'actionRock',
+        'tilesets/actionRock.png');
+    this.stage.load.image(
+        'actionSwitch',
+        'tilesets/actionSwitch.png');
+    this.stage.load.image(
+        'itemTool',
+        'tilesets/itemTool.png');
+    this.stage.load.image(
+        'markerGrunt',
+        'tilesets/markerGrunt.png');
+    this.stage.load.image(
+        'markerLogic',
+        'tilesets/markerLogic.png');
   }
+
   loadAnimationAtlases(): void {
     this.stage.load.atlasXML('normalGrunt', 'animations/normalGrunt.png', 'animations/normalGrunt.xml');
     this.stage.load.atlasXML('clubGrunt', 'animations/clubGrunt.png', 'animations/clubGrunt.xml');
@@ -58,57 +76,49 @@ export class AssetHandler {
 
     // Add tilesets to create the map layers from
     // TODO: Dynamic tileWidth and tileHeight, specified in Area, together with how big Grunt textures the Area should use
-    this.stage.baseLayer = returnMap.addTilesetImage(tilesetName, tilesetName, 32, 32);
-    this.stage.generalLayer = returnMap.addTilesetImage('tilesetGeneral', 'tilesetGeneral');
-    this.stage.brickLayer = returnMap.addTilesetImage('tilesetBrickz', 'tilesetBrickz');
-    this.stage.animatedLayer = returnMap.addTilesetImage('animatedTilez', 'animatedTilez');
-    this.stage.toolzLayer = returnMap.addTilesetImage('tilesetToolz', 'tilesetToolz');
-    this.stage.markerLayer = returnMap.addTilesetImage('tilesetMarkerz', 'tilesetMarkerz');
+    returnMap.addTilesetImage(tilesetName, tilesetName, 32, 32);
+    returnMap.addTilesetImage('actionArrow');
+    returnMap.addTilesetImage('actionBrick');
+    returnMap.addTilesetImage('actionBridge');
+    returnMap.addTilesetImage('actionGiantRock');
+    returnMap.addTilesetImage('actionHazard');
+    returnMap.addTilesetImage('actionHole');
+    returnMap.addTilesetImage('actionPyramid');
+    returnMap.addTilesetImage('actionRock');
+    returnMap.addTilesetImage('actionSwitch');
+    returnMap.addTilesetImage('itemTool');
+    returnMap.addTilesetImage('markerGrunt');
+    returnMap.addTilesetImage('markerLogic');
 
     // Create map layers
-    returnMap.createLayer('baseLayer', this.stage.baseLayer);
-    returnMap.createLayer('generalLayer', this.stage.generalLayer);
-    returnMap.createLayer('brickLayer', this.stage.brickLayer);
-    returnMap.createLayer('animatedLayer', this.stage.animatedLayer);
-    returnMap.createLayer('toolzLayer', this.stage.toolzLayer);
-    returnMap.createLayer('markerLayer', this.stage.markerLayer);
+    this.stage.baseLayer = returnMap.createLayer(
+        'baseLayer',
+        tilesetName);
+    this.stage.hiddenLayer = returnMap.createLayer(
+        'hiddenLayer',
+        tilesetName); // TODO
+    this.stage.actionLayer = returnMap.createLayer(
+        'actionLayer',
+        [
+          'actionArrow',
+          'actionBrick',
+          'actionBridge',
+          'actionGiantRock',
+          'actionHazard',
+          'actionHole',
+          'actionPyramid',
+          'actionRock',
+          'actionSwitch',
+        ],
+    );
+    this.stage.itemLayer = returnMap.createLayer(
+        'itemLayer',
+        'itemTool',
+    );
+    // @ts-ignore
+    this.stage.mapObjects = returnMap.createFromObjects('mapObjects');
+    // TODO: Remove
 
     return returnMap;
   }
-
-  // addAllGruntzToTheMap(map: Tilemap, atlases: Texture[]): void {
-  //   for (let i = 0; i < map.getLayer('markerLayer').width; i++) {
-  //     for (let j = 0; j < map.getLayer('markerLayer').height; j++) {
-  //       const gruntTypeToAdd = map.getTileAt(i, j, true, 'markerLayer').properties.gruntType;
-  //
-  //       if (gruntTypeToAdd) {
-  //         switch (gruntTypeToAdd) {
-  //           case 'normalGrunt': {
-  //             this.stage.playerGruntz.push(
-  //                 this.stage.add.existing(
-  //                     new Grunt(this.stage, 0, 0, atlases[0], false, `grunt${this.stage.nextGruntIdNumber++}`, gruntTypeToAdd),
-  //                 ),
-  //             );
-  //             break;
-  //           }
-  //           case 'clubzGrunt': {
-  //             this.stage.playerGruntz.push(
-  //                 this.stage.add.existing(
-  //                     new Grunt(this.stage, 0, 0, atlases[1], false, `grunt${this.stage.nextGruntIdNumber++}`, gruntTypeToAdd),
-  //                 ),
-  //             );
-  //             break;
-  //           }
-  //           default: {
-  //             throw new Error('Invalid GruntType!');
-  //           }
-  //         }
-  //
-  //         this.stage.playerGruntzPositionz.push(new Vector2(i, j));
-  //
-  //         console.log(this.stage.map.getTileAt(i, j, true, 'markerLayer').properties.gruntType);
-  //       }
-  //     }
-  //   }
-  // }
 }
