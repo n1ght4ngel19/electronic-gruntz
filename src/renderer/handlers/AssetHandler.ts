@@ -93,13 +93,53 @@ export class AssetHandler {
     // Create map layers
     this.stage.baseLayer = returnMap.createLayer(
         'baseLayer',
-        tilesetName);
-    this.stage.hiddenLayer = returnMap.createLayer(
-        'hiddenLayer',
-        tilesetName); // TODO
+        [
+          tilesetName,
+          'actionArrow',
+          'actionBrick',
+          'actionBridge',
+          'actionGiantRock',
+          'actionHazard',
+          'actionHole',
+          'actionPyramid',
+          'actionRock',
+          'actionSwitch',
+        ],
+    );
+    this.stage.secretLayerHidden = returnMap.createLayer(
+        'secretLayerHidden',
+        [
+          tilesetName,
+          'actionArrow',
+          'actionBrick',
+          'actionBridge',
+          'actionGiantRock',
+          'actionHazard',
+          'actionHole',
+          'actionPyramid',
+          'actionRock',
+          'actionSwitch',
+        ],
+    );
     this.stage.actionLayer = returnMap.createLayer(
         'actionLayer',
         [
+          tilesetName,
+          'actionArrow',
+          'actionBrick',
+          'actionBridge',
+          'actionGiantRock',
+          'actionHazard',
+          'actionHole',
+          'actionPyramid',
+          'actionRock',
+          'actionSwitch',
+        ],
+    );
+    this.stage.secretLayerTop = returnMap.createLayer(
+        'secretLayerTop',
+        [
+          tilesetName,
           'actionArrow',
           'actionBrick',
           'actionBridge',
@@ -117,7 +157,6 @@ export class AssetHandler {
     );
     // @ts-ignore
     this.stage.mapObjects = returnMap.createFromObjects('mapObjects');
-    // TODO: Remove
 
     return returnMap;
   }

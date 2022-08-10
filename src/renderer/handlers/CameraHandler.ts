@@ -22,7 +22,7 @@ export class CameraHandler {
    */
   setDefaultCameraSettings(camera: Camera, mapWidth: number, mapHeight: number): void {
     camera.setBounds(0, 0, mapWidth, mapHeight);
-    camera.zoom = 1.75;
+    camera.zoom = 2.5;
   }
 
   /**

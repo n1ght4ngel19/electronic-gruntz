@@ -2,6 +2,7 @@ import {Stage} from '../Stage';
 import {Grunt} from '../gruntz/Grunt';
 import {Direction} from 'grid-engine';
 import Vector2 = Phaser.Math.Vector2;
+import {GruntType} from '../gruntz/GruntType';
 
 export class ActionHandler {
   /**
@@ -43,7 +44,7 @@ export class ActionHandler {
         this.stage.map.removeTileAt(position.x, position.y, false, false, 'itemLayer');
 
         gruntz[index].anims.play(`${toolTile.properties.toolType}Pickup`);
-        gruntz[index].setGruntType(`${toolTile.properties.toolType}Grunt`);
+        gruntz[index].setGruntType((`${toolTile.properties.toolType}Grunt`) as GruntType);
       }
     }
   }
@@ -131,6 +132,38 @@ export class ActionHandler {
     }
   }
 
+  // TODO: Refactor this?
+  handleSecretSwitch(): void {
+    for (const position of this.stage.playerGruntPositions) {
+      if (position.equals(this.stage.secretSwitchPosition) || !this.stage.secretSwitchState) {
+        this.stage.secretSwitchState = false;
+
+        for (const [index, pos] of this.stage.secretObjectPositions.entries()) {
+          const hiddenTile = this.stage.secretLayerHidden.getTileAt(pos.x, pos.y);
+          const baseTile = this.stage.baseLayer.getTileAt(pos.x, pos.y);
+
+          console.log(pos.x, pos.y, baseTile);
+
+          setTimeout(() => {
+            this.stage.secretLayerTop.putTileAt(hiddenTile, pos.x, pos.y, false);
+
+            if (!hiddenTile.properties.ge_collide && baseTile.properties.ge_collide) {
+              this.stage.baseLayer.getTileAt(pos.x, pos.y).properties.ge_collide = false;
+            }
+
+            setTimeout(() => {
+              this.stage.secretLayerHidden.putTileAt(baseTile, pos.x, pos.y, false);
+
+              if (baseTile.properties.ge_collide !== undefined && !baseTile.properties.ge_collide) {
+                this.stage.baseLayer.getTileAt(pos.x, pos.y).properties.ge_collide = true;
+              }
+            }, this.stage.secretObjects[index].data.list.duration * 1000);
+          }, (this.stage.secretObjects[index].data.list.delay) * 1000);
+        }
+      }
+    }
+  }
+
   /**
    * Checks if the target position is adjacent to the grunt specified.
    *
@@ -156,7 +189,8 @@ export class ActionHandler {
 
   private isCollideTile(x: number, y: number): boolean {
     return this.stage.map.getTileAt(x, y, true, 'baseLayer').properties.ge_collide ||
-      this.stage.map.getTileAt(x, y, true, 'hiddenLayer').properties.ge_collide ||
-      this.stage.map.getTileAt(x, y, true, 'actionLayer').properties.ge_collide;
+      this.stage.map.getTileAt(x, y, true, 'secretLayerHidden').properties.ge_collide ||
+      this.stage.map.getTileAt(x, y, true, 'actionLayer').properties.ge_collide ||
+      this.stage.map.getTileAt(x, y, true, 'secretLayerTop').properties.ge_collide;
   }
 }

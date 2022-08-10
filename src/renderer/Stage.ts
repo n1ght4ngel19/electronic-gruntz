@@ -1,11 +1,11 @@
 import Phaser from 'phaser';
 import {GridEngine} from 'grid-engine';
-import Tilemap = Phaser.Tilemaps.Tilemap;
 import {Grunt} from './gruntz/Grunt';
 import {ControlKeys} from './ControlKeys';
-import Vector2 = Phaser.Math.Vector2;
 import {HandlerManager} from './managers/HandlerManager';
 import {CreatorManager} from './managers/CreatorManager';
+import Tilemap = Phaser.Tilemaps.Tilemap;
+import Vector2 = Phaser.Math.Vector2;
 import TilemapLayer = Phaser.Tilemaps.TilemapLayer;
 
 const searchParams = new URLSearchParams(window.location.search);
@@ -36,15 +36,26 @@ export class Stage extends Phaser.Scene {
   mapHeight!: number;
 
   baseLayer!: TilemapLayer;
-  hiddenLayer!: TilemapLayer;
+  secretLayerHidden!: TilemapLayer;
   actionLayer!: TilemapLayer;
+  secretLayerTop!: TilemapLayer;
   itemLayer!: TilemapLayer;
   mapObjects!: Phaser.GameObjects.GameObject[];
+
+  secretObjects: Phaser.GameObjects.GameObject[] = [];
+  secretObjectPositions: Vector2[] = [];
+  secretSwitchState: boolean = true;
+  secretSwitchPosition!: Vector2;
 
   playerGruntz: Grunt[] = [];
   playerGruntPositions: Vector2[] = [];
 
   nextGruntIdNumber = 1;
+
+  // blueSwitchPosition: Vector2;
+  // bridgepositions: Vector2[] = [];
+  // cpswitchPosition: Vector2;
+  // cpPyramids: Vector2[] = [];
 
 
   /**
@@ -100,8 +111,51 @@ export class Stage extends Phaser.Scene {
 
     this.handlerManager.controlHandler.selectGruntzWithKeys();
 
-    console.log(this.map);
-    console.log(this.playerGruntz);
+    this.mapObjects.forEach((object) => {
+      object.coordX = Math.floor(object.x / 32);
+      object.coordY = Math.floor(object.y / 32);
+
+      const position = new Vector2(object.coordX, object.coordY);
+
+      switch (object.name) {
+        case 'SecretSwitch':
+          this.secretSwitchPosition = position;
+          break;
+        // case 'FirstBridgeSwitch':
+        //   this.blueSwitchPosition = position;
+        //   break;
+        // case 'FirstBridge':
+        //   this.bridgepositions.push(position);
+        //   break;
+        // case 'FirstCheckpointSwitch':
+        //   this.cpswitchPosition = position;
+        //   break;
+        // case 'FirstCheckpointPyramid':
+        //   this.cpPyramids.push(position);
+        //   break;
+        default:
+          break;
+      }
+    });
+
+    // Collect all secret object positions
+    for (const object of this.mapObjects) {
+      if (object.name.includes('Secret_')) {
+        this.secretObjectPositions.push(new Vector2(object.coordX, object.coordY));
+        this.secretObjects.push(object);
+      }
+    }
+
+    // TODO: Remove?
+    // Collect all grunt positions
+    // for (const [index, grunt] of this.playerGruntz.entries()) {
+    //   this.playerGruntPositions[index] = new Vector2(
+    //       Math.floor(grunt.x / 32),
+    //       Math.floor(grunt.y / 32),
+    //   );
+    // }
+
+    this.secretLayerHidden.setVisible(false);
   }
 
 
@@ -120,12 +174,12 @@ export class Stage extends Phaser.Scene {
     this.handlerManager.actionHandler.handleMoveCommand(this.playerGruntz);
     this.handlerManager.actionHandler.handleMoveArrows(this.playerGruntz);
     this.handlerManager.actionHandler.handleToolPickup(this.playerGruntz, this.playerGruntPositions);
+    this.handlerManager.actionHandler.handleSecretSwitch();
   }
 
   updateGruntPositions(): void {
     this.playerGruntPositions = [];
 
-    // Get the position of all player Gruntz currently on the map
     for (const [index, grunt] of this.playerGruntz.entries()) {
       this.playerGruntPositions[index] = new Vector2(
           Math.round(grunt.x / 32),

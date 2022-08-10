@@ -21,6 +21,7 @@ export class AnimationHandler {
   handleWalkingAnimations(gruntz: Grunt[]): void {
     for (const grunt of gruntz) {
       this.stage.gridEngine.movementStarted().subscribe(({charId, direction}) => {
+        // Using charId so that gruntz don't play all the same animations but their respective ones
         const gruntType = (this.stage.gridEngine.getSprite(charId) as Grunt).gruntType;
 
         switch (direction) {
@@ -63,7 +64,8 @@ export class AnimationHandler {
   handleIdleAnimations(gruntz: Grunt[]): void {
     for (const grunt of gruntz) {
       this.stage.gridEngine.movementStopped().subscribe(({charId, direction}) => {
-        const gruntSprite = this.stage.gridEngine.getSprite(grunt.id);
+        // Using charId so that gruntz don't face all in the same direction, but their respective ones
+        const gruntSprite = this.stage.gridEngine.getSprite(charId);
         const gruntType = (gruntSprite as Grunt).gruntType;
 
         switch (direction) {
