@@ -36,9 +36,8 @@ export class Stage extends Phaser.Scene {
   mapHeight!: number;
 
   baseLayer!: TilemapLayer;
-  secretLayerHidden!: TilemapLayer;
   actionLayer!: TilemapLayer;
-  secretLayerTop!: TilemapLayer;
+  secretLayer!: TilemapLayer;
   itemLayer!: TilemapLayer;
   mapObjects!: Phaser.GameObjects.GameObject[];
 
@@ -136,26 +135,13 @@ export class Stage extends Phaser.Scene {
         default:
           break;
       }
-    });
 
-    // Collect all secret object positions
-    for (const object of this.mapObjects) {
+      // Collect all secret object positions
       if (object.name.includes('Secret_')) {
         this.secretObjectPositions.push(new Vector2(object.coordX, object.coordY));
         this.secretObjects.push(object);
       }
-    }
-
-    // TODO: Remove?
-    // Collect all grunt positions
-    // for (const [index, grunt] of this.playerGruntz.entries()) {
-    //   this.playerGruntPositions[index] = new Vector2(
-    //       Math.floor(grunt.x / 32),
-    //       Math.floor(grunt.y / 32),
-    //   );
-    // }
-
-    this.secretLayerHidden.setVisible(false);
+    });
   }
 
 

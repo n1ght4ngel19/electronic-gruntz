@@ -106,21 +106,6 @@ export class AssetHandler {
           'actionSwitch',
         ],
     );
-    this.stage.secretLayerHidden = returnMap.createLayer(
-        'secretLayerHidden',
-        [
-          tilesetName,
-          'actionArrow',
-          'actionBrick',
-          'actionBridge',
-          'actionGiantRock',
-          'actionHazard',
-          'actionHole',
-          'actionPyramid',
-          'actionRock',
-          'actionSwitch',
-        ],
-    );
     this.stage.actionLayer = returnMap.createLayer(
         'actionLayer',
         [
@@ -136,8 +121,8 @@ export class AssetHandler {
           'actionSwitch',
         ],
     );
-    this.stage.secretLayerTop = returnMap.createLayer(
-        'secretLayerTop',
+    this.stage.secretLayer = returnMap.createLayer(
+        'secretLayer',
         [
           tilesetName,
           'actionArrow',

@@ -135,26 +135,27 @@ export class ActionHandler {
   // TODO: Refactor this?
   handleSecretSwitch(): void {
     for (const position of this.stage.playerGruntPositions) {
-      if (position.equals(this.stage.secretSwitchPosition) || !this.stage.secretSwitchState) {
+      if (position.equals(this.stage.secretSwitchPosition) && this.stage.secretSwitchState) {
         this.stage.secretSwitchState = false;
 
         for (const [index, pos] of this.stage.secretObjectPositions.entries()) {
-          const hiddenTile = this.stage.secretLayerHidden.getTileAt(pos.x, pos.y);
+          // FIXME: Not getting any tile properties
+          const hiddenTile = new Phaser.Tilemaps.Tile(this.stage.baseLayer.layer, this.stage.secretObjects[index].data.list.tileId, pos.x, pos.y, 32, 32, 32, 32);
           const baseTile = this.stage.baseLayer.getTileAt(pos.x, pos.y);
 
-          console.log(pos.x, pos.y, baseTile);
-
+          // Placing tiles after the amount of seconds specified inside them as delay
           setTimeout(() => {
-            this.stage.secretLayerTop.putTileAt(hiddenTile, pos.x, pos.y, false);
+            this.stage.secretLayer.putTileAt(hiddenTile, pos.x, pos.y);
 
             if (!hiddenTile.properties.ge_collide && baseTile.properties.ge_collide) {
               this.stage.baseLayer.getTileAt(pos.x, pos.y).properties.ge_collide = false;
             }
 
+            // Removing tiles after the amount of seconds specified inside them as duration
             setTimeout(() => {
-              this.stage.secretLayerHidden.putTileAt(baseTile, pos.x, pos.y, false);
+              this.stage.secretLayer.removeTileAt(pos.x, pos.y);
 
-              if (baseTile.properties.ge_collide !== undefined && !baseTile.properties.ge_collide) {
+              if (baseTile.properties.ge_collide === false) {
                 this.stage.baseLayer.getTileAt(pos.x, pos.y).properties.ge_collide = true;
               }
             }, this.stage.secretObjects[index].data.list.duration * 1000);
@@ -189,8 +190,7 @@ export class ActionHandler {
 
   private isCollideTile(x: number, y: number): boolean {
     return this.stage.map.getTileAt(x, y, true, 'baseLayer').properties.ge_collide ||
-      this.stage.map.getTileAt(x, y, true, 'secretLayerHidden').properties.ge_collide ||
-      this.stage.map.getTileAt(x, y, true, 'actionLayer').properties.ge_collide ||
-      this.stage.map.getTileAt(x, y, true, 'secretLayerTop').properties.ge_collide;
+      this.stage.map.getTileAt(x, y, true, 'secretLayer').properties.ge_collide ||
+      this.stage.map.getTileAt(x, y, true, 'actionLayer').properties.ge_collide;
   }
 }
