@@ -32,43 +32,52 @@ a {
 }
 
 #title {
-  font-family: 'Turkey Sandwich';
+  font-family: 'Turkey Sandwich', 'Trebuchet MS';
   font-size: 6em;
   text-align: center;
   text-decoration: underline;
-  color: red;
-  text-shadow: 6px 6px black;
+  color: #92A1C7;
+  text-shadow:
+    8px 8px #000,
+    6px 6px #000;
   margin-bottom: 1em;
 }
 
 .menu-option {
-  font-family: 'Turkey Sandwich';
+  font-family: 'Turkey Sandwich', 'Trebuchet MS';
   font-size: 4em;
   text-align: center;
 }
 
 .menu-option > a {
-  color: red;
-  text-shadow: 6px 6px black;
+  color: #92A1C7;
+  text-shadow:
+    8px 8px #000,
+    6px 6px #000;
 }
 
 .menu-option > a:hover {
-  color: white;
-  text-shadow: 6px 6px red;
+  color: #FFFF00;
+  text-shadow:
+    8px 8px #000,
+    6px 6px #000;
 }
 
 .stage-option:hover {
-  color: white;
-  text-shadow: 6px 6px red;
-  cursor:grab;
+  color: #FFFF00;
+  text-shadow:
+    8px 8px #000,
+    6px 6px #000;
 }
 
 .stage-option {
-  font-family: 'Turkey Sandwich';
+  font-family: 'Turkey Sandwich', 'Trebuchet MS';
   font-size: 3em;
   text-align: center;
-  color: red;
-  text-shadow: 6px 6px black;
+  color: #92A1C7;
+  text-shadow:
+    8px 8px #000,
+    6px 6px #000;
 }
 
 .back-option, .quit-option {

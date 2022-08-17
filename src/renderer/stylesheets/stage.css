@@ -40,15 +40,23 @@ canvas {
   font-family: 'Turkey Sandwich';
   font-size: 4em;
   text-align: center;
+  color: #92A1C7;
+  text-shadow:
+    8px 8px #000,
+    6px 6px #000;
 }
 
 .menu-option:hover {
-  color: white;
-  text-shadow: 6px 6px red;
+  color: #FFFF00;
+  text-shadow:
+    8px 8px #000,
+    6px 6px #000;
 }
 
 .active {
-  color: white;
-  text-shadow: 6px 6px red;
+  color: #FFFF00;
+  text-shadow:
+    8px 8px #000,
+    6px 6px #000;
   cursor: pointer;
 }
