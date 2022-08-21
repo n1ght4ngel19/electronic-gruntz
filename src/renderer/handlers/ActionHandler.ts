@@ -132,32 +132,24 @@ export class ActionHandler {
     }
   }
 
-  // TODO: Refactor this?
   handleSecretSwitch(): void {
     for (const position of this.stage.playerGruntPositions) {
       if (position.equals(this.stage.secretSwitchPosition) && this.stage.secretSwitchState) {
         this.stage.secretSwitchState = false;
 
         for (const [index, pos] of this.stage.secretObjectPositions.entries()) {
-          // FIXME: Not getting any tile properties
-          const hiddenTile = new Phaser.Tilemaps.Tile(this.stage.baseLayer.layer, this.stage.secretObjects[index].data.list.tileId, pos.x, pos.y, 32, 32, 32, 32);
-          const baseTile = this.stage.baseLayer.getTileAt(pos.x, pos.y);
-
-          // Placing tiles after the amount of seconds specified inside them as delay
+          // Showing hidden tiles after 'delay' amount of seconds
+          // and removing properties of BaseLayer tiles so that they don't interfere with the hidden ones
           setTimeout(() => {
-            this.stage.secretLayer.putTileAt(hiddenTile, pos.x, pos.y);
+            const baseTileProperties = this.stage.baseLayer.getTileAt(pos.x, pos.y, true).properties;
 
-            if (!hiddenTile.properties.ge_collide && baseTile.properties.ge_collide) {
-              this.stage.baseLayer.getTileAt(pos.x, pos.y).properties.ge_collide = false;
-            }
+            this.stage.secretLayer.getTileAt(pos.x, pos.y, true).setVisible(true);
+            this.stage.baseLayer.getTileAt(pos.x, pos.y, true).properties = {};
 
-            // Removing tiles after the amount of seconds specified inside them as duration
+            // Removing hidden tiles from the map after 'duration' amount of seconds
             setTimeout(() => {
-              this.stage.secretLayer.removeTileAt(pos.x, pos.y);
-
-              if (baseTile.properties.ge_collide === false) {
-                this.stage.baseLayer.getTileAt(pos.x, pos.y).properties.ge_collide = true;
-              }
+              this.stage.secretLayer.removeTileAt(pos.x, pos.y, true);
+              this.stage.baseLayer.getTileAt(pos.x, pos.y, true).properties = baseTileProperties;
             }, this.stage.secretObjects[index].data.list.duration * 1000);
           }, (this.stage.secretObjects[index].data.list.delay) * 1000);
         }
@@ -189,8 +181,8 @@ export class ActionHandler {
   }
 
   private isCollideTile(x: number, y: number): boolean {
-    return this.stage.map.getTileAt(x, y, true, 'baseLayer').properties.ge_collide ||
-      this.stage.map.getTileAt(x, y, true, 'secretLayer').properties.ge_collide ||
-      this.stage.map.getTileAt(x, y, true, 'actionLayer').properties.ge_collide;
+    return this.stage.baseLayer.getTileAt(x, y, true).properties.ge_collide ||
+      this.stage.secretLayer.getTileAt(x, y, true).properties.ge_collide ||
+      this.stage.actionLayer.getTileAt(x, y, true).properties.ge_collide;
   }
 }
