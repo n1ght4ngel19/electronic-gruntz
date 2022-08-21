@@ -36,11 +36,12 @@ export class Stage extends Phaser.Scene {
   mapHeight!: number;
 
   baseLayer!: TilemapLayer;
-  actionLayer!: TilemapLayer;
   secretLayer!: TilemapLayer;
+  actionLayer!: TilemapLayer;
   itemLayer!: TilemapLayer;
   mapObjects!: Phaser.GameObjects.GameObject[];
 
+  // SecretSwitch helper variables
   secretObjects: Phaser.GameObjects.GameObject[] = [];
   secretObjectPositions: Vector2[] = [];
   secretSwitchState: boolean = true;
@@ -51,11 +52,14 @@ export class Stage extends Phaser.Scene {
 
   nextGruntIdNumber = 1;
 
-  // blueSwitchPosition: Vector2;
-  // bridgepositions: Vector2[] = [];
-  // cpswitchPosition: Vector2;
-  // cpPyramids: Vector2[] = [];
+  // blueToggleSwitchPosition: Vector2;
+  // blueToggleSwitchState:boolean = false;
+  // blueToggleSwitchIsActive:boolean = false;
+  // bridges: Phaser.GameObjects.GameObject[] = [];
+  // bridgePositions: Vector2[] = [];
 
+  // toggleBridges: Phaser.GameObjects.GameObject[] = [];
+  // crumblingBridges: Phaser.GameObjects.GameObject[] = [];
 
   /**
    * Preload
@@ -85,12 +89,14 @@ export class Stage extends Phaser.Scene {
     // @ts-ignore
     this.animatedTiles.init(this.map);
 
-    // TODO: Find a better/more elegant solution?
-    // Making all ObjectLayer objects invisible
-    for (const object of this.mapObjects) {
+    this.mapObjects.forEach((object) => {
       // @ts-ignore
       object.visible = false;
-    }
+    });
+
+    this.secretLayer.forEachTile((tile) => {
+      tile.setVisible(false);
+    });
 
     this.creatorManager.gruntCreator.createAllGruntz(gruntAnimationAtlases);
 
@@ -108,20 +114,28 @@ export class Stage extends Phaser.Scene {
 
     this.handlerManager.pauseMenuHandler.handlePause();
 
-    this.handlerManager.controlHandler.selectGruntzWithKeys();
+    this.handlerManager.controlHandler.handleSelection();
+
 
     this.mapObjects.forEach((object) => {
+      // @ts-ignore
       object.coordX = Math.floor(object.x / 32);
+      // @ts-ignore
       object.coordY = Math.floor(object.y / 32);
 
+      // @ts-ignore
       const position = new Vector2(object.coordX, object.coordY);
 
       switch (object.name) {
         case 'SecretSwitch':
           this.secretSwitchPosition = position;
           break;
-        // case 'FirstBridgeSwitch':
-        //   this.blueSwitchPosition = position;
+        // case 'BlueToggleSwitch':
+        //   this.blueToggleSwitchPosition = position;
+        //   break;
+        // case 'Bridge':
+        //   this.bridges.push(object);
+        //   this.bridgePositions.push(position);
         //   break;
         // case 'FirstBridge':
         //   this.bridgepositions.push(position);
@@ -138,6 +152,7 @@ export class Stage extends Phaser.Scene {
 
       // Collect all secret object positions
       if (object.name.includes('Secret_')) {
+        // @ts-ignore
         this.secretObjectPositions.push(new Vector2(object.coordX, object.coordY));
         this.secretObjects.push(object);
       }
