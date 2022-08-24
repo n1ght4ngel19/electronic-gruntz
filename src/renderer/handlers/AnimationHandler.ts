@@ -26,27 +26,35 @@ export class AnimationHandler {
 
         switch (direction) {
           case 'up':
+            // @ts-ignore
             this.stage.gridEngine.getSprite(charId).anims.play(`${gruntType}NorthWalk`);
             break;
           case 'up-right':
+            // @ts-ignore
             this.stage.gridEngine.getSprite(charId).anims.play(`${gruntType}NorthEastWalk`);
             break;
           case 'right':
+            // @ts-ignore
             this.stage.gridEngine.getSprite(charId).anims.play(`${gruntType}EastWalk`);
             break;
           case 'down-right':
+            // @ts-ignore
             this.stage.gridEngine.getSprite(charId).anims.play(`${gruntType}SouthEastWalk`);
             break;
           case 'down':
+            // @ts-ignore
             this.stage.gridEngine.getSprite(charId).anims.play(`${gruntType}SouthWalk`);
             break;
           case 'down-left':
+            // @ts-ignore
             this.stage.gridEngine.getSprite(charId).anims.play(`${gruntType}SouthWestWalk`);
             break;
           case 'left':
+            // @ts-ignore
             this.stage.gridEngine.getSprite(charId).anims.play(`${gruntType}WestWalk`);
             break;
           case 'up-left':
+            // @ts-ignore
             this.stage.gridEngine.getSprite(charId).anims.play(`${gruntType}NorthWestWalk`);
             break;
           default:
@@ -70,27 +78,35 @@ export class AnimationHandler {
 
         switch (direction) {
           case 'up':
+            // @ts-ignore
             gruntSprite.anims.play(`${gruntType}NorthIdle`);
             break;
           case 'up-right':
+            // @ts-ignore
             gruntSprite.anims.play(`${gruntType}NorthEastIdle`);
             break;
           case 'right':
+            // @ts-ignore
             gruntSprite.anims.play(`${gruntType}EastIdle`);
             break;
           case 'down-right':
+            // @ts-ignore
             gruntSprite.anims.play(`${gruntType}SouthEastIdle`);
             break;
           case 'down':
+            // @ts-ignore
             gruntSprite.anims.play(`${gruntType}SouthIdle`);
             break;
           case 'down-left':
+            // @ts-ignore
             gruntSprite.anims.play(`${gruntType}SouthWestIdle`);
             break;
           case 'left':
+            // @ts-ignore
             gruntSprite.anims.play(`${gruntType}WestIdle`);
             break;
           case 'up-left':
+            // @ts-ignore
             gruntSprite.anims.play(`${gruntType}NorthWestIdle`);
             break;
           default:

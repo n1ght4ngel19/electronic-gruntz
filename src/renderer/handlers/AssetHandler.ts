@@ -57,10 +57,10 @@ export class AssetHandler {
   }
 
   loadAnimationAtlases(): void {
-    this.stage.load.atlasXML('normalGrunt', 'animations/normalGrunt.png', 'animations/normalGrunt.xml');
-    this.stage.load.atlasXML('clubGrunt', 'animations/clubGrunt.png', 'animations/clubGrunt.xml');
-    this.stage.load.atlasXML('gauntletzGrunt', 'animations/gauntletzGrunt.png', 'animations/gauntletzGrunt.xml');
-    this.stage.load.atlasXML('pickupz', 'animations/pickupz.png', 'animations/pickupz.xml');
+    this.stage.load.atlasXML('normalGrunt', 'animations/gruntz/normalGrunt.png', 'animations/gruntz/normalGrunt.xml');
+    this.stage.load.atlasXML('clubGrunt', 'animations/gruntz/clubGrunt.png', 'animations/gruntz/clubGrunt.xml');
+    this.stage.load.atlasXML('gauntletzGrunt', 'animations/gruntz/gauntletzGrunt.png', 'animations/gruntz/gauntletzGrunt.xml');
+    this.stage.load.atlasXML('pickupz', 'animations/gruntz/pickupz.png', 'animations/gruntz/pickupz.xml');
   }
 
   /**

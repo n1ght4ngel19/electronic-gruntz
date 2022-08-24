@@ -29,7 +29,7 @@ export class GruntCreator {
     }
   }
 
-  createGrunt(type: GruntType, x: number, y: number, currentId: number, atlases: Texture[]): Grunt {
+  private createGrunt(type: GruntType, x: number, y: number, currentId: number, atlases: Texture[]): Grunt {
     const atlas = atlases.find((atlas) => atlas.key === type);
     // @ts-ignore
     return this.stage.add.existing(new Grunt(this.stage, x, y, atlas, false, `grunt${currentId}`, type));
