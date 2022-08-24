@@ -133,8 +133,8 @@ export class ActionHandler {
   }
 
   handleSecretSwitch(): void {
-    for (const position of this.stage.playerGruntPositions) {
-      if (position.equals(this.stage.secretSwitchPosition) && this.stage.secretSwitchState) {
+    for (const gruntPosition of this.stage.playerGruntPositions) {
+      if (gruntPosition.equals(this.stage.secretSwitchPosition) && this.stage.secretSwitchState) {
         this.stage.secretSwitchState = false;
 
         for (const [index, pos] of this.stage.secretObjectPositions.entries()) {
@@ -152,6 +152,39 @@ export class ActionHandler {
               this.stage.baseLayer.getTileAt(pos.x, pos.y, true).properties = baseTileProperties;
             }, this.stage.secretObjects[index].data.list.duration * 1000);
           }, (this.stage.secretObjects[index].data.list.delay) * 1000);
+        }
+      }
+    }
+  }
+
+  handleCheckPointSwitches(): void {
+    for (const [index, gruntPosition] of this.stage.playerGruntPositions.entries()) {
+      for (const checkPointSwitch of this.stage.checkPointSwitches) {
+        if (gruntPosition.equals(checkPointSwitch.position) && this.stage.playerGruntz[index].gruntType === checkPointSwitch.requirement) {
+          for (const group of this.stage.checkPointPyramidPositionGroups) {
+            group.forEach((pyramidPosition) => {
+              // TODO: Switch to animation atlases and objects
+              this.stage.actionLayer.getTileAt(pyramidPosition.x, pyramidPosition.y, true).properties.ge_collide = false;
+            });
+          }
+        }
+      }
+    }
+  }
+
+  handleBlueToggleSwitches(): void {
+    for (const gruntPosition of this.stage.playerGruntPositions) {
+      for (const toggleSwitch of this.stage.blueToggleSwitches) {
+        if (gruntPosition.equals(toggleSwitch.position)) {
+          toggleSwitch.state = !toggleSwitch.state;
+
+          for (const group of this.stage.waterBridgePositionGroups) {
+            group.forEach((bridgePosition) => {
+              const tileProperties = this.stage.actionLayer.getTileAt(bridgePosition.x, bridgePosition.y, true).properties;
+              // TODO: Switch to animation atlases and objects
+              tileProperties.ge_collide = !tileProperties.ge_collide;
+            });
+          }
         }
       }
     }
