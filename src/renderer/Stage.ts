@@ -8,6 +8,8 @@ import Tilemap = Phaser.Tilemaps.Tilemap;
 import Vector2 = Phaser.Math.Vector2;
 import TilemapLayer = Phaser.Tilemaps.TilemapLayer;
 import {GruntType} from './gruntz/GruntType';
+import {Switch} from './Switch';
+import {Pyramid} from './Pyramid';
 
 const searchParams = new URLSearchParams(window.location.search);
 const mapName = String(searchParams.get('stage'));
@@ -33,8 +35,6 @@ export class Stage extends Phaser.Scene {
   };
 
   map!: Tilemap;
-  mapWidth!: number;
-  mapHeight!: number;
 
   baseLayer!: TilemapLayer;
   secretLayer!: TilemapLayer;
@@ -45,11 +45,11 @@ export class Stage extends Phaser.Scene {
   // SecretSwitch helper variables
   secretObjects: Phaser.GameObjects.GameObject[] = [];
   secretObjectPositions: Vector2[] = [];
-  secretSwitchState: boolean = true;
   secretSwitchPosition!: Vector2;
+  secretSwitch!: Switch;
 
-  checkPointSwitches: {position: Vector2, requirement: GruntType}[] = [];
-  checkPointPyramidPositionGroups: Vector2[][] = [];
+  checkPointSwitchProperties: {position: Vector2, requirement: GruntType, isUntouched: boolean}[] = [];
+  checkPointPyramidGroups: Pyramid[][] = [];
 
   blueToggleSwitches: {position: Vector2, state: boolean}[] = [];
   waterBridgePositionGroups: Vector2[][] = [];
@@ -59,9 +59,6 @@ export class Stage extends Phaser.Scene {
 
   nextGruntIdNumber = 1;
 
-  // toggleBridges: Phaser.GameObjects.GameObject[] = [];
-  // crumblingBridges: Phaser.GameObjects.GameObject[] = [];
-
   /**
    * Preload
    */
@@ -70,6 +67,7 @@ export class Stage extends Phaser.Scene {
 
     this.handlerManager.assetHandler.loadMapAndTilesets(mapName, tilesetName);
     this.handlerManager.assetHandler.loadAnimationAtlases();
+    this.handlerManager.assetHandler.loadTileAnimationAtlases();
   }
 
 
@@ -81,17 +79,17 @@ export class Stage extends Phaser.Scene {
 
     const gruntAnimationAtlases = this.creatorManager.animationCreator.createAllAnimationAtlases();
     this.creatorManager.animationCreator.createAllAtlasAnimations(gruntAnimationAtlases);
-    this.creatorManager.animationCreator.createPickupAnimations();
+
+    const tileAnimationAtlases = this.creatorManager.animationCreator.createAllTileAnimationAtlases();
+    this.creatorManager.animationCreator.createAllTileAtlasAnimations(tileAnimationAtlases);
 
     this.map = this.handlerManager.assetHandler.makeMapWithLayers(mapName, tilesetName);
-    this.mapWidth = this.map.widthInPixels;
-    this.mapHeight = this.map.heightInPixels;
 
     // @ts-ignore
     this.animatedTiles.init(this.map);
 
     this.mapObjects.forEach((object) => {
-      // @ts-ignore
+    // @ts-ignore
       object.visible = false;
     });
 
@@ -108,10 +106,18 @@ export class Stage extends Phaser.Scene {
 
     this.creatorManager.gruntCreator.addAllGruntzToGridEngineConfig();
 
-    this.gridEngine.create(this.map, this.gridEngineConfig);
+    this.gridEngine.create(
+        this.map,
+        this.gridEngineConfig);
 
-    this.handlerManager.cameraHandler.setDefaultCameraSettings(this.cameras.main, this.mapWidth, this.mapHeight);
-    this.handlerManager.cameraHandler.handleZoom(this.cameras.main, this.mapWidth);
+    this.handlerManager.cameraHandler.setDefaultCameraSettings(
+        this.cameras.main,
+        this.map.widthInPixels,
+        this.map.heightInPixels);
+
+    this.handlerManager.cameraHandler.handleZoom(
+        this.cameras.main,
+        this.map.widthInPixels);
 
     this.handlerManager.pauseMenuHandler.handlePause();
 
@@ -127,11 +133,19 @@ export class Stage extends Phaser.Scene {
         case /SecretSwitch/.test(object.name):
           // @ts-ignore
           this.secretSwitchPosition = new Vector2(object.coordX, object.coordY);
+          this.secretSwitch = this.add.existing(
+              new Switch(
+                  this,
+                  object.x,
+                  object.y,
+                  'switchez',
+                  'SwitchSecret_01'),
+          );
 
           // Collecting objects related to the SecretSwitch based on its linked map objects
           for (const id of Object.values(object.data.list)) {
-            for (const [index, mapObject] of this.map.getObjectLayer('mapObjects').objects.entries()) {
-              if (mapObject.id === id) {
+            for (const [index, object] of this.map.getObjectLayer('mapObjects').objects.entries()) {
+              if (object.id === id) {
                 // @ts-ignore
                 this.secretObjectPositions.push(new Vector2(this.mapObjects[index].coordX, this.mapObjects[index].coordY));
                 this.secretObjects.push(this.mapObjects[index]);
@@ -141,14 +155,19 @@ export class Stage extends Phaser.Scene {
           break;
         case /CheckPoint_\d+_Switch/.test(object.name):
           console.log('Found a CheckPointSwitch!');
-          // @ts-ignore
-          const checkPointPyramids: Vector2[] = [];
+          const checkPointPyramids: Pyramid[] = [];
 
           for (const value of Object.values(object.data.list)) {
             for (const [index, mapObject] of this.map.getObjectLayer('mapObjects').objects.entries()) {
               if (mapObject.id === value) {
-                // @ts-ignore
-                checkPointPyramids.push(new Vector2(this.mapObjects[index].coordX, this.mapObjects[index].coordY));
+                checkPointPyramids.push(this.add.existing(
+                    new Pyramid(
+                        this,
+                        this.mapObjects[index].x,
+                        this.mapObjects[index].y,
+                        'pyramidz',
+                        'PyramidCheckPoint_01')),
+                );
               }
             }
 
@@ -157,10 +176,14 @@ export class Stage extends Phaser.Scene {
               const pos = new Vector2(object.coordX, object.coordY);
               const req = <GruntType>value;
 
-              this.checkPointSwitches.push({position: pos, requirement: req});
+              this.checkPointSwitchProperties.push({
+                position: pos,
+                requirement: req,
+                isUntouched: true,
+              });
             }
           }
-          this.checkPointPyramidPositionGroups.push(checkPointPyramids);
+          this.checkPointPyramidGroups.push(checkPointPyramids);
 
           /**
            * TODO: Solve multiple CheckPoint Switches by targeting other Switches to only one, which is connected to the Pyramids
@@ -178,8 +201,8 @@ export class Stage extends Phaser.Scene {
           break;
         case /BlueToggleSwitch_\d+/.test(object.name):
           console.log('Found a BlueToggleSwitch!');
-          // @ts-ignore
           const waterBridges: Vector2[] = [];
+
           for (const value of Object.values(object.data.list)) {
             for (const [index, mapObject] of this.map.getObjectLayer('mapObjects').objects.entries()) {
               if (mapObject.id === value) {
@@ -191,7 +214,6 @@ export class Stage extends Phaser.Scene {
           // @ts-ignore
           const pos = new Vector2(object.coordX, object.coordY);
 
-          // @ts-ignore
           this.blueToggleSwitches.push({position: pos, state: false});
           this.waterBridgePositionGroups.push(waterBridges);
           break;
@@ -216,7 +238,7 @@ export class Stage extends Phaser.Scene {
 
     this.handlerManager.actionHandler.handleMoveCommand(this.playerGruntz);
     this.handlerManager.actionHandler.handleMoveArrows(this.playerGruntz);
-    this.handlerManager.actionHandler.handleToolPickup(this.playerGruntz, this.playerGruntPositions);
+    this.handlerManager.actionHandler.handleToolPickup(this.playerGruntz);
 
     this.handlerManager.actionHandler.handleSecretSwitch();
     this.handlerManager.actionHandler.handleCheckPointSwitches();
@@ -227,6 +249,9 @@ export class Stage extends Phaser.Scene {
     this.playerGruntPositions = [];
 
     for (const [index, grunt] of this.playerGruntz.entries()) {
+      grunt.coordX = Math.round(grunt.x / 32);
+      grunt.coordY = Math.round(grunt.y / 32);
+
       this.playerGruntPositions[index] = new Vector2(
           Math.round(grunt.x / 32),
           Math.round(grunt.y / 32),

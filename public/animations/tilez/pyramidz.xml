@@ -1,0 +1,23 @@
+<TextureAtlas imagePath="pyramidz.png">
+	<SubTexture name="PyramidBlack_01" x="128" y="96" width="32" height="32"/>
+	<SubTexture name="PyramidBlack_02" x="128" y="64" width="32" height="32"/>
+	<SubTexture name="PyramidBlack_03" x="128" y="32" width="32" height="32"/>
+	<SubTexture name="PyramidCheckPoint_01" x="128" y="0" width="32" height="32"/>
+	<SubTexture name="PyramidCheckPoint_02" x="96" y="96" width="32" height="32"/>
+	<SubTexture name="PyramidCheckPoint_03" x="96" y="64" width="32" height="32"/>
+	<SubTexture name="PyramidGreen_01" x="96" y="32" width="32" height="32"/>
+	<SubTexture name="PyramidGreen_02" x="96" y="0" width="32" height="32"/>
+	<SubTexture name="PyramidGreen_03" x="64" y="96" width="32" height="32"/>
+	<SubTexture name="PyramidOrange_01" x="160" y="0" width="32" height="32"/>
+	<SubTexture name="PyramidOrange_02" x="64" y="32" width="32" height="32"/>
+	<SubTexture name="PyramidOrange_03" x="64" y="0" width="32" height="32"/>
+	<SubTexture name="PyramidPurple_01" x="32" y="96" width="32" height="32"/>
+	<SubTexture name="PyramidPurple_02" x="32" y="64" width="32" height="32"/>
+	<SubTexture name="PyramidPurple_03" x="32" y="32" width="32" height="32"/>
+	<SubTexture name="PyramidRed_01" x="32" y="0" width="32" height="32"/>
+	<SubTexture name="PyramidRed_02" x="0" y="96" width="32" height="32"/>
+	<SubTexture name="PyramidRed_03" x="0" y="64" width="32" height="32"/>
+	<SubTexture name="PyramidSilver_01" x="0" y="32" width="32" height="32"/>
+	<SubTexture name="PyramidSilver_02" x="0" y="0" width="32" height="32"/>
+	<SubTexture name="PyramidSilver_03" x="64" y="64" width="32" height="32"/>
+</TextureAtlas>

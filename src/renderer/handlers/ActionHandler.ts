@@ -36,15 +36,15 @@ export class ActionHandler {
     }
   }
 
-  handleToolPickup(gruntz: Grunt[], positions: Vector2[]): void {
-    for (const [index, position] of positions.entries()) {
-      const toolTile = this.stage.map.getTileAt(position.x, position.y, true, 'itemLayer');
+  handleToolPickup(gruntz: Grunt[]): void {
+    for (const grunt of gruntz) {
+      const currentTile = this.stage.itemLayer.getTileAt(grunt.coordX, grunt.coordY, true);
 
-      if (toolTile.properties.toolType) {
-        this.stage.map.removeTileAt(position.x, position.y, false, false, 'itemLayer');
+      if (currentTile.properties.toolType) {
+        this.stage.itemLayer.removeTileAt(grunt.coordX, grunt.coordY, false);
 
-        gruntz[index].anims.play(`${toolTile.properties.toolType}Pickup`);
-        gruntz[index].setGruntType((`${toolTile.properties.toolType}Grunt`) as GruntType);
+        grunt.anims.play(`${currentTile.properties.toolType}Pickup`);
+        grunt.setGruntType((`${currentTile.properties.toolType}Grunt`) as GruntType);
       }
     }
   }
@@ -57,9 +57,7 @@ export class ActionHandler {
    */
   handleMoveArrows(gruntz: Grunt[]): void {
     for (const grunt of gruntz) {
-      const gruntX = Math.round(grunt.x / 32);
-      const gruntY = Math.round(grunt.y / 32);
-      const currentTile = this.stage.map.getTileAt(gruntX, gruntY, true, 'actionLayer');
+      const currentTile = this.stage.actionLayer.getTileAt(grunt.coordX, grunt.coordY, true);
 
       if (currentTile.properties.move) {
         this.stage.gridEngine.stopMovement(grunt.id);
@@ -134,12 +132,13 @@ export class ActionHandler {
 
   handleSecretSwitch(): void {
     for (const gruntPosition of this.stage.playerGruntPositions) {
-      if (gruntPosition.equals(this.stage.secretSwitchPosition) && this.stage.secretSwitchState) {
-        this.stage.secretSwitchState = false;
+      if (gruntPosition.equals(this.stage.secretSwitchPosition) && this.stage.secretSwitch.isUntouched) {
+        this.stage.secretSwitch.isUntouched = false;
+        this.stage.secretSwitch.anims.play('SecretSwitch');
 
         for (const [index, pos] of this.stage.secretObjectPositions.entries()) {
           // Showing hidden tiles after 'delay' amount of seconds
-          // and removing properties of BaseLayer tiles so that they don't interfere with the hidden ones
+          // and removing properties of Tiles on baseLayer so that they don't interfere with the hidden ones
           setTimeout(() => {
             const baseTileProperties = this.stage.baseLayer.getTileAt(pos.x, pos.y, true).properties;
 
@@ -147,6 +146,7 @@ export class ActionHandler {
             this.stage.baseLayer.getTileAt(pos.x, pos.y, true).properties = {};
 
             // Removing hidden tiles from the map after 'duration' amount of seconds
+            // and giving the Tiles on baseLayer their properties back
             setTimeout(() => {
               this.stage.secretLayer.removeTileAt(pos.x, pos.y, true);
               this.stage.baseLayer.getTileAt(pos.x, pos.y, true).properties = baseTileProperties;
@@ -159,13 +159,20 @@ export class ActionHandler {
 
   handleCheckPointSwitches(): void {
     for (const [index, gruntPosition] of this.stage.playerGruntPositions.entries()) {
-      for (const checkPointSwitch of this.stage.checkPointSwitches) {
-        if (gruntPosition.equals(checkPointSwitch.position) && this.stage.playerGruntz[index].gruntType === checkPointSwitch.requirement) {
-          for (const group of this.stage.checkPointPyramidPositionGroups) {
-            group.forEach((pyramidPosition) => {
-              // TODO: Switch to animation atlases and objects
-              this.stage.actionLayer.getTileAt(pyramidPosition.x, pyramidPosition.y, true).properties.ge_collide = false;
-            });
+      for (const properties of this.stage.checkPointSwitchProperties) {
+        // Checking requirements for CheckPoint
+        if (
+          gruntPosition.equals(properties.position) &&
+          this.stage.playerGruntz[index].gruntType === properties.requirement &&
+          properties.isUntouched
+        ) {
+          properties.isUntouched = false;
+
+          for (const group of this.stage.checkPointPyramidGroups) {
+            for (const pyramid of group) {
+              pyramid.anims.play('CheckPointPyramid');
+              this.stage.baseLayer.getTileAt(pyramid.coordX, pyramid.coordY, true).properties.ge_collide = false;
+            }
           }
         }
       }
