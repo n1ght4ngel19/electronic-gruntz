@@ -1,5 +1,7 @@
 import {Stage} from '../Stage';
 import Tilemap = Phaser.Tilemaps.Tilemap;
+import {Area} from '../Area';
+import {GruntType} from '../gruntz/GruntType';
 
 export class AssetHandler {
   /**
@@ -14,7 +16,9 @@ export class AssetHandler {
   stage: Stage;
 
   loadMapAndTilesets(mapName: string, tilesetName: string): void {
-    this.stage.load.tilemapTiledJSON(mapName, `maps/${mapName}.json`);
+    this.stage.load.tilemapTiledJSON(
+        mapName,
+        `maps/${mapName}.json`);
     this.stage.load.image(
         tilesetName,
         `tilesets/${tilesetName}.png`);
@@ -57,10 +61,37 @@ export class AssetHandler {
   }
 
   loadAnimationAtlases(): void {
-    this.stage.load.atlasXML('normalGrunt', 'animations/gruntz/normalGrunt.png', 'animations/gruntz/normalGrunt.xml');
-    this.stage.load.atlasXML('clubGrunt', 'animations/gruntz/clubGrunt.png', 'animations/gruntz/clubGrunt.xml');
-    this.stage.load.atlasXML('gauntletzGrunt', 'animations/gruntz/gauntletzGrunt.png', 'animations/gruntz/gauntletzGrunt.xml');
-    this.stage.load.atlasXML('pickupz', 'animations/gruntz/pickupz.png', 'animations/gruntz/pickupz.xml');
+    this.stage.load.atlasXML(
+        GruntType.NORMAL_GRUNT,
+        `animations/gruntz/${GruntType.NORMAL_GRUNT}.png`,
+        `animations/gruntz/${GruntType.NORMAL_GRUNT}.xml`);
+    this.stage.load.atlasXML(
+        GruntType.CLUB_GRUNT,
+        `animations/gruntz/${GruntType.CLUB_GRUNT}.png`,
+        `animations/gruntz/${GruntType.CLUB_GRUNT}.xml`);
+    this.stage.load.atlasXML(
+        GruntType.GAUNTLETZ_GRUNT,
+        `animations/gruntz/${GruntType.GAUNTLETZ_GRUNT}.png`,
+        `animations/gruntz/${GruntType.GAUNTLETZ_GRUNT}.xml`);
+    this.stage.load.atlasXML(
+        'pickupz',
+        'animations/gruntz/pickupz.png',
+        'animations/gruntz/pickupz.xml');
+  }
+
+  loadTileAnimationAtlases(): void {
+    this.stage.load.atlasXML(
+        Area.ROCKY_ROADZ,
+        `animations/tilez/${Area.ROCKY_ROADZ}.png`,
+        `animations/tilez/${Area.ROCKY_ROADZ}.xml`);
+    this.stage.load.atlasXML(
+        'pyramidz',
+        `animations/tilez/pyramidz.png`,
+        `animations/tilez/pyramidz.xml`);
+    this.stage.load.atlasXML(
+        'switchez',
+        `animations/tilez/switchez.png`,
+        `animations/tilez/switchez.xml`);
   }
 
   /**
@@ -76,7 +107,7 @@ export class AssetHandler {
 
     // Add tilesets to create the map layers from
     // TODO: Dynamic tileWidth and tileHeight, specified in Area, together with how big Grunt textures the Area should use
-    returnMap.addTilesetImage(tilesetName, tilesetName, 32, 32);
+    returnMap.addTilesetImage(tilesetName);
     returnMap.addTilesetImage('actionArrow');
     returnMap.addTilesetImage('actionBrick');
     returnMap.addTilesetImage('actionBridge');

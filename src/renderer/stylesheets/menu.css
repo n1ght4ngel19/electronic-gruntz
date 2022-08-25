@@ -17,6 +17,7 @@
 }
 
 body {
+  cursor: url('../assets/CursorPointer_48.png'), none;
   user-select: none;
   align-items: center;
   background-color: black;
@@ -32,7 +33,7 @@ a {
 }
 
 #title {
-  font-family: 'Turkey Sandwich', 'Trebuchet MS';
+  font-family: 'Turkey Sandwich';
   font-size: 6em;
   text-align: center;
   text-decoration: underline;
@@ -44,7 +45,7 @@ a {
 }
 
 .menu-option {
-  font-family: 'Turkey Sandwich', 'Trebuchet MS';
+  font-family: 'Turkey Sandwich';
   font-size: 4em;
   text-align: center;
 }
@@ -57,6 +58,7 @@ a {
 }
 
 .menu-option > a:hover {
+  cursor: url('../assets/CursorPointer_48.png'), none;
   color: #FFFF00;
   text-shadow:
     8px 8px #000,
@@ -71,7 +73,7 @@ a {
 }
 
 .stage-option {
-  font-family: 'Turkey Sandwich', 'Trebuchet MS';
+  font-family: 'Turkey Sandwich';
   font-size: 3em;
   text-align: center;
   color: #92A1C7;

@@ -1,10 +1,10 @@
 export enum GruntType {
-  normalGrunt = 'normalGrunt',
+  NORMAL_GRUNT = 'normalGrunt',
   // static readonly bombGrunt = 'bombGrunt';
   // static readonly boxingGlovezGrunt = 'boxingGlovezGrunt';
   // static readonly brickLayerGrunt = 'brickLayerGrunt';
-  clubGrunt = 'clubGrunt',
-  gauntletzGrunt = 'gauntletzGrunt',
+  CLUB_GRUNT = 'clubGrunt',
+  GAUNTLETZ_GRUNT = 'gauntletzGrunt',
   // static readonly gooberStrawGrunt = 'gooberStrawGrunt';
   // static readonly gravityBootzGrunt = 'gravityBootzGrunt';
   // static readonly gunHatGrunt = 'gunHatGrunt';
