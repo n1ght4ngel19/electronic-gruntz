@@ -1,4 +1,4 @@
-<TextureAtlas imagePath="rockyRoadz.png">
+<TextureAtlas imagePath="rockyRoadzBridgez.png">
 	<SubTexture name="DeathBridgeCrumble_01" x="32" y="96" width="32" height="32"/>
 	<SubTexture name="DeathBridgeCrumble_02" x="96" y="32" width="32" height="32"/>
 	<SubTexture name="DeathBridgeCrumble_03" x="192" y="64" width="32" height="32"/>

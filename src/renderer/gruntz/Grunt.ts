@@ -17,16 +17,20 @@ export class Grunt extends Phaser.GameObjects.Sprite {
     this.isSelected = selected;
     this.id = id;
     this.gruntType = gruntType;
-    this.coordX = Math.floor(x / 32);
-    this.coordY = Math.floor(y / 32);
+    this.coords = {
+      x: Math.floor(x / 32),
+      y: Math.floor(y / 32),
+    };
   };
 
   stage: Stage;
   isSelected: boolean;
   id: string;
   gruntType: GruntType;
-  coordX: number;
-  coordY: number;
+  coords: {
+    x: number,
+    y: number,
+  };
 
   setGruntType(gruntType: GruntType): void {
     this.gruntType = gruntType;

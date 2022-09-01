@@ -23,41 +23,38 @@ export class AssetHandler {
         tilesetName,
         `tilesets/${tilesetName}.png`);
     this.stage.load.image(
-        'actionArrow',
-        'tilesets/actionArrow.png');
-    this.stage.load.image(
         'actionBrick',
         'tilesets/actionBrick.png');
     this.stage.load.image(
-        'actionBridge',
-        'tilesets/actionBridge.png');
+        'arrowz',
+        'tilesets/arrowz.png');
     this.stage.load.image(
-        'actionGiantRock',
-        'tilesets/actionGiantRock.png');
+        'bridgez',
+        'tilesets/bridgez.png');
     this.stage.load.image(
-        'actionHazard',
-        'tilesets/actionHazard.png');
+        'giantRockz',
+        'tilesets/giantRockz.png');
     this.stage.load.image(
-        'actionHole',
-        'tilesets/actionHole.png');
+        'hazardz',
+        'tilesets/hazardz.png');
     this.stage.load.image(
-        'actionPyramid',
-        'tilesets/actionPyramid.png');
+        'holez',
+        'tilesets/holez.png');
     this.stage.load.image(
-        'actionRock',
-        'tilesets/actionRock.png');
+        'pyramidz',
+        'tilesets/pyramidz.png');
     this.stage.load.image(
-        'actionSwitch',
-        'tilesets/actionSwitch.png');
+        'rockz',
+        'tilesets/rockz.png');
     this.stage.load.image(
-        'itemTool',
-        'tilesets/itemTool.png');
+        'switchez',
+        'tilesets/switchez.png');
     this.stage.load.image(
-        'markerGrunt',
-        'tilesets/markerGrunt.png');
+        'toolz',
+        'tilesets/toolz.png');
     this.stage.load.image(
-        'markerLogic',
-        'tilesets/markerLogic.png');
+        'gruntMarkerz',
+        'tilesets/gruntMarkerz.png');
   }
 
   loadAnimationAtlases(): void {
@@ -81,15 +78,15 @@ export class AssetHandler {
 
   loadTileAnimationAtlases(): void {
     this.stage.load.atlasXML(
-        Area.ROCKY_ROADZ,
-        `animations/tilez/${Area.ROCKY_ROADZ}.png`,
-        `animations/tilez/${Area.ROCKY_ROADZ}.xml`);
+        `${Area.ROCKY_ROADZ}Bridgez`,
+        `animations/tilez/${Area.ROCKY_ROADZ}Bridgez.png`,
+        `animations/tilez/${Area.ROCKY_ROADZ}Bridgez.xml`);
     this.stage.load.atlasXML(
-        'pyramidz',
+        'pyramidAnimationz',
         `animations/tilez/pyramidz.png`,
         `animations/tilez/pyramidz.xml`);
     this.stage.load.atlasXML(
-        'switchez',
+        'switchAnimationz',
         `animations/tilez/switchez.png`,
         `animations/tilez/switchez.xml`);
   }
@@ -108,68 +105,67 @@ export class AssetHandler {
     // Add tilesets to create the map layers from
     // TODO: Dynamic tileWidth and tileHeight, specified in Area, together with how big Grunt textures the Area should use
     returnMap.addTilesetImage(tilesetName);
-    returnMap.addTilesetImage('actionArrow');
     returnMap.addTilesetImage('actionBrick');
-    returnMap.addTilesetImage('actionBridge');
-    returnMap.addTilesetImage('actionGiantRock');
-    returnMap.addTilesetImage('actionHazard');
-    returnMap.addTilesetImage('actionHole');
-    returnMap.addTilesetImage('actionPyramid');
-    returnMap.addTilesetImage('actionRock');
-    returnMap.addTilesetImage('actionSwitch');
-    returnMap.addTilesetImage('itemTool');
-    returnMap.addTilesetImage('markerGrunt');
-    returnMap.addTilesetImage('markerLogic');
+    returnMap.addTilesetImage('arrowz');
+    returnMap.addTilesetImage('bridgez');
+    returnMap.addTilesetImage('giantRockz');
+    returnMap.addTilesetImage('gruntMarkerz');
+    returnMap.addTilesetImage('hazardz');
+    returnMap.addTilesetImage('holez');
+    returnMap.addTilesetImage('pyramidz');
+    returnMap.addTilesetImage('rockz');
+    returnMap.addTilesetImage('switchez');
+    returnMap.addTilesetImage('toolz');
 
     // Create map layers
     this.stage.baseLayer = returnMap.createLayer(
         'baseLayer',
         [
           tilesetName,
-          'actionArrow',
+          'arrowz',
           'actionBrick',
-          'actionBridge',
-          'actionGiantRock',
+          'bridgez',
+          'giantRockz',
           'actionHazard',
-          'actionHole',
-          'actionPyramid',
-          'actionRock',
-          'actionSwitch',
+          'holez',
+          'pyramidz',
+          'rockz',
+          'switchez',
         ],
     );
     this.stage.actionLayer = returnMap.createLayer(
         'actionLayer',
         [
           tilesetName,
-          'actionArrow',
+          'arrowz',
           'actionBrick',
-          'actionBridge',
-          'actionGiantRock',
+          'bridgez',
+          'giantRockz',
           'actionHazard',
-          'actionHole',
-          'actionPyramid',
-          'actionRock',
-          'actionSwitch',
+          'holez',
+          'pyramidz',
+          'rockz',
+          'switchez',
         ],
     );
     this.stage.secretLayer = returnMap.createLayer(
         'secretLayer',
         [
           tilesetName,
-          'actionArrow',
+          'arrowz',
           'actionBrick',
-          'actionBridge',
-          'actionGiantRock',
+          'bridgez',
+          'giantRockz',
           'actionHazard',
-          'actionHole',
-          'actionPyramid',
-          'actionRock',
-          'actionSwitch',
+          'holez',
+          'pyramidz',
+          'rockz',
+          'switchez',
         ],
     );
     this.stage.itemLayer = returnMap.createLayer(
         'itemLayer',
-        'itemTool',
+        'toolz',
     );
     // @ts-ignore
     this.stage.mapObjects = returnMap.createFromObjects('mapObjects');

@@ -1,7 +1,6 @@
 import {Stage} from '../Stage';
 import {Grunt} from '../gruntz/Grunt';
 import {GruntType} from '../gruntz/GruntType';
-import Vector2 = Phaser.Math.Vector2;
 import Texture = Phaser.Textures.Texture;
 
 export class GruntCreator {
@@ -11,7 +10,7 @@ export class GruntCreator {
 
   stage: Stage;
 
-  private addNewGruntToGridEngineConfig(id: string, sprite: Grunt, startPosition: Vector2): void {
+  private addNewGruntToGridEngineConfig(id: string, sprite: Grunt, startPosition: {x: number, y: number}): void {
     const newGrunt = {
       id: id,
       sprite: sprite,
@@ -25,7 +24,11 @@ export class GruntCreator {
 
   addAllGruntzToGridEngineConfig(): void {
     for (let i = 0; i < this.stage.playerGruntz.length; i++) {
-      this.addNewGruntToGridEngineConfig(this.stage.playerGruntz[i].id, this.stage.playerGruntz[i], this.stage.playerGruntPositions[i]);
+      this.addNewGruntToGridEngineConfig(
+          this.stage.playerGruntz[i].id,
+          this.stage.playerGruntz[i],
+          {x: this.stage.playerGruntz[i].x, y: this.stage.playerGruntz[i].y}
+      );
     }
   }
 
@@ -37,16 +40,16 @@ export class GruntCreator {
 
   createAllGruntz(atlases: Texture[]): void {
     for (const object of this.stage.mapObjects) {
-      // @ts-ignore
-      const currentX = Math.floor(object.x / 32);
-      // @ts-ignore
-      const currentY = Math.floor(object.y / 32);
-      const objectName = object.name;
+      const coords = {
+        // @ts-ignore
+        x: Math.floor(object.x / 32),
+        // @ts-ignore
+        y: Math.floor(object.y / 32),
+      };
 
       for (const type of Object.values(GruntType)) {
-        if (objectName === type) {
-          this.stage.playerGruntPositions.push(<Vector2>{x: currentX, y: currentY});
-          const grunt = this.createGrunt(type, currentX, currentY, this.stage.nextGruntIdNumber++, atlases);
+        if (object.name === type) {
+          const grunt = this.createGrunt(type, coords.x, coords.y, this.stage.nextGruntIdNumber++, atlases);
           this.stage.playerGruntz.push(grunt);
         }
       }
