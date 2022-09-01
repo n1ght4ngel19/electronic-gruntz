@@ -10,6 +10,7 @@ import TilemapLayer = Phaser.Tilemaps.TilemapLayer;
 import {GruntType} from './gruntz/GruntType';
 import {Switch} from './Switch';
 import {Pyramid} from './Pyramid';
+import {Bridge} from './Bridge';
 
 const searchParams = new URLSearchParams(window.location.search);
 const mapName = String(searchParams.get('stage'));
@@ -51,11 +52,11 @@ export class Stage extends Phaser.Scene {
   checkPointSwitchProperties: {position: Vector2, requirement: GruntType, isUntouched: boolean}[] = [];
   checkPointPyramidGroups: Pyramid[][] = [];
 
-  blueToggleSwitches: {position: Vector2, state: boolean}[] = [];
-  waterBridgePositionGroups: Vector2[][] = [];
+  blueToggleSwitches: Switch[] = [];
+  blueToggleSwitchProperties: {position: Vector2, isUntouched: boolean, isUp: boolean}[] = [];
+  blueToggleSwitchBridgeGroups: Bridge[][] = [];
 
   playerGruntz: Grunt[] = [];
-  playerGruntPositions: Vector2[] = [];
 
   nextGruntIdNumber = 1;
 
@@ -63,6 +64,8 @@ export class Stage extends Phaser.Scene {
    * Preload
    */
   preload(): void {
+    this.input.setDefaultCursor('url(cursors/CursorPointer_48.png), pointer');
+
     this.load.scenePlugin('AnimatedTiles', 'https://tinyurl.com/yckrhe6a', 'animatedTiles', 'animatedTiles');
 
     this.handlerManager.assetHandler.loadMapAndTilesets(mapName, tilesetName);
@@ -138,7 +141,7 @@ export class Stage extends Phaser.Scene {
                   this,
                   object.x,
                   object.y,
-                  'switchez',
+                  'switchAnimationz',
                   'SwitchSecret_01'),
           );
 
@@ -165,7 +168,7 @@ export class Stage extends Phaser.Scene {
                         this,
                         this.mapObjects[index].x,
                         this.mapObjects[index].y,
-                        'pyramidz',
+                        'pyramidAnimationz',
                         'PyramidCheckPoint_01')),
                 );
               }
@@ -201,21 +204,36 @@ export class Stage extends Phaser.Scene {
           break;
         case /BlueToggleSwitch_\d+/.test(object.name):
           console.log('Found a BlueToggleSwitch!');
-          const waterBridges: Vector2[] = [];
+          const blueToggleSwitchBridges: Bridge[] = [];
+
+          this.blueToggleSwitches.push(this.add.existing(
+              new Switch(
+                  this,
+                  object.x,
+                  object.y,
+                  'switchAnimationz',
+                  'SwitchBlueToggle_01'),
+          ));
 
           for (const value of Object.values(object.data.list)) {
             for (const [index, mapObject] of this.map.getObjectLayer('mapObjects').objects.entries()) {
               if (mapObject.id === value) {
-                // @ts-ignore
-                waterBridges.push(new Vector2(this.mapObjects[index].coordX, this.mapObjects[index].coordY));
+                blueToggleSwitchBridges.push(this.add.existing(
+                    new Bridge(
+                        this,
+                        this.mapObjects[index].x,
+                        this.mapObjects[index].y,
+                        'rockyRoadzBridgez',
+                        'WaterBridge_05')),
+                );
               }
             }
           }
           // @ts-ignore
           const pos = new Vector2(object.coordX, object.coordY);
 
-          this.blueToggleSwitches.push({position: pos, state: false});
-          this.waterBridgePositionGroups.push(waterBridges);
+          this.blueToggleSwitchProperties.push({position: pos, isUntouched: true, isUp: true});
+          this.blueToggleSwitchBridgeGroups.push(blueToggleSwitchBridges);
           break;
         default:
           break;
@@ -246,16 +264,9 @@ export class Stage extends Phaser.Scene {
   }
 
   updateGruntPositions(): void {
-    this.playerGruntPositions = [];
-
-    for (const [index, grunt] of this.playerGruntz.entries()) {
-      grunt.coordX = Math.round(grunt.x / 32);
-      grunt.coordY = Math.round(grunt.y / 32);
-
-      this.playerGruntPositions[index] = new Vector2(
-          Math.round(grunt.x / 32),
-          Math.round(grunt.y / 32),
-      );
+    for (const grunt of this.playerGruntz) {
+      grunt.coords.x = Math.round(grunt.x / 32);
+      grunt.coords.y = Math.round(grunt.y / 32);
     }
   }
 }

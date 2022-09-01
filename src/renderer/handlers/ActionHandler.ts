@@ -38,10 +38,10 @@ export class ActionHandler {
 
   handleToolPickup(gruntz: Grunt[]): void {
     for (const grunt of gruntz) {
-      const currentTile = this.stage.itemLayer.getTileAt(grunt.coordX, grunt.coordY, true);
+      const currentTile = this.stage.itemLayer.getTileAt(grunt.coords.x, grunt.coords.y, true);
 
       if (currentTile.properties.toolType) {
-        this.stage.itemLayer.removeTileAt(grunt.coordX, grunt.coordY, false);
+        this.stage.itemLayer.removeTileAt(grunt.coords.x, grunt.coords.y, false);
 
         grunt.anims.play(`${currentTile.properties.toolType}Pickup`);
         grunt.setGruntType((`${currentTile.properties.toolType}Grunt`) as GruntType);
@@ -57,7 +57,7 @@ export class ActionHandler {
    */
   handleMoveArrows(gruntz: Grunt[]): void {
     for (const grunt of gruntz) {
-      const currentTile = this.stage.actionLayer.getTileAt(grunt.coordX, grunt.coordY, true);
+      const currentTile = this.stage.actionLayer.getTileAt(grunt.coords.x, grunt.coords.y, true);
 
       if (currentTile.properties.move) {
         this.stage.gridEngine.stopMovement(grunt.id);
@@ -131,8 +131,12 @@ export class ActionHandler {
   }
 
   handleSecretSwitch(): void {
-    for (const gruntPosition of this.stage.playerGruntPositions) {
-      if (gruntPosition.equals(this.stage.secretSwitchPosition) && this.stage.secretSwitch.isUntouched) {
+    for (const grunt of this.stage.playerGruntz) {
+      if (
+        grunt.coords.x === this.stage.secretSwitchPosition.x &&
+        grunt.coords.y === this.stage.secretSwitchPosition.y &&
+        this.stage.secretSwitch.isUntouched
+      ) {
         this.stage.secretSwitch.isUntouched = false;
         this.stage.secretSwitch.anims.play('SecretSwitch');
 
@@ -158,21 +162,20 @@ export class ActionHandler {
   }
 
   handleCheckPointSwitches(): void {
-    for (const [index, gruntPosition] of this.stage.playerGruntPositions.entries()) {
-      for (const properties of this.stage.checkPointSwitchProperties) {
-        // Checking requirements for CheckPoint
+    for (const grunt of this.stage.playerGruntz) {
+      for (const [index, properties] of this.stage.checkPointSwitchProperties.entries()) {
         if (
-          gruntPosition.equals(properties.position) &&
-          this.stage.playerGruntz[index].gruntType === properties.requirement &&
+          grunt.coords.x === properties.position.x &&
+          grunt.coords.y === properties.position.y &&
+          grunt.gruntType === properties.requirement &&
           properties.isUntouched
         ) {
           properties.isUntouched = false;
+          // TODO: Play Switch animation
 
-          for (const group of this.stage.checkPointPyramidGroups) {
-            for (const pyramid of group) {
-              pyramid.anims.play('CheckPointPyramid');
-              this.stage.baseLayer.getTileAt(pyramid.coordX, pyramid.coordY, true).properties.ge_collide = false;
-            }
+          for (const pyramid of this.stage.checkPointPyramidGroups[index]) {
+            pyramid.anims.play('CheckPointPyramid');
+            this.stage.baseLayer.getTileAt(pyramid.coordX, pyramid.coordY, true).properties.ge_collide = false;
           }
         }
       }
@@ -180,18 +183,37 @@ export class ActionHandler {
   }
 
   handleBlueToggleSwitches(): void {
-    for (const gruntPosition of this.stage.playerGruntPositions) {
-      for (const toggleSwitch of this.stage.blueToggleSwitches) {
-        if (gruntPosition.equals(toggleSwitch.position)) {
-          toggleSwitch.state = !toggleSwitch.state;
+    for (const grunt of this.stage.playerGruntz) {
+      for (const [index, properties] of this.stage.blueToggleSwitchProperties.entries()) {
+        if (
+          this.stage.playerGruntz.map((grunt) => grunt.coords.x).includes(properties.position.x) &&
+          this.stage.playerGruntz.map((grunt) => grunt.coords.y).includes(properties.position.y)
+        ) {
+          if (properties.isUntouched) {
+            properties.isUntouched = false;
 
-          for (const group of this.stage.waterBridgePositionGroups) {
-            group.forEach((bridgePosition) => {
-              const tileProperties = this.stage.actionLayer.getTileAt(bridgePosition.x, bridgePosition.y, true).properties;
-              // TODO: Switch to animation atlases and objects
-              tileProperties.ge_collide = !tileProperties.ge_collide;
-            });
+            if (properties.isUp) {
+              properties.isUp = false;
+
+              this.stage.blueToggleSwitches[index].anims.play('BlueToggleSwitch');
+
+              for (const bridge of this.stage.blueToggleSwitchBridgeGroups[index]) {
+                this.stage.baseLayer.getTileAt(bridge.coordX, bridge.coordY, true).properties.ge_collide = false;
+                bridge.anims.playReverse('WaterBridge');
+              }
+            } else if (!properties.isUp) {
+              properties.isUp = true;
+
+              this.stage.blueToggleSwitches[index].anims.playReverse('BlueToggleSwitch');
+
+              for (const bridge of this.stage.blueToggleSwitchBridgeGroups[index]) {
+                this.stage.baseLayer.getTileAt(bridge.coordX, bridge.coordY, true).properties.ge_collide = true;
+                bridge.anims.play('WaterBridge');
+              }
+            }
           }
+        } else {
+          properties.isUntouched = true;
         }
       }
     }
