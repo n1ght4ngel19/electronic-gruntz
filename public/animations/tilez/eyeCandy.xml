@@ -1,0 +1,25 @@
+<TextureAtlas imagePath="eyeCandy.png">
+	<SubTexture name="gruntziclez_Burrow" x="0" y="200" width="47" height="46"/>
+	<SubTexture name="gruntziclez_IceBlockz" x="119" y="137" width="47" height="63"/>
+	<SubTexture name="gruntziclez_Igloo" x="0" y="0" width="81" height="68"/>
+	<SubTexture name="gruntziclez_TreeSmall_01" x="176" y="0" width="27" height="33"/>
+	<SubTexture name="gruntziclez_Tree_01" x="60" y="129" width="59" height="71"/>
+	<SubTexture name="rockyRoadz_Grass_01" x="166" y="167" width="32" height="32"/>
+	<SubTexture name="rockyRoadz_Lilypad_01" x="62" y="102" width="31" height="23"/>
+	<SubTexture name="rockyRoadz_RockzSmall_01" x="78" y="234" width="16" height="15"/>
+	<SubTexture name="rockyRoadz_Rockz_01" x="47" y="231" width="31" height="25"/>
+	<SubTexture name="rockyRoadz_TreeSmall_01" x="159" y="200" width="32" height="32"/>
+	<SubTexture name="rockyRoadz_Tree_01" x="175" y="68" width="32" height="64"/>
+	<SubTexture name="troubleInTheTropicz_Bananaz" x="159" y="232" width="31" height="24"/>
+	<SubTexture name="troubleInTheTropicz_Coconutz" x="166" y="137" width="32" height="30"/>
+	<SubTexture name="troubleInTheTropicz_Fern_01" x="62" y="71" width="38" height="31"/>
+	<SubTexture name="troubleInTheTropicz_Fern_02" x="47" y="200" width="38" height="31"/>
+	<SubTexture name="troubleInTheTropicz_Fern_03" x="85" y="200" width="38" height="31"/>
+	<SubTexture name="troubleInTheTropicz_Fern_04" x="140" y="34" width="36" height="34"/>
+	<SubTexture name="troubleInTheTropicz_Fern_05" x="140" y="0" width="36" height="34"/>
+	<SubTexture name="troubleInTheTropicz_Fern_06" x="123" y="200" width="36" height="34"/>
+	<SubTexture name="troubleInTheTropicz_Palm_01" x="0" y="129" width="60" height="69"/>
+	<SubTexture name="troubleInTheTropicz_Palm_02" x="119" y="71" width="56" height="66"/>
+	<SubTexture name="troubleInTheTropicz_Palm_03" x="0" y="68" width="62" height="61"/>
+	<SubTexture name="troubleInTheTropicz_Palm_04" x="81" y="0" width="59" height="71"/>
+</TextureAtlas>
