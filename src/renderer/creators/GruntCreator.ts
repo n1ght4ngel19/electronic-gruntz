@@ -35,7 +35,7 @@ export class GruntCreator {
   private createGrunt(type: GruntType, x: number, y: number, currentId: number, atlases: Texture[]): Grunt {
     const atlas = atlases.find((atlas) => atlas.key === type);
     // @ts-ignore
-    return this.stage.add.existing(new Grunt(this.stage, x, y, atlas, false, `grunt${currentId}`, type));
+    return this.stage.add.existing(new Grunt(this.stage, x, y, atlas, false, `grunt${currentId}`, currentId, type));
   }
 
   createAllGruntz(atlases: Texture[]): void {
@@ -51,6 +51,8 @@ export class GruntCreator {
         if (object.name === type) {
           const grunt = this.createGrunt(type, coords.x, coords.y, this.stage.nextGruntIdNumber++, atlases);
           this.stage.playerGruntz.push(grunt);
+          this.stage.healthbarz.push(this.stage.add.existing(new Phaser.GameObjects.Sprite(this.stage, object.x, object.y - 16, 'barAnimationz')));
+          this.stage.staminabarz.push(this.stage.add.existing(new Phaser.GameObjects.Sprite(this.stage, object.x, object.y - 23, 'barAnimationz')));
         }
       }
     }

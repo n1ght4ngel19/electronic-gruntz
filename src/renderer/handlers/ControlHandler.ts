@@ -84,7 +84,6 @@ export class ControlHandler {
     }
   }
 
-  // TODO: Find a better/more elegant way?
   selectGruntzWithKeys(): void {
     this.stage.input.keyboard.on('keydown', (event: KeyboardEvent) => {
       switch (event.key) {

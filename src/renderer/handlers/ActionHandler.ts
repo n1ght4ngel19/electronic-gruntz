@@ -3,6 +3,7 @@ import {Grunt} from '../gruntz/Grunt';
 import {Direction} from 'grid-engine';
 import Vector2 = Phaser.Math.Vector2;
 import {GruntType} from '../gruntz/GruntType';
+import {Area} from '../Area';
 
 export class ActionHandler {
   /**
@@ -137,6 +138,9 @@ export class ActionHandler {
         grunt.coords.y === this.stage.secretSwitchPosition.y &&
         this.stage.secretSwitch.isUntouched
       ) {
+        // TODO -> Remove: Only for testing
+        grunt.damage(10);
+
         this.stage.secretSwitch.isUntouched = false;
         this.stage.secretSwitch.anims.play('SecretSwitch');
 
@@ -152,7 +156,7 @@ export class ActionHandler {
             // Removing hidden tiles from the map after 'duration' amount of seconds
             // and giving the Tiles on baseLayer their properties back
             setTimeout(() => {
-              this.stage.secretLayer.removeTileAt(pos.x, pos.y, true);
+              this.stage.secretLayer.removeTileAt(pos.x, pos.y, false);
               this.stage.baseLayer.getTileAt(pos.x, pos.y, true).properties = baseTileProperties;
             }, this.stage.secretObjects[index].data.list.duration * 1000);
           }, (this.stage.secretObjects[index].data.list.delay) * 1000);
@@ -182,38 +186,37 @@ export class ActionHandler {
     }
   }
 
-  handleBlueToggleSwitches(): void {
+  handleBlueToggleSwitches(area: Area): void {
     for (const grunt of this.stage.playerGruntz) {
       for (const [index, properties] of this.stage.blueToggleSwitchProperties.entries()) {
         if (
           this.stage.playerGruntz.map((grunt) => grunt.coords.x).includes(properties.position.x) &&
           this.stage.playerGruntz.map((grunt) => grunt.coords.y).includes(properties.position.y)
         ) {
+          this.stage.blueToggleSwitches[index].anims.playReverse('BlueToggleSwitch');
+
           if (properties.isUntouched) {
             properties.isUntouched = false;
 
             if (properties.isUp) {
               properties.isUp = false;
 
-              this.stage.blueToggleSwitches[index].anims.play('BlueToggleSwitch');
-
               for (const bridge of this.stage.blueToggleSwitchBridgeGroups[index]) {
                 this.stage.baseLayer.getTileAt(bridge.coordX, bridge.coordY, true).properties.ge_collide = false;
-                bridge.anims.playReverse('WaterBridge');
+                bridge.anims.playReverse(`${area}_WaterBridge`);
               }
             } else if (!properties.isUp) {
               properties.isUp = true;
 
-              this.stage.blueToggleSwitches[index].anims.playReverse('BlueToggleSwitch');
-
               for (const bridge of this.stage.blueToggleSwitchBridgeGroups[index]) {
                 this.stage.baseLayer.getTileAt(bridge.coordX, bridge.coordY, true).properties.ge_collide = true;
-                bridge.anims.play('WaterBridge');
+                bridge.anims.play(`${area}_WaterBridge`);
               }
             }
           }
         } else {
           properties.isUntouched = true;
+          this.stage.blueToggleSwitches[index].anims.play('BlueToggleSwitch');
         }
       }
     }

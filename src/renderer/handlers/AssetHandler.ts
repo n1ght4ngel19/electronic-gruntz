@@ -1,6 +1,5 @@
 import {Stage} from '../Stage';
 import Tilemap = Phaser.Tilemaps.Tilemap;
-import {Area} from '../Area';
 import {GruntType} from '../gruntz/GruntType';
 
 export class AssetHandler {
@@ -53,8 +52,8 @@ export class AssetHandler {
         'toolz',
         'tilesets/toolz.png');
     this.stage.load.image(
-        'gruntMarkerz',
-        'tilesets/gruntMarkerz.png');
+        'markerz',
+        'tilesets/markerz.png');
   }
 
   loadAnimationAtlases(): void {
@@ -74,13 +73,17 @@ export class AssetHandler {
         'pickupz',
         'animations/gruntz/pickupz.png',
         'animations/gruntz/pickupz.xml');
+    this.stage.load.atlasXML(
+        'barAnimationz',
+        'animations/gruntz/barz.png',
+        'animations/gruntz/barz.xml');
   }
 
   loadTileAnimationAtlases(): void {
     this.stage.load.atlasXML(
-        `${Area.ROCKY_ROADZ}Bridgez`,
-        `animations/tilez/${Area.ROCKY_ROADZ}Bridgez.png`,
-        `animations/tilez/${Area.ROCKY_ROADZ}Bridgez.xml`);
+        'bridgeAnimationz',
+        'animations/tilez/bridgeAnimationz.png',
+        'animations/tilez/bridgeAnimationz.xml');
     this.stage.load.atlasXML(
         'pyramidAnimationz',
         `animations/tilez/pyramidz.png`,
@@ -89,6 +92,10 @@ export class AssetHandler {
         'switchAnimationz',
         `animations/tilez/switchez.png`,
         `animations/tilez/switchez.xml`);
+    this.stage.load.atlasXML(
+        'eyeCandy',
+        `animations/tilez/eyeCandy.png`,
+        `animations/tilez/eyeCandy.xml`);
   }
 
   /**
@@ -109,7 +116,7 @@ export class AssetHandler {
     returnMap.addTilesetImage('arrowz');
     returnMap.addTilesetImage('bridgez');
     returnMap.addTilesetImage('giantRockz');
-    returnMap.addTilesetImage('gruntMarkerz');
+    returnMap.addTilesetImage('markerz');
     returnMap.addTilesetImage('hazardz');
     returnMap.addTilesetImage('holez');
     returnMap.addTilesetImage('pyramidz');
@@ -126,7 +133,7 @@ export class AssetHandler {
           'actionBrick',
           'bridgez',
           'giantRockz',
-          'actionHazard',
+          'hazardz',
           'holez',
           'pyramidz',
           'rockz',
@@ -141,7 +148,7 @@ export class AssetHandler {
           'actionBrick',
           'bridgez',
           'giantRockz',
-          'actionHazard',
+          'hazardz',
           'holez',
           'pyramidz',
           'rockz',
@@ -156,7 +163,7 @@ export class AssetHandler {
           'actionBrick',
           'bridgez',
           'giantRockz',
-          'actionHazard',
+          'hazardz',
           'holez',
           'pyramidz',
           'rockz',
@@ -169,6 +176,8 @@ export class AssetHandler {
     );
     // @ts-ignore
     this.stage.mapObjects = returnMap.createFromObjects('mapObjects');
+    // @ts-ignore
+    this.stage.eyeCandy = returnMap.createFromObjects('eyeCandy');
 
     return returnMap;
   }

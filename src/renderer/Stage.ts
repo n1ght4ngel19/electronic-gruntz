@@ -11,6 +11,8 @@ import {GruntType} from './gruntz/GruntType';
 import {Switch} from './Switch';
 import {Pyramid} from './Pyramid';
 import {Bridge} from './Bridge';
+import Sprite = Phaser.GameObjects.Sprite;
+import {Area} from './Area';
 
 const searchParams = new URLSearchParams(window.location.search);
 const mapName = String(searchParams.get('stage'));
@@ -42,6 +44,7 @@ export class Stage extends Phaser.Scene {
   actionLayer!: TilemapLayer;
   itemLayer!: TilemapLayer;
   mapObjects!: Phaser.GameObjects.GameObject[];
+  eyeCandy!: Phaser.GameObjects.GameObject[];
 
   // SecretSwitch helper variables
   secretObjects: Phaser.GameObjects.GameObject[] = [];
@@ -57,8 +60,10 @@ export class Stage extends Phaser.Scene {
   blueToggleSwitchBridgeGroups: Bridge[][] = [];
 
   playerGruntz: Grunt[] = [];
+  healthbarz: Sprite[] = [];
+  staminabarz: Sprite[] = [];
 
-  nextGruntIdNumber = 1;
+  nextGruntIdNumber = 0;
 
   /**
    * Preload
@@ -84,7 +89,7 @@ export class Stage extends Phaser.Scene {
     this.creatorManager.animationCreator.createAllAtlasAnimations(gruntAnimationAtlases);
 
     const tileAnimationAtlases = this.creatorManager.animationCreator.createAllTileAnimationAtlases();
-    this.creatorManager.animationCreator.createAllTileAtlasAnimations(tileAnimationAtlases);
+    this.creatorManager.animationCreator.createAllTileAtlasAnimations(tilesetName as Area);
 
     this.map = this.handlerManager.assetHandler.makeMapWithLayers(mapName, tilesetName);
 
@@ -92,6 +97,10 @@ export class Stage extends Phaser.Scene {
     this.animatedTiles.init(this.map);
 
     this.mapObjects.forEach((object) => {
+    // @ts-ignore
+      object.visible = false;
+    });
+    this.eyeCandy.forEach((object) => {
     // @ts-ignore
       object.visible = false;
     });
@@ -103,8 +112,10 @@ export class Stage extends Phaser.Scene {
     this.creatorManager.gruntCreator.createAllGruntz(gruntAnimationAtlases);
 
     // Make all gruntz play their default idle animations
-    for (const grunt of this.playerGruntz) {
+    for (const [index, grunt] of this.playerGruntz.entries()) {
       grunt.anims.play(`${grunt.gruntType}SouthIdle`);
+      this.healthbarz[index].setFrame('BarHealth_01');
+      this.staminabarz[index].setFrame('BarStamina_01');
     }
 
     this.creatorManager.gruntCreator.addAllGruntzToGridEngineConfig();
@@ -125,6 +136,21 @@ export class Stage extends Phaser.Scene {
     this.handlerManager.pauseMenuHandler.handlePause();
 
     this.handlerManager.controlHandler.handleSelection();
+
+    this.eyeCandy.forEach((object) => {
+      // @ts-ignore
+      object.coordX = Math.floor(object.x / 32);
+      // @ts-ignore
+      object.coordY = Math.floor(object.y / 32);
+
+      this.add.existing(new Sprite(
+          this,
+          object.x,
+          object.y,
+          'eyeCandy',
+          object.name),
+      );
+    });
 
     this.mapObjects.forEach((object) => {
       // @ts-ignore
@@ -223,8 +249,8 @@ export class Stage extends Phaser.Scene {
                         this,
                         this.mapObjects[index].x,
                         this.mapObjects[index].y,
-                        'rockyRoadzBridgez',
-                        'WaterBridge_05')),
+                        'bridgeAnimationz',
+                        `${tilesetName}_WaterBridge_05`)),
                 );
               }
             }
@@ -260,13 +286,19 @@ export class Stage extends Phaser.Scene {
 
     this.handlerManager.actionHandler.handleSecretSwitch();
     this.handlerManager.actionHandler.handleCheckPointSwitches();
-    this.handlerManager.actionHandler.handleBlueToggleSwitches();
+    this.handlerManager.actionHandler.handleBlueToggleSwitches(tilesetName as Area);
   }
 
   updateGruntPositions(): void {
-    for (const grunt of this.playerGruntz) {
-      grunt.coords.x = Math.round(grunt.x / 32);
-      grunt.coords.y = Math.round(grunt.y / 32);
+    for (const [index, grunt] of this.playerGruntz.entries()) {
+      // TODO: Maybe this
+      grunt.coords.x = Math.floor((grunt.x + (grunt.displayWidth / 2) + 32) / 32) - 1;
+      grunt.coords.y = Math.floor((grunt.y + (grunt.displayHeight / 2) + 32) / 32) - 1;
+
+      this.healthbarz[index].x = grunt.coords.x * 32 + 16;
+      this.healthbarz[index].y = grunt.coords.y * 32 - 5;
+      this.staminabarz[index].x = grunt.coords.x * 32 + 16;
+      this.staminabarz[index].y = grunt.coords.y * 32 - 11;
     }
   }
 }
