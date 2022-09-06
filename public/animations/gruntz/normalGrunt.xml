@@ -88,9 +88,9 @@
 	<SubTexture name="normalGruntNorthEastAttack_11" x="506" y="0" width="32" height="35"/>
 	<SubTexture name="normalGruntNorthEastAttack_12" x="336" y="58" width="36" height="36"/>
 	<SubTexture name="normalGruntNorthEastAttack_13" x="299" y="186" width="37" height="36"/>
-	<SubTexture name="normalGruntNorthEastIdle_06" x="568" y="441" width="30" height="32"/>
-	<SubTexture name="normalGruntNorthEastIdle_07" x="538" y="36" width="31" height="32"/>
-	<SubTexture name="normalGruntNorthEastIdle_08" x="505" y="478" width="32" height="33"/>
+	<SubTexture name="normalGruntNorthEastIdle_01" x="568" y="441" width="30" height="32"/>
+	<SubTexture name="normalGruntNorthEastIdle_02" x="538" y="36" width="31" height="32"/>
+	<SubTexture name="normalGruntNorthEastIdle_03" x="505" y="478" width="32" height="33"/>
 	<SubTexture name="normalGruntNorthEastStruck_01" x="54" y="201" width="46" height="39"/>
 	<SubTexture name="normalGruntNorthEastStruck_02" x="98" y="270" width="43" height="39"/>
 	<SubTexture name="normalGruntNorthEastStruck_03" x="261" y="447" width="37" height="38"/>
@@ -156,9 +156,9 @@
 	<SubTexture name="normalGruntNorthWestAttack_11" x="406" y="343" width="34" height="33"/>
 	<SubTexture name="normalGruntNorthWestAttack_12" x="299" y="319" width="36" height="35"/>
 	<SubTexture name="normalGruntNorthWestAttack_13" x="299" y="383" width="36" height="37"/>
-	<SubTexture name="normalGruntNorthWestIdle_06" x="569" y="0" width="30" height="31"/>
-	<SubTexture name="normalGruntNorthWestIdle_07" x="598" y="227" width="30" height="31"/>
-	<SubTexture name="normalGruntNorthWestIdle_08" x="506" y="246" width="31" height="31"/>
+	<SubTexture name="normalGruntNorthWestIdle_01" x="569" y="0" width="30" height="31"/>
+	<SubTexture name="normalGruntNorthWestIdle_02" x="598" y="227" width="30" height="31"/>
+	<SubTexture name="normalGruntNorthWestIdle_03" x="506" y="246" width="31" height="31"/>
 	<SubTexture name="normalGruntNorthWestStruck_01" x="51" y="276" width="47" height="38"/>
 	<SubTexture name="normalGruntNorthWestStruck_02" x="51" y="358" width="46" height="36"/>
 	<SubTexture name="normalGruntNorthWestStruck_03" x="141" y="312" width="41" height="30"/>
@@ -203,9 +203,9 @@
 	<SubTexture name="normalGruntSouthEastAttack_11" x="299" y="284" width="36" height="35"/>
 	<SubTexture name="normalGruntSouthEastAttack_12" x="335" y="222" width="36" height="31"/>
 	<SubTexture name="normalGruntSouthEastAttack_13" x="264" y="0" width="37" height="28"/>
-	<SubTexture name="normalGruntSouthEastIdle_06" x="628" y="276" width="29" height="30"/>
-	<SubTexture name="normalGruntSouthEastIdle_07" x="627" y="415" width="29" height="31"/>
-	<SubTexture name="normalGruntSouthEastIdle_08" x="599" y="161" width="29" height="32"/>
+	<SubTexture name="normalGruntSouthEastIdle_01" x="628" y="276" width="29" height="30"/>
+	<SubTexture name="normalGruntSouthEastIdle_02" x="627" y="415" width="29" height="31"/>
+	<SubTexture name="normalGruntSouthEastIdle_03" x="599" y="161" width="29" height="32"/>
 	<SubTexture name="normalGruntSouthEastStruck_01" x="51" y="314" width="46" height="44"/>
 	<SubTexture name="normalGruntSouthEastStruck_02" x="58" y="71" width="45" height="45"/>
 	<SubTexture name="normalGruntSouthEastStruck_03" x="103" y="120" width="42" height="42"/>
@@ -271,9 +271,9 @@
 	<SubTexture name="normalGruntSouthWestAttack_11" x="371" y="439" width="35" height="36"/>
 	<SubTexture name="normalGruntSouthWestAttack_12" x="335" y="311" width="36" height="34"/>
 	<SubTexture name="normalGruntSouthWestAttack_13" x="406" y="250" width="34" height="33"/>
-	<SubTexture name="normalGruntSouthWestIdle_06" x="628" y="33" width="29" height="31"/>
-	<SubTexture name="normalGruntSouthWestIdle_07" x="628" y="146" width="29" height="32"/>
-	<SubTexture name="normalGruntSouthWestIdle_08" x="598" y="258" width="30" height="33"/>
+	<SubTexture name="normalGruntSouthWestIdle_01" x="628" y="33" width="29" height="31"/>
+	<SubTexture name="normalGruntSouthWestIdle_02" x="628" y="146" width="29" height="32"/>
+	<SubTexture name="normalGruntSouthWestIdle_03" x="598" y="258" width="30" height="33"/>
 	<SubTexture name="normalGruntSouthWestStruck_01" x="59" y="0" width="45" height="43"/>
 	<SubTexture name="normalGruntSouthWestStruck_02" x="104" y="0" width="43" height="43"/>
 	<SubTexture name="normalGruntSouthWestStruck_03" x="298" y="447" width="37" height="42"/>

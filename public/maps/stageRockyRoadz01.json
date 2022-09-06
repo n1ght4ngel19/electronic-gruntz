@@ -649,7 +649,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -1965,11 +1965,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"water"
                         }]
                 }, 
                 {
@@ -1979,11 +1974,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"water"
                         }]
                 }, 
                 {
@@ -1993,11 +1983,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"water"
                         }]
                 }, 
                 {
@@ -2007,11 +1992,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"water"
                         }]
                 }, 
                 {
@@ -2021,11 +2001,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"death"
                         }]
                 }, 
                 {
@@ -2035,11 +2010,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"death"
                         }]
                 }, 
                 {
@@ -2049,11 +2019,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"death"
                         }]
                 }, 
                 {
@@ -2063,11 +2028,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"death"
                         }]
                 }, 
                 {
@@ -2077,11 +2037,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"water"
                         }]
                 }, 
                 {
@@ -2091,11 +2046,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"water"
                         }]
                 }, 
                 {
@@ -2105,11 +2055,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"water"
                         }]
                 }, 
                 {
@@ -2119,11 +2064,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"water"
                         }]
                 }, 
                 {
@@ -2133,11 +2073,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"death"
                         }]
                 }, 
                 {
@@ -2147,11 +2082,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"death"
                         }]
                 }, 
                 {
@@ -2161,11 +2091,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"death"
                         }]
                 }, 
                 {
@@ -2175,11 +2100,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"death"
                         }]
                 }, 
                 {
@@ -4534,11 +4454,6 @@
                          "name":"move",
                          "type":"string",
                          "value":"up"
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"ArrowOneWayUp"
                         }]
                 }, 
                 {
@@ -4548,11 +4463,6 @@
                          "name":"move",
                          "type":"string",
                          "value":"up_right"
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"ArrowOneWayUpRight"
                         }]
                 }, 
                 {
@@ -4562,11 +4472,6 @@
                          "name":"move",
                          "type":"string",
                          "value":"right"
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"ArrowOneWayRight"
                         }]
                 }, 
                 {
@@ -4576,11 +4481,6 @@
                          "name":"move",
                          "type":"string",
                          "value":"down_right"
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"ArrowOneWayDownRight"
                         }]
                 }, 
                 {
@@ -4590,11 +4490,6 @@
                          "name":"move",
                          "type":"string",
                          "value":"down"
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"ArrowOneWayDown"
                         }]
                 }, 
                 {
@@ -4604,11 +4499,6 @@
                          "name":"move",
                          "type":"string",
                          "value":"down_left"
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"ArrowOneWayDownLeft"
                         }]
                 }, 
                 {
@@ -4618,11 +4508,6 @@
                          "name":"move",
                          "type":"string",
                          "value":"left"
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"ArrowOneWayLeft"
                         }]
                 }, 
                 {
@@ -4632,11 +4517,6 @@
                          "name":"move",
                          "type":"string",
                          "value":"up_left"
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"ArrowOneWayUpLeft"
                         }]
                 }, 
                 {
@@ -4646,11 +4526,6 @@
                          "name":"move",
                          "type":"string",
                          "value":"up"
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"ArrowTwoWayUp"
                         }]
                 }, 
                 {
@@ -4660,11 +4535,6 @@
                          "name":"move",
                          "type":"string",
                          "value":"up_right"
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"ArrowTwoWayUpRight"
                         }]
                 }, 
                 {
@@ -4674,11 +4544,6 @@
                          "name":"move",
                          "type":"string",
                          "value":"right"
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"ArrowTwoWayRight"
                         }]
                 }, 
                 {
@@ -4688,11 +4553,6 @@
                          "name":"move",
                          "type":"string",
                          "value":"down_right"
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"ArrowTwoWayDownRight"
                         }]
                 }, 
                 {
@@ -4702,11 +4562,6 @@
                          "name":"move",
                          "type":"string",
                          "value":"down"
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"ArrowTwoWayDown"
                         }]
                 }, 
                 {
@@ -4716,11 +4571,6 @@
                          "name":"move",
                          "type":"string",
                          "value":"down_left"
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"ArrowTwoWayDownLeft"
                         }]
                 }, 
                 {
@@ -4730,11 +4580,6 @@
                          "name":"move",
                          "type":"string",
                          "value":"left"
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"ArrowTwoWayLeft"
                         }]
                 }, 
                 {
@@ -4744,11 +4589,6 @@
                          "name":"move",
                          "type":"string",
                          "value":"up_left"
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"ArrowTwoWayUpLeft"
                         }]
                 }, 
                 {
@@ -4758,11 +4598,6 @@
                          "name":"move",
                          "type":"string",
                          "value":"fourway"
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"ArrowFourWay"
                         }]
                 }, 
                 {
@@ -4772,11 +4607,6 @@
                          "name":"move",
                          "type":"string",
                          "value":"fourway_cross"
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"ArrowFourWayCross"
                         }]
                 }],
          "tilewidth":32
@@ -4792,729 +4622,6 @@
          "spacing":0,
          "tilecount":80,
          "tileheight":32,
-         "tiles":[
-                {
-                 "id":0,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleOpen"
-                        }]
-                }, 
-                {
-                 "id":1,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleOpen"
-                        }]
-                }, 
-                {
-                 "id":2,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleOpen"
-                        }]
-                }, 
-                {
-                 "id":3,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleOpen"
-                        }]
-                }, 
-                {
-                 "id":4,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleOpen"
-                        }]
-                }, 
-                {
-                 "id":5,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleOpen"
-                        }]
-                }, 
-                {
-                 "id":6,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleOpen"
-                        }]
-                }, 
-                {
-                 "id":7,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleOpen"
-                        }]
-                }, 
-                {
-                 "id":8,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleFilled"
-                        }]
-                }, 
-                {
-                 "id":9,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleFilled"
-                        }]
-                }, 
-                {
-                 "id":10,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleFilled"
-                        }]
-                }, 
-                {
-                 "id":11,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleFilled"
-                        }]
-                }, 
-                {
-                 "id":12,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleFilled"
-                        }]
-                }, 
-                {
-                 "id":13,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleFilled"
-                        }]
-                }, 
-                {
-                 "id":14,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleFilled"
-                        }]
-                }, 
-                {
-                 "id":15,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleFilled"
-                        }]
-                }, 
-                {
-                 "id":16,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleOpen"
-                        }]
-                }, 
-                {
-                 "id":17,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleOpen"
-                        }]
-                }, 
-                {
-                 "id":18,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleOpen"
-                        }]
-                }, 
-                {
-                 "id":19,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleOpen"
-                        }]
-                }, 
-                {
-                 "id":20,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleOpen"
-                        }]
-                }, 
-                {
-                 "id":21,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleOpen"
-                        }]
-                }, 
-                {
-                 "id":22,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleOpen"
-                        }]
-                }, 
-                {
-                 "id":23,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleOpen"
-                        }]
-                }, 
-                {
-                 "id":24,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleFilled"
-                        }]
-                }, 
-                {
-                 "id":25,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleFilled"
-                        }]
-                }, 
-                {
-                 "id":26,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleFilled"
-                        }]
-                }, 
-                {
-                 "id":27,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleFilled"
-                        }]
-                }, 
-                {
-                 "id":28,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleFilled"
-                        }]
-                }, 
-                {
-                 "id":29,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleFilled"
-                        }]
-                }, 
-                {
-                 "id":30,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleFilled"
-                        }]
-                }, 
-                {
-                 "id":31,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"HoleFilled"
-                        }]
-                },
-            
-                {
-                 "id":32,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":33,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":34,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":35,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":36,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":37,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":38,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":39,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":40,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":41,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":42,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":43,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":44,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":45,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":46,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":47,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":48,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":49,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":50,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":51,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":52,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":53,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":54,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":55,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":56,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":57,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":58,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":59,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":60,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":61,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":62,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":63,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                },
-            
-                {
-                 "id":64,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":65,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":66,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":67,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":68,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":69,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":70,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":71,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":72,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":73,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":74,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":75,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":76,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":77,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":78,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":79,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }],
          "tilewidth":32
         }, 
         {
@@ -7222,11 +6329,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"GiantRock"
                         }]
                 }, 
                 {
@@ -7236,11 +6338,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"GiantRock"
                         }]
                 }, 
                 {
@@ -7304,11 +6401,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"GiantRock"
                         }]
                 }, 
                 {
@@ -7318,11 +6410,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"GiantRock"
                         }]
                 }, 
                 {
@@ -7386,11 +6473,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"GiantRock"
                         }]
                 }, 
                 {
@@ -7400,11 +6482,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"GiantRock"
                         }]
                 }, 
                 {
@@ -7468,11 +6545,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"GiantRock"
                         }]
                 }, 
                 {
@@ -7482,11 +6554,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"GiantRock"
                         }]
                 },
             
@@ -7551,11 +6618,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"GiantRock"
                         }]
                 }, 
                 {
@@ -7565,11 +6627,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"GiantRock"
                         }]
                 }, 
                 {
@@ -7633,11 +6690,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"GiantRock"
                         }]
                 }, 
                 {
@@ -7647,11 +6699,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"GiantRock"
                         }]
                 }, 
                 {
@@ -7715,11 +6762,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"GiantRock"
                         }]
                 }, 
                 {
@@ -7729,11 +6771,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"GiantRock"
                         }]
                 }, 
                 {
@@ -7797,11 +6834,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"GiantRock"
                         }]
                 }, 
                 {
@@ -7811,11 +6843,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"GiantRock"
                         }]
                 },
             
@@ -7880,11 +6907,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"GiantRock"
                         }]
                 }, 
                 {
@@ -7894,11 +6916,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"GiantRock"
                         }]
                 }, 
                 {
@@ -7953,24 +6970,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }]
-                }, 
-                {
-                 "id":78,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":79,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
                         }]
                 }, 
                 {
@@ -8116,8 +7115,7 @@
                          "type":"bool",
                          "value":true
                         }]
-                },
-            
+                }, 
                 {
                  "id":105,
                  "properties":[
@@ -8135,7 +7133,8 @@
                          "type":"bool",
                          "value":true
                         }]
-                }, 
+                },
+            
                 {
                  "id":112,
                  "properties":[
@@ -8184,11 +7183,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Brick100"
                         }]
                 }, 
                 {
@@ -8198,11 +7192,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Brick110"
                         }]
                 }, 
                 {
@@ -8212,11 +7201,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Brick111"
                         }]
                 }, 
                 {
@@ -8226,11 +7210,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Brick112"
                         }]
                 }, 
                 {
@@ -8240,11 +7219,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Brick113"
                         }]
                 }, 
                 {
@@ -8254,11 +7228,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Brick114"
                         }]
                 }, 
                 {
@@ -8268,20 +7237,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Brick115"
-                        }]
-                }, 
-                {
-                 "id":7,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
                         }]
                 }, 
                 {
@@ -8291,29 +7246,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"BrickColumn"
-                        }]
-                }, 
-                {
-                 "id":9,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"BrickFoundation"
-                        }]
-                }, 
-                {
-                 "id":10,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
                         }]
                 }, 
                 {
@@ -8323,11 +7255,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Brick120"
                         }]
                 }, 
                 {
@@ -8337,83 +7264,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Brick121"
-                        }]
-                }, 
-                {
-                 "id":13,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":14,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":15,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":16,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":17,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":18,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":19,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":20,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
                         }]
                 }, 
                 {
@@ -8423,11 +7273,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Brick130"
                         }]
                 }, 
                 {
@@ -8437,83 +7282,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Brick131"
-                        }]
-                }, 
-                {
-                 "id":23,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":24,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":25,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":26,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":27,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":28,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":29,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":30,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
                         }]
                 }, 
                 {
@@ -8523,14 +7291,8 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Brick140"
                         }]
-                },
-            
+                }, 
                 {
                  "id":32,
                  "properties":[
@@ -8538,83 +7300,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Brick141"
-                        }]
-                }, 
-                {
-                 "id":33,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":34,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":35,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":36,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":37,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":38,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":39,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":40,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
                         }]
                 }, 
                 {
@@ -8624,11 +7309,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Brick150"
                         }]
                 }, 
                 {
@@ -8638,74 +7318,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Brick151"
-                        }]
-                }, 
-                {
-                 "id":43,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":44,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":45,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":46,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":47,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":48,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":49,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
                         }]
                 }, 
                 {
@@ -8715,11 +7327,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Brick200"
                         }]
                 }, 
                 {
@@ -8729,11 +7336,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Brick210"
                         }]
                 }, 
                 {
@@ -8743,436 +7345,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Brick211"
-                        }]
-                }, 
-                {
-                 "id":53,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":54,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":55,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":56,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":57,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":58,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":59,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":60,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":61,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":62,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":63,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                },
-            
-                {
-                 "id":64,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":65,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":66,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":67,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":68,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":69,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":70,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":71,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":72,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":73,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":74,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":75,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":76,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":77,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":78,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":79,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":80,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":81,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":82,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":83,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":84,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":85,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":86,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":87,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":88,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":89,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":90,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":91,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":92,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":93,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":94,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":95,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                },
-            
-                {
-                 "id":96,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":97,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":98,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":99,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
                         }]
                 }, 
                 {
@@ -9182,11 +7354,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Brick300"
                         }]
                 }, 
                 {
@@ -9196,11 +7363,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Brick310"
                         }]
                 }, 
                 {
@@ -9210,435 +7372,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Brick311"
-                        }]
-                }, 
-                {
-                 "id":103,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":104,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":105,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":106,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":107,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":108,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":109,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":110,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":111,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":112,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":113,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":114,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":115,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":116,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":117,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":118,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":119,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":120,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":121,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":122,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":123,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":124,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":125,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":126,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":127,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                },
-            
-                {
-                 "id":128,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":129,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":130,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":131,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":132,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":133,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":134,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":135,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":136,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":137,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":138,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":139,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":140,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":141,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":142,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":143,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":144,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":145,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":146,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":147,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":148,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":149,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
                         }]
                 }, 
                 {
@@ -9648,11 +7381,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Brick400"
                         }]
                 }, 
                 {
@@ -9662,11 +7390,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Brick410"
                         }]
                 }, 
                 {
@@ -9676,436 +7399,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Brick411"
-                        }]
-                }, 
-                {
-                 "id":153,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":154,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":155,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":156,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":157,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":158,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":159,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                },
-            
-                {
-                 "id":160,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":161,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":162,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":163,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":164,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":165,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":166,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":167,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":168,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":169,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":170,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":171,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":172,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":173,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":174,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":175,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":176,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":177,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":178,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":179,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":180,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":181,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":182,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":183,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":184,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":185,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":186,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":187,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":188,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":189,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":190,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":191,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                },
-            
-                {
-                 "id":192,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":193,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":194,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":195,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":196,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":197,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":198,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":199,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
                         }]
                 }, 
                 {
@@ -10115,11 +7408,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Brick500"
                         }]
                 }, 
                 {
@@ -10129,11 +7417,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Brick510"
                         }]
                 }, 
                 {
@@ -10143,887 +7426,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Brick511"
-                        }]
-                }, 
-                {
-                 "id":203,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":204,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":205,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":206,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":207,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":208,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":209,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":210,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":211,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":212,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":213,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":214,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":215,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":216,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":217,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":218,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":219,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":220,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":221,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":222,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":223,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                },
-            
-                {
-                 "id":224,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":225,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":226,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":227,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":228,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":229,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":230,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":231,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":232,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":233,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":234,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":235,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":236,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":237,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":238,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":239,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":240,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":241,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":242,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":243,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":244,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":245,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":246,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":247,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":248,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":249,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":250,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":251,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":252,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":253,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":254,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":255,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                },
-            
-                {
-                 "id":256,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":257,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":258,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":259,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":260,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":261,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":262,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":263,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":264,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":265,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":266,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":267,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":268,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":269,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":270,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":271,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":272,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":273,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":274,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":275,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":276,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":277,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":278,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":279,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":280,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":281,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":282,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":283,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":284,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":285,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":286,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":287,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                },
-            
-                {
-                 "id":288,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":289,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":290,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":291,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":292,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":293,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":294,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":295,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":296,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":297,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":298,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":299,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
                         }]
                 }],
          "tilewidth":32
@@ -11039,729 +7441,6 @@
          "spacing":0,
          "tilecount":80,
          "tileheight":32,
-         "tiles":[
-                {
-                 "id":0,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":1,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":2,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":3,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":4,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":5,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":6,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":7,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":8,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":9,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":10,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":11,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":12,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":13,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":14,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":15,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":16,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":17,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":18,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":19,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":20,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":21,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":22,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":23,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":24,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":25,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":26,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":27,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":28,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":29,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":30,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":31,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                },
-            
-                {
-                 "id":32,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":33,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":34,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":35,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":36,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":37,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":38,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":39,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":40,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":41,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":42,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":43,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":44,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":45,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":46,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":47,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":48,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":49,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":50,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":51,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":52,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":53,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":54,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":55,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":56,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":57,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":58,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":59,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":60,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":61,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":62,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                }, 
-                {
-                 "id":63,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Bridge"
-                        }]
-                },
-            
-                {
-                 "id":64,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":65,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":66,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":67,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":68,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":69,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":70,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":71,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":72,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":73,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":74,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":75,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":76,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":77,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":78,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":79,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }],
          "tilewidth":32
         }, 
         {
@@ -11783,16 +7462,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"switchType",
-                         "type":"string",
-                         "value":"CheckPointUp"
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Pyramid"
                         }]
                 }, 
                 {
@@ -11802,11 +7471,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Pyramid"
                         }]
                 }, 
                 {
@@ -11816,11 +7480,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Pyramid"
                         }]
                 }, 
                 {
@@ -11830,11 +7489,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Pyramid"
                         }]
                 }, 
                 {
@@ -11844,11 +7498,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Pyramid"
                         }]
                 }, 
                 {
@@ -11858,11 +7507,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Pyramid"
                         }]
                 }, 
                 {
@@ -11872,675 +7516,6 @@
                          "name":"ge_collide",
                          "type":"bool",
                          "value":true
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Pyramid"
-                        }]
-                }, 
-                {
-                 "id":7,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":8,
-                 "properties":[
-                        {
-                         "name":"switchType",
-                         "type":"string",
-                         "value":"CheckPointDown"
-                        }, 
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Pyramid"
-                        }]
-                }, 
-                {
-                 "id":9,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Pyramid"
-                        }]
-                }, 
-                {
-                 "id":10,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Pyramid"
-                        }]
-                }, 
-                {
-                 "id":11,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Pyramid"
-                        }]
-                }, 
-                {
-                 "id":12,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Pyramid"
-                        }]
-                }, 
-                {
-                 "id":13,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Pyramid"
-                        }]
-                }, 
-                {
-                 "id":14,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"Pyramid"
-                        }]
-                }, 
-                {
-                 "id":15,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":16,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":17,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":18,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":19,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":20,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":21,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":22,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":23,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":24,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":25,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":26,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":27,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":28,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":29,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":30,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":31,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                },
-            
-                {
-                 "id":32,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":33,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":34,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":35,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":36,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":37,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":38,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":39,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":40,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":41,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":42,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":43,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":44,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":45,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":46,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":47,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":48,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":49,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":50,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":51,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":52,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":53,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":54,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":55,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":56,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":57,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":58,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":59,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":60,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":61,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":62,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":63,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                },
-            
-                {
-                 "id":64,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":65,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":66,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":67,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":68,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":69,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":70,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":71,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":72,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":73,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":74,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":75,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":76,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":77,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":78,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
-                        }]
-                }, 
-                {
-                 "id":79,
-                 "properties":[
-                        {
-                         "name":"tileType",
-                         "type":"string",
-                         "value":"none"
                         }]
                 }],
          "tilewidth":32
@@ -12803,16 +7778,6 @@
          "spacing":0,
          "tilecount":64,
          "tileheight":32,
-         "tiles":[
-                {
-                 "id":0,
-                 "properties":[
-                        {
-                         "name":"dps",
-                         "type":"int",
-                         "value":0
-                        }]
-                }],
          "tilewidth":32
         }],
  "tilewidth":32,
