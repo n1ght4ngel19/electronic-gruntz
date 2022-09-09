@@ -5,8 +5,8 @@ export class Bridge extends Phaser.GameObjects.Sprite {
     super(stage, x, y, texture, frame);
 
     this.stage = stage;
-    this.coordX = Math.floor(x / 32);
-    this.coordY = Math.floor(y / 32);
+    this.coordX = Math.floor(x / this.stage.tileSize);
+    this.coordY = Math.floor(y / this.stage.tileSize);
   }
 
   stage: Stage;

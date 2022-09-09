@@ -23,11 +23,11 @@ export class GruntCreator {
   }
 
   addAllGruntzToGridEngineConfig(): void {
-    for (let i = 0; i < this.stage.playerGruntz.length; i++) {
+    for (const grunt of this.stage.playerGruntz) {
       this.addNewGruntToGridEngineConfig(
-          this.stage.playerGruntz[i].id,
-          this.stage.playerGruntz[i],
-          {x: this.stage.playerGruntz[i].x, y: this.stage.playerGruntz[i].y}
+          grunt.id,
+          grunt,
+          {x: grunt.x, y: grunt.y},
       );
     }
   }
@@ -42,9 +42,9 @@ export class GruntCreator {
     for (const object of this.stage.mapObjects) {
       const coords = {
         // @ts-ignore
-        x: Math.floor(object.x / 32),
+        x: Math.floor(object.x / this.stage.tileSize),
         // @ts-ignore
-        y: Math.floor(object.y / 32),
+        y: Math.floor(object.y / this.stage.tileSize),
       };
 
       for (const type of Object.values(GruntType)) {

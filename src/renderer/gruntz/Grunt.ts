@@ -19,8 +19,8 @@ export class Grunt extends Phaser.GameObjects.Sprite {
     this.numId = numId;
     this.gruntType = gruntType;
     this.coords = {
-      x: Math.floor(x / 32),
-      y: Math.floor(y / 32),
+      x: Math.floor(x / this.stage.tileSize),
+      y: Math.floor(y / this.stage.tileSize),
     };
     this.health = 20;
   };

@@ -38,6 +38,7 @@ export class Stage extends Phaser.Scene {
   };
 
   map!: Tilemap;
+  readonly tileSize: number = 32;
 
   baseLayer!: TilemapLayer;
   secretLayer!: TilemapLayer;
@@ -139,9 +140,9 @@ export class Stage extends Phaser.Scene {
 
     this.eyeCandy.forEach((object) => {
       // @ts-ignore
-      object.coordX = Math.floor(object.x / 32);
+      object.coordX = Math.floor(object.x / this.tileSize);
       // @ts-ignore
-      object.coordY = Math.floor(object.y / 32);
+      object.coordY = Math.floor(object.y / this.tileSize);
 
       this.add.existing(new Sprite(
           this,
@@ -154,9 +155,9 @@ export class Stage extends Phaser.Scene {
 
     this.mapObjects.forEach((object) => {
       // @ts-ignore
-      object.coordX = Math.floor(object.x / 32);
+      object.coordX = Math.floor(object.x / this.tileSize);
       // @ts-ignore
-      object.coordY = Math.floor(object.y / 32);
+      object.coordY = Math.floor(object.y / this.tileSize);
 
       switch (true) {
         case /SecretSwitch/.test(object.name):
@@ -292,13 +293,13 @@ export class Stage extends Phaser.Scene {
   updateGruntPositions(): void {
     for (const [index, grunt] of this.playerGruntz.entries()) {
       // TODO: Maybe this
-      grunt.coords.x = Math.floor((grunt.x + (grunt.displayWidth / 2) + 32) / 32) - 1;
-      grunt.coords.y = Math.floor((grunt.y + (grunt.displayHeight / 2) + 32) / 32) - 1;
+      grunt.coords.x = Math.floor((grunt.x + (grunt.displayWidth / 2) + this.tileSize) / this.tileSize) - 1;
+      grunt.coords.y = Math.floor((grunt.y + (grunt.displayHeight / 2) + this.tileSize) / this.tileSize) - 1;
 
-      this.healthbarz[index].x = grunt.coords.x * 32 + 16;
-      this.healthbarz[index].y = grunt.coords.y * 32 - 5;
-      this.staminabarz[index].x = grunt.coords.x * 32 + 16;
-      this.staminabarz[index].y = grunt.coords.y * 32 - 11;
+      this.healthbarz[index].x = grunt.coords.x * this.tileSize + 16;
+      this.healthbarz[index].y = grunt.coords.y * this.tileSize - 5;
+      this.staminabarz[index].x = grunt.coords.x * this.tileSize + 16;
+      this.staminabarz[index].y = grunt.coords.y * this.tileSize - 11;
     }
   }
 }
