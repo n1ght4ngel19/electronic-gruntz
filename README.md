@@ -1,4 +1,8 @@
-<h1 style="text-align: center;">Electronic Gruntz</h1>
+<h1 style="text-align: center; font-size:40px">
+    <a href="https://github.com/n1ght4ngel19/gruntz-unityverse">THIS PROJECT IS DISCONTINUED IN FAVOR OF DEVELOPING THE GAME IN UNITY</a>
+</h1>
+
+<h1 style="text-align: center; text-decoration: line-through;">Electronic Gruntz</h1>
 <h2 style="text-align: center;">
     Welcome to the Electronic Gruntz homepage!
 </h2>
